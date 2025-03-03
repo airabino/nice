@@ -21,7 +21,7 @@ class Place(Node):
         self.demand = kwargs.get('demand', {})
 
     def constraints(self, model):
-        
+
         # for each origin, the flow into the place has to sum to that demand
         for origin in model.origins:
 

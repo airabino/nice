@@ -17,14 +17,14 @@ from itertools import count
 from copy import deepcopy
 
 from .base import Node, Edge
-from .node import Place, Station
+from .node import Place, Station, Station_Integer
 from .edge import Path
 from .exceptions import *
 
 from ..utilities import cprint
 from ..graph import remove_self_edges
 
-default_classes = ['Place', 'Station', 'Path']
+default_classes = ['Place', 'Station', 'Station_Integer', 'Path']
 base_classes = ['Node', 'Edge']
 
 def level_graph(graph, origin, **kwargs):

@@ -167,17 +167,20 @@ def plot_nodes(graph, ax, **kwargs):
     values = values[indices]
     coords = coords[indices]
 
+    # print(values)
+
     if field is not None:
 
-        kw['color'] = cmap(values)
+        kw['c'] = values
 
     nodes_plot = ax.scatter(
-        coords[:, 0], coords[:, 1], **kw
+        coords[:, 0], coords[:, 1], cmap = cmap.cmap, **kw
         )
 
     if colorbar is not None:
 
-        plot_colorbar(cmap, ax, **colorbar)
+        # plot_colorbar(nodes_plot, ax, **colorbar)
+        plt.colorbar(nodes_plot, ax = ax, **colorbar)
     
     return nodes_plot
 

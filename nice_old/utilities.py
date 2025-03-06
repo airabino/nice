@@ -5,25 +5,6 @@ import numpy as np
 from scipy.stats import t
 from shutil import get_terminal_size
 
-def nested_add(dictionary, value, *keys):
-    '''
-    Add entry to dictionary and create required nesting
-    '''
-
-    level = dictionary
-
-    for key in keys[:-1]:
-
-        if key not in level:
-
-            level[key] = {}
-
-        level = level[key]
-
-    level[keys[-1]] = value
-        
-    return dictionary
-
 def super_quantile(x, alpha, discretization = .01):
     
     q = np.arange(alpha, .99, discretization)

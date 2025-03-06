@@ -9,51 +9,102 @@ import pyomo.environ as pyomo
 import pyomo.opt as opt
 import pyomo.util.model_size as model_size
 
+# from pao.pyomo import *
+
 from heapq import heappush, heappop
 from itertools import count
 
 from copy import deepcopy
 
-from ..utilities import cprint, nested_add
-from ..graph import remove_self_edges, level_graph, k_shortest_paths
+from .base import Node, Edge
+from .node import Place, Station, Station_Integer
+from .edge import Path
+from .exceptions import *
 
-def get_paths(graph, terminals = None, k = None, weight = None):
+from ..utilities import cprint
+from ..graph import remove_self_edges
 
-    paths = []
+default_classes = ['Place', 'Station', 'Station_Integer', 'Path']
+base_classes = ['Node', 'Edge']
 
-    if terminals is None:
+def level_graph(graph, origin, **kwargs):
 
-        terminals = list(graph.nodes())
+    objective = kwargs.get('objective', 'objective')
+    destinations = kwargs.get('destinations', [])
 
-    for origin in terminals:
+    _node = graph._node
+    _adj = graph._adj
 
-        destinations = set(terminals) - set([origin])
+    costs = {} # dictionary of objective values for paths
 
-        lg = level_graph(graph, origin, destinations, weight = weight)
+    c = count() # use the count c to avoid comparing nodes (may not be able to)
+    heap = [] # heap is heapq with 3-tuples (cost, c, node)
 
-        for destination in destinations:
+    heappush(heap, (0, next(c), origin))
 
-            ksp = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
+    while heap: # Iterating while there are accessible unseen nodes
 
-            for idx, path in enumerate(ksp):
+        # Popping the lowest cost unseen node from the heap
+        cost, _, source = heappop(heap)
 
-                paths.append(
-                    {
-                        'origin': origin,
-                        'destination': destination,
-                        'index': idx,
-                        'path': path,
-                        }
-                    )
+        if source in costs:
 
-    return paths
+            continue  # already searched this node.
+
+        costs[source] = cost
+
+        for target, edge in _adj[source].items():
+
+            # Updating states for edge traversal
+            cost_edge = edge.get(objective, 1)
+
+            cost_target = cost + cost_edge
+
+            # Updating the weighted cost for the path
+            savings = cost_target < costs.get(target, np.inf)
+
+            if savings:
+
+                heappush(heap, (cost_target, next(c), target))
+
+    destination_costs = [costs[d] for d in destinations]
+    max_destination_cost = max(destination_costs)
+
+    nodes = []
+    edges = []
+
+    for source, node in _node.items():
+
+        node['cost'] = costs[source]
+
+        nodes.append((source, node))
+
+        if source in destinations:
+
+            continue
+        
+        for target, edge in graph._adj[source].items():
+
+            if costs[target] > costs[source] and costs[source] <= max_destination_cost:
+                # if edge.get(objective, 1) < 300e3:
+
+                edges.append((source, target, edge))
+
+    for destination in destinations:
+
+        edge = _adj[origin][destination]
+
+        edges.append((origin, destination, edge))
+
+    level_graph = graph.__class__()
+    level_graph.add_nodes_from(nodes)
+    level_graph.add_edges_from(edges)
+
+    return level_graph
 
 class Network():
 
     def __init__(self, **kwargs):
-
-        self.graph = nx.DiGraph()
-        self.paths = []
 
         self.verbose = kwargs.get('verbose', False)
 
@@ -62,6 +113,8 @@ class Network():
 
         # Objective field
         self.objective = kwargs.get('objective', 'time')
+
+        self.graph = nx.DiGraph()
 
     def size(self):
 
@@ -110,15 +163,9 @@ class Network():
         self.solution.add_nodes_from(nodes)
         self.solution.add_edges_from(edges)
 
-        for path in self.paths:
-
-            path['results'] = path['object'].results(self.model)
-
-
-    def from_graph(self, graph, paths = []):
+    def from_graph(self, graph):
 
         graph = deepcopy(graph)
-        paths = deepcopy(paths)
 
         graph = remove_self_edges(graph)
 
@@ -126,53 +173,56 @@ class Network():
 
             _class = node.pop('_class')
 
-            self.add_node(_class, source, **node)
+            self.add(_class, source, **node)
 
         for source, _adj in graph._adj.items():
             for target, edge in _adj.items():
 
-                # print(source, target, edge.get('_class', 'huh'))
-
                 _class = edge.pop('_class')
 
-                self.add_edge(_class, f"{source}_{target}", source, target, **edge)
+                edge['source'] = source
+                edge['target'] = target
 
-        for path in paths:
-
-            p = path['path']
-            path['nodes'] = []
-            path['edges'] = []
-
-            handle = f"{path['origin']}_{path['destination']}_{path['index']}"
-
-            for idx in range(1, len(p)):
-
-                source = p[idx - 1]
-                target = p[idx]
-
-                path['nodes'].append(self.graph._node[source])
-                path['edges'].append(self.graph._adj[source][target])
-
-                self.graph._node[source]['object'].path_handles.append(handle)
-                self.graph._adj[source][target]['object'].path_handles.append(handle)
-
-
-
-            # path['nodes'] = [self.graph._node[p] for p in p]
-            # path['edges'] = (
-            #     [self.graph._adj[p[i]][p[i + 1]] for i in range(len(p) - 1)]
-            #     )
-
-            _class = path.pop('_class')
-
-            pointer = {**path, 'object': _class(handle, **path)}
-
-            self.paths.append(pointer)
-            self.graph._node[path['origin']]['object'].paths[path['destination']].append(
-                pointer
-                )
+                self.add(_class, f"{source}_{target}", **edge)
 
         return self
+
+    def add(self, _class, handle, **kwargs):
+        '''
+        Adds and object to the network
+        '''
+
+        # Processing class
+        if isinstance(_class, str):
+            if _class in default_classes:
+
+                _class = eval(_class)
+
+            else:
+
+                raise NICE_ClassNotFound
+
+        # What is the base class of the object?
+        _base = _class.__base__
+
+        # print(handle, _base, Node)
+
+        if _base is Node:
+
+            # Add a node
+            self.add_node(_class, handle, **kwargs)
+
+        elif _base is Edge:
+
+            source = kwargs.pop('source', None)
+            target = kwargs.pop('target', None)
+
+            # Add an edge
+            self.add_edge(_class, handle, source, target, **kwargs)
+
+        else:
+
+            raise NICE_InvalidBaseClass
 
     def add_node(self, _class, handle, **kwargs):
 
@@ -193,6 +243,20 @@ class Network():
         self.model.scale = pyomo.Param(
             initialize = self.scale, mutable = True
             )
+
+        # self.model.scale = pyomo.Var(
+        #     initialize = 1, domain = (1, np.inf),
+        #     )
+
+        self.origins = [k for k, n in self.graph._node.items() if 'demand' in n]
+
+        self.model.origins = pyomo.Set(
+            initialize = self.origins
+            )
+
+        t0 = time.time()
+        self.assign_edge_objects()
+        cprint(f'Graph Transformed: {time.time() - t0}', self.verbose)
 
         t0 = time.time()
         self.build_parameters()
@@ -222,10 +286,6 @@ class Network():
 
                 cost += edge['object'].objective(self.model)
 
-        for path in self.paths:
-
-            cost += path['object'].objective(self.model)
-
         self.model.objective = pyomo.Objective(
             expr = cost, sense = pyomo.minimize
             )
@@ -244,10 +304,6 @@ class Network():
 
                 self.model = edge['object'].constraints(self.model)
 
-        for path in self.paths:
-
-            self.model = path['object'].constraints(self.model)
-
     def build_variables(self):
 
         for source, node in self.graph._node.items():
@@ -258,10 +314,6 @@ class Network():
 
                 self.model = edge['object'].variables(self.model)
 
-        for path in self.paths:
-
-            self.model = path['object'].variables(self.model)
-
     def build_parameters(self):
 
         for source, node in self.graph._node.items():
@@ -271,10 +323,6 @@ class Network():
             for target, edge in self.graph._adj[source].items():
 
                 self.model = edge['object'].parameters(self.model)
-
-        for path in self.paths:
-
-            self.model = path['object'].parameters(self.model)
 
     def assign_edge_objects(self):
 

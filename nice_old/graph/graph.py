@@ -6,7 +6,7 @@ import geopandas as gpd
 import networkx as nx
 
 from heapq import heappush, heappop
-from itertools import count, islice
+from itertools import count
 
 from scipy.spatial import KDTree
 
@@ -321,7 +321,12 @@ def path_cost(graph, path, fields = []):
 
 	return costs
 
-def level_graph(graph, origin, destinations = [], weight = None):
+
+
+def level_graph(graph, origin, **kwargs):
+
+    objective = kwargs.get('objective', 'objective')
+    destinations = kwargs.get('destinations', [])
 
     _node = graph._node
     _adj = graph._adj
@@ -347,7 +352,7 @@ def level_graph(graph, origin, destinations = [], weight = None):
         for target, edge in _adj[source].items():
 
             # Updating states for edge traversal
-            cost_edge = edge.get(weight, 1)
+            cost_edge = edge.get(objective, 1)
 
             cost_target = cost + cost_edge
 
@@ -373,6 +378,7 @@ def level_graph(graph, origin, destinations = [], weight = None):
         for target, edge in graph._adj[source].items():
 
             if costs[target] > costs[source] and costs[source] <= max_destination_cost:
+                # if edge.get(objective, 1) < 300e3:
 
                 edges.append((source, target, edge))
 
@@ -381,47 +387,3 @@ def level_graph(graph, origin, destinations = [], weight = None):
     level_graph.add_edges_from(edges)
 
     return level_graph
-
-def k_shortest_paths(graph, origin, destination, k = None, weight = None):
-
-	path_gen = nx.shortest_simple_paths(
-		graph, origin, destination, weight = 'time'
-		)
-
-	paths = list(islice(path_gen, k))
-
-	return paths
-
-def k_shortest_paths_graph(graph, terminals = None, k = None, weight = None):
-
-	edges = []
-
-	if terminals is None:
-
-		terminals = list(graph.nodes())
-
-	for origin in terminals:
-
-		destinations = set(terminals) - set([origin])
-
-		lg = level_graph(graph, origin, destinations, weight = weight)
-
-		for destination in destinations:
-
-			paths = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
-
-			for path in paths:
-
-				data = {
-					'path': path,
-				}
-				
-				edges.append((origin, destination, data))
-
-	pg = nx.MultiDiGraph()
-	pg.add_edges_from(edges)
-
-	return pg
-
-
-

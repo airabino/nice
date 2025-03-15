@@ -16,6 +16,39 @@ from copy import deepcopy
 
 from ..utilities import cprint, nested_add
 from ..graph import remove_self_edges, level_graph, k_shortest_paths
+from ..routing import all_pairs_shortest_paths
+
+def transformed_graph(graph, nodes = None, conditions = [], **kwargs):
+
+    if nodes is None:
+
+        nodes = list(graph.nodes())
+
+    _, values, paths = all_pairs_shortest_paths(graph, **kwargs)
+
+    nodes_tg = [(k, graph._node[k]) for k in nodes]
+
+    edges_tg = []
+
+    for source in nodes:
+        for target in nodes:
+
+            val = values[source][target]
+            # if source != target:
+
+            feasible = np.product([fun(val) for fun in conditions])
+
+            val['path'] = paths[source][target]
+
+            if feasible:
+
+                edges_tg.append((source, target, val))
+
+    apg = nx.DiGraph()
+    apg.add_nodes_from(nodes_tg)
+    apg.add_edges_from(edges_tg)
+
+    return apg
 
 def get_paths(graph, terminals = None, k = None, weight = None):
 
@@ -48,6 +81,35 @@ def get_paths(graph, terminals = None, k = None, weight = None):
 
     return paths
 
+def solution_atlas(solution, atlas, fields = []):
+
+    graph = atlas.copy()
+
+    for source, node in solution._node.items():
+
+        graph._node[source] = node
+
+    for source, _adj in solution._adj.items():
+        for target, val in _adj.items():
+
+            path = val['path']
+
+            for idx in range(len(path) - 1):
+
+                edge = graph._adj[path[idx]][path[idx + 1]]
+
+                for field in fields:
+
+                    if field in edge:
+
+                        edge[field] += val[field]
+
+                    else:
+
+                        edge[field] = val[field]
+
+    return graph
+
 class Network():
 
     def __init__(self, **kwargs):
@@ -59,6 +121,8 @@ class Network():
 
         # Demand scaling factor
         self.scale = kwargs.get('scale', 1)
+
+        self.expenditure = kwargs.get('expenditure', np.inf)
 
         # Objective field
         self.objective = kwargs.get('objective', 'time')
@@ -75,8 +139,6 @@ class Network():
 
         #Generating the solver object
         solver = opt.SolverFactory(**solver_kw)
-
-        # self.model.dual = pyomo.Suffix(direction = pyomo.Suffix.IMPORT)
 
         # Building and solving as a linear problem
         t0 = time.time()
@@ -114,7 +176,6 @@ class Network():
 
             path['results'] = path['object'].results(self.model)
 
-
     def from_graph(self, graph, paths = []):
 
         graph = deepcopy(graph)
@@ -130,8 +191,6 @@ class Network():
 
         for source, _adj in graph._adj.items():
             for target, edge in _adj.items():
-
-                # print(source, target, edge.get('_class', 'huh'))
 
                 _class = edge.pop('_class')
 
@@ -155,13 +214,6 @@ class Network():
 
                 self.graph._node[source]['object'].path_handles.append(handle)
                 self.graph._adj[source][target]['object'].path_handles.append(handle)
-
-
-
-            # path['nodes'] = [self.graph._node[p] for p in p]
-            # path['edges'] = (
-            #     [self.graph._adj[p[i]][p[i + 1]] for i in range(len(p) - 1)]
-            #     )
 
             _class = path.pop('_class')
 
@@ -194,6 +246,14 @@ class Network():
             initialize = self.scale, mutable = True
             )
 
+        self.model.expenditure = pyomo.Param(
+            initialize = self.expenditure, mutable = True
+            )
+
+        t0 = time.time()
+        self.build_sets()
+        cprint(f'Sets Built: {time.time() - t0}', self.verbose)
+
         t0 = time.time()
         self.build_parameters()
         cprint(f'Parameters Built: {time.time() - t0}', self.verbose)
@@ -207,8 +267,26 @@ class Network():
         cprint(f'Constraints Built: {time.time() - t0}', self.verbose)
 
         t0 = time.time()
+        self.build_expenditure()
+        cprint(f'Expenditure Built: {time.time() - t0}', self.verbose)
+
+        t0 = time.time()
         self.build_objective()
         cprint(f'Objective Built: {time.time() - t0}', self.verbose)
+
+    def build_sets(self):
+
+        for source, node in self.graph._node.items():
+
+            self.model = node['object'].sets(self.model)
+
+            for target, edge in self.graph._adj[source].items():
+
+                self.model = edge['object'].sets(self.model)
+
+        for path in self.paths:
+
+            self.model = path['object'].sets(self.model)
 
     def build_objective(self):
 
@@ -230,9 +308,27 @@ class Network():
             expr = cost, sense = pyomo.minimize
             )
 
-        # self.model.objective = pyomo.Objective(
-        #     expr = self.model.scale, sense = pyomo.maximize
-        #     )
+    def build_expenditure(self):
+
+        expenditure = 0
+
+        for source, node in self.graph._node.items():
+
+            expenditure += node['object'].expenditure(self.model)
+
+            for target, edge in self.graph._adj[source].items():
+
+                expenditure += edge['object'].expenditure(self.model)
+
+        for path in self.paths:
+
+            expenditure += path['object'].expenditure(self.model)
+
+        # print(expenditure)
+
+        self.model.requirement_constraint = pyomo.Constraint(
+            rule = expenditure <= self.model.expenditure
+            )
 
     def build_constraints(self):
 

@@ -18,13 +18,49 @@ class Place(Object):
         self.flows = kwargs.get('flows', {})
         self.paths = {f: [] for f in self.flows.keys()}
 
+        self.penalty = kwargs.get('penalty', None)
+
+        # print(self.penalty)
+
+    def parameters(self, model):
+
+        if self.penalty is None:
+
+            # print('t')
+
+            for destination, demand in self.flows.items():
+
+                handle = f'{self.handle}::{destination}:direct'
+                variable = pyomo.Param(
+                    initialize = 0,
+                    domain = pyomo.NonNegativeReals,
+                    )
+                setattr(model, handle, variable)
+                self.handles.append(handle)
+
+        return model
+
+    def variables(self, model):
+
+        if self.penalty is not None:
+
+            for destination, demand in self.flows.items():
+
+                handle = f'{self.handle}::{destination}:direct'
+                variable = pyomo.Var(
+                    initialize = 0,
+                    domain = pyomo.NonNegativeReals,
+                    )
+                setattr(model, handle, variable)
+                self.handles.append(handle)
+
+        return model
+
     def constraints(self, model):
-
-
 
         for destination, demand in self.flows.items():
 
-            # print(self.paths[destination])
+            direct = getattr(model, f"{self.handle}::{destination}:direct")
 
             volume = sum(
                 path['object'].volume(model) \
@@ -33,11 +69,26 @@ class Place(Object):
 
             handle = f'{self.handle}:{destination}::volume_constraint'
             constraint = pyomo.Constraint(
-                rule = demand * model.scale - volume == 0
+                rule = demand * model.scale - volume - direct == 0
                 )
             setattr(model, handle, constraint)
 
         return model
+
+    def objective(self, model):
+
+        cost = 0
+
+        if self.penalty is not None:
+
+            direct = sum(
+                [getattr(model, f"{self.handle}::{d}:direct") * self.penalty[d] \
+                for d in self.flows.keys()]
+                )
+
+            cost += direct
+
+        return cost
     
     def results(self, model):
 

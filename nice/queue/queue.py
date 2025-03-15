@@ -171,8 +171,19 @@ class Queue():
 
     def interpolate(self, rho, c):
 
+        c = np.atleast_2d(c)
+
+        c[c > max(self.c)] = max(self.c)
+
+        # if c == 0:
+
+        #     return np.ones(len(rho)) * self.bounds[1]
+
+        # c = min([c, max(self.c)])
+
         result = np.clip(self.interpolator((c, rho)), *self.bounds)
-        # result[result > self.cutoff] = self.cutoff
+
+        result[c < 1] = self.bounds[1]
 
         return result
 

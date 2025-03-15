@@ -9,6 +9,10 @@ class Object:
         self.handle = handle
         self.handles = []
 
+    def sets(self, model):
+
+        return model
+
     def parameters(self, model):
 
         return model
@@ -22,6 +26,10 @@ class Object:
         return model
 
     def energy(self, model, *args, **kwargs):
+
+        return 0.
+
+    def expenditure(self, model, *args, **kwargs):
 
         return 0.
 

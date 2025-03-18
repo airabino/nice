@@ -49,6 +49,18 @@
 
 \section{Queuing at Stations}
 
+Because \gls{bev} charging is relatively slow compared to \gls{icev} fueling, charging stations have less capacity per port than fueling stations. A fueling station dispensing gasoline at 7 gallons per minute energizes a vehicle at a rate of 14.15 [MW]. Current \gls{bev} can, often charge at a peak rate of several hundred [kW] given sufficient infrastructure but, even in this case, the rate is subject to exponential decay as \gls{soc} increases meaning that the average rate is considerably lower. Consequently, queues are likely to form when demand is high. Queue waiting time is modeled using the M/M/c queuing formula. The expected waiting time in an M/M/c queue is computed as
+
+\begin{gather}
+	W_q = f_{q}(\lambda, \mu, c) = \pi_0\frac{\rho(c\rho)^c}{\lambda(1-\rho)^2c!}\label{eq:w_q}\\
+	\pi_0=\left[\left(\sum_{k = 0}^{c - 1}\frac{(c\rho)^k}{k!}\right) + \frac{(c\rho)^c}{c!(1 - \rho)}\right]\\
+	\rho = \frac{\lambda}{c\mu}
+\end{gather}
+
+where $\lambda$ is the mean arrival frequency, $\mu$ is the mean service frequency, $c$ is the number of homogeneous servers, $\rho$ is the ratio of arrival frequency to composite maximum service completion frequency, and $\pi_0$ is the probability of an empty system. The M/M/c formulation assumes exponential distributions for $\lambda$ and $\mu$. One can think of $\rho$ as equivalent to "utilization". Where $\rho$ is low the station has excess capacity and where high the station approaches saturation. $W_q$ approaches infinity as $\rho$ approaches one.
+
+Queue formation is a combinatorial effect. In order to maintain a stable queue length, the rate of vehicle arrivals must match the rate of vehicle departures. This is extremely unlikely over a short time interval and the length of the queue should fluctuate. Over a long enough period, a stable non-zero mean queue length can emerge even when the rate of arrivals is less than the theoretical maximum capacity of the station. This happens because the random sequence of arrivals and departures will, often, produce scenarios where all ports are occupied when the next vehicle arrives. There will be some times when there are no vehicles at the station at all and some times when a long queue exists. \textbf{Scenarios where all ports are occupied are more likely at stations with fewer ports even at identical utilization rates}. This effect is shown in Figure \ref{fig:queue}.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = .7\linewidth]{figs/queue.png}
@@ -56,6 +68,38 @@
 	\label{fig:queue}
 \end{figure}
 
+Queuing dynamics mean that larger stations can handle higher utilization rates. As in Figure \ref{fig:queue}, a station with 15 ports can handle a rate of $\rho = 0.8$ before substantial queue formation equivalent to 24 vehicles per hour. A station of 4 chargers can handle a rate of $\rho = 0.6$ before substantial queue formation equivalent to 4.8 vehicles per hour. Thus, larger stations are more efficient on a capacity-per-charger basis with this effect being very substantial below 10 ports and leveling off after 15 ports given current values for mean energy dispensed and charging rate.
+
+\section{Supply Network Graphs}
+
+Consider a road network represented by a directed graph $G = \{V, E\}$ where $V$ is a set of nodes and $E$ is a set of edges. The set of nodes $V$ contains places (cities and towns) at the nodes in $V_P \subseteq V$ and stations at the nodes in $V_S \subseteq V$. The set of edges $E$ contains road links. Drivers may pass by places and stations and drivers who take the same road paths may not stop at the same stations. Thus, it is useful to transform the graph. Transformed graph $\hat{G} = \{V, \hat{E}\}$ contains the same nodes as $G$ but the edges in $\hat{E}$ are paths taken along the road network. $\hat{E}$ contains edges for all O/D pairs $\langle i, j \rangle$ if the energy consumption required is less than the vehicle \gls{ess} capacity. Routes along $G$ will herein be called road-paths. Routes along $\hat{G}$ will herein be called supply-paths. It is not possible for any edge $(i, j) \in \hat{E}$ to have negative cost. Thus, for routing purposes, only simple supply-paths need be considered. In order to facilitate in finding the $k$ shortest simple supply-paths, for each origin $o \in V_P$, a level graph $\overline{G}_o = \{V, \overline{E}\}$ is constructed where $\overline{E} \subseteq \hat{E}$ and all edges $(i, j) \in \overline{E}$ lead away from $o$. Using $\overline{G}$ the $k$ shortest simple supply-paths are found using Yen's method.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = .7\linewidth]{figs/road_charging_paths.png}
+	\caption{Graphs for simple vehicular transportation network. Panel I shows a graph $G$ for a section of road from $A$ to $B$ with stations $S_0$, $S_1$, and $S_2$. Panel II shows the transformed graph $\hat{G}$ for a vehicle with sufficient range to reach $S_1$ from $A$ and $B$. Panel III shows the level graph $\overline{G}_A$ for the same vehicle leaving $A$. The simple supply-paths for pair $\langle A, B \rangle$ are $A-S_0-S_1-B$, $A-S_0-S_2-B$, $A-S_1-B$, and $A-S_1-S_2-B$.}
+	\label{fig:paths}
+\end{figure}
+
+The time cost of edge $(i, j) \in \hat{E}$ is the time required to traverse the edge plus the trip time required to charge before traversing the edge. For a vehicle with a usable \gls{ess} capacity of $\beta$ at node $i$ which contains a charger whose maximum rate is $\alpha$ the time cost for edge $(i, j)$ is
+
+\begin{equation}
+	Y^T_{(i, j)} = \tau_{(i, j)} + \begin{cases}
+		f_c(\epsilon_{(i, j)}, \beta, \alpha) & \epsilon_{(i, j)} \leq \beta \\
+		\infty & \epsilon_{(i, j)} > \beta
+	\end{cases}
+\end{equation}
+
+where $\tau$ is edge traversal time, $\epsilon$ is edge energy consumption, and $f_c$ is a function relating energy to charging time. Charging is modeled using a CC-CV relationship. The first part of charging is linear and the second part follows an exponential decay function. The time required for a given charge event is
+
+\begin{gather}
+	f_{c}(\epsilon, \beta, \alpha) = \begin{cases}
+		\frac{\epsilon}{\alpha} & \epsilon \leq \eta\beta \\
+		\frac{\eta\beta}{\alpha}\left(1-\ln{\left(1-\frac{\epsilon - \eta\beta}{\beta(1-\eta)}\right)}\right) &  \epsilon > \eta\beta
+	\end{cases}
+\end{gather}
+
+where $\eta$ is the inflection point separating linear and nonlinear charging. A typical value for $\eta$ will be in the range of 0.7 to 0.8. Charging past $\eta$ will be substantially slower than below $\eta$.
 
 \section{Travel Time Minimization Formulation}
 
@@ -66,7 +110,7 @@ Delay at stations is modeled using the outputs of the M/M/c queue formula as dis
 \begin{itemize}
 	\item $G = \{V, E\}$: System graph containing nodes $v \in V$ and edges $(i, j) \in E$. Edge costs are defined by the following sets: \begin{itemize}
 		\item $Y^T$: The time required to traverse edge $(i, j)$
-		\item $Y^E$: The time required to charge at node $i$ to successfully traverse edge $(i, j)$
+%		\item $Y^E$: The time required to charge at node $i$ to successfully traverse edge $(i, j)$
 	\end{itemize}
 	\item $O \subseteq V$: Set of origin nodes
 	\item $D \subseteq V$: Set of destination nodes
@@ -100,7 +144,7 @@ Delay at stations is modeled using the outputs of the M/M/c queue formula as dis
 The objective of the optimization is
 
 \begin{gather}
-	\min_{\overline{X},\overline{U}}\quad \underbrace{\sum_{q \in Q} x^q_qy^q_q}_{\text{Penalty Time}} + \underbrace{\sum_{q \in Q}\sum_{P^q \in P}\sum_{p \in P^q}\sum_{(i, j) \in p} x^p_p(y^t_{(i, j)} + y^e_{(i, j)})}_{\text{Edge Traversal Time}} + \underbrace{\sum_{s \in S}\sum_{c \in C_s}
+	\min_{\overline{X},\overline{U}}\quad \underbrace{\sum_{q \in Q} x^q_qy^q_q}_{\text{Penalty Time}} + \underbrace{\sum_{q \in Q}\sum_{P^q \in P}\sum_{p \in P^q}\sum_{(i, j) \in p} x^p_py^t_{(i, j)}}_{\text{Edge Traversal Time}} + \underbrace{\sum_{s \in S}\sum_{c \in C_s}
 	\sum_{k \in K_{s, c}} u^s_{s, c}x^u_{s, c, k}y^d_{s, c, k}}_{\text{Queuing Time}} \label{eq:tm:obj}
 \end{gather}
 

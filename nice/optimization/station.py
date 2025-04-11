@@ -64,6 +64,8 @@ class Station(Object):
 
     def variables(self, model):
 
+        # print('s')
+
         sizes = getattr(model, f'{self.handle}::sizes')
         intervals = getattr(model, f'{self.handle}::intervals')
         sizes_intervals = getattr(model, f'{self.handle}::sizes_intervals')
@@ -206,10 +208,16 @@ class Station(Object):
 
     def expenditure(self, model):
 
-        sizes = getattr(model, f'{self.handle}::sizes')
-        size = getattr(model, f'{self.handle}::size')
+        if len(self.size) == 1:
 
-        expenditure = pyomo.quicksum(size[s] * self.expenditures[s] for s in sizes)
+            expenditure = 0
+
+        else:
+
+            sizes = getattr(model, f'{self.handle}::sizes')
+            size = getattr(model, f'{self.handle}::size')
+
+            expenditure = pyomo.quicksum(size[s] * self.expenditures[s] for s in sizes)
 
         return expenditure
 
@@ -217,10 +225,21 @@ class Station(Object):
 
         delay = getattr(model, f'{self.handle}::delay')
 
+        sizes = getattr(model, f'{self.handle}::sizes')
+        size = getattr(model, f'{self.handle}::size')
+
+        if len(self.size) == 1:
+
+            expenditure = 0
+
+        else:
+
+            expenditure = pyomo.quicksum(size[s] * self.expenditures[s] for s in sizes)
+
         energy_sum = self.energy(model)
         charging_time = energy_sum / self.power
 
-        return delay + charging_time
+        return delay + charging_time + expenditure * model.expenditure_cost
     
     def results(self, model):
 
@@ -238,100 +257,5 @@ class Station(Object):
 
         results['utilization'] = np.array(results['usage']).sum() / self.intervals
         results['selection'] = self.expenditures[np.argmax(results['size'])]
-        # results['delay_per_vehicle'] = results['delay'] / results['volume']
-
-        return results
-
-class Station_Old(Object):
-
-    def __init__(self, handle, **kwargs):
-
-        super().__init__(handle, **kwargs)
-
-        self.path_handles = kwargs.get('path_handles', [])
-
-        self.capacity = kwargs.get('capacity', sys.maxsize)
-        self.power = kwargs.get('power', 1) # Charging power
-        self.cost = kwargs.get('cost', 1 / self.power)
-
-    def variables(self, model):
-
-        for p in self.path_handles:
-
-            handle = f'{self.handle}::{p}:energy'
-            variable = pyomo.Var(
-                initialize = 0,
-                domain = pyomo.NonNegativeReals,
-                )
-            setattr(model, handle, variable)
-            self.handles.append(handle)
-
-
-        # Tracking values
-        handle = f'{self.handle}::volume'
-        variable = pyomo.Var(
-            initialize = 0,
-            )
-        setattr(model, handle, variable)
-        self.handles.append(handle)
-
-        return model
-
-    def constraints(self, model):
-
-        if self.path_handles:
-
-            volume = sum(
-                getattr(model, f'{p}::volume') for p in self.path_handles
-                )
-
-            # Capacity
-            handle = f'{self.handle}::capacity_constraint'
-            constraint = pyomo.Constraint(
-                expr = volume <= self.capacity
-                )
-            setattr(model, handle, constraint)
-
-        else:
-
-            volume = 0
-
-        handle = f'{self.handle}::volume_tracking_constraint'
-        constraint = pyomo.Constraint(
-            expr = getattr(model, f"{self.handle}::volume") == volume
-            )
-        setattr(model, handle, constraint)
-
-        return model
-
-    def energy(self, model, path = None):
-
-        if path is None:
-
-            energy = sum(
-                getattr(model, f'{self.handle}::{p}:energy') for p in self.path_handles
-                )
-
-        else:
-
-            energy = getattr(model, f'{self.handle}::{path}:energy')
-
-        return energy
-    
-    def results(self, model):
-
-        results = {}
-
-        for handle in self.handles:
-
-            value = list(getattr(model, handle).extract_values().values())
-
-            if len(value) == 1:
-
-                value = value[0]
-
-            results[handle.split('::')[1]] = value
-
-        results['energy'] = sum(results.values())
 
         return results

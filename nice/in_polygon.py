@@ -15,6 +15,7 @@ left of 2 edges then it is not within the polygon.
 
 This function is compiled using Numba jit no-Python so it cannot be vectorized
 '''
+
 @jit(nopython = True, cache = True)
 def _point_in_polygon(polygon, point):
 

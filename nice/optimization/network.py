@@ -16,41 +16,9 @@ from copy import deepcopy
 
 from ..utilities import cprint, nested_add
 from ..graph import remove_self_edges, level_graph, k_shortest_paths
-from ..routing import all_pairs_shortest_paths
+from ..progress_bar import ProgressBar
 
-def transformed_graph(graph, nodes = None, conditions = [], **kwargs):
-
-    if nodes is None:
-
-        nodes = list(graph.nodes())
-
-    _, values, paths = all_pairs_shortest_paths(graph, **kwargs)
-
-    nodes_tg = [(k, graph._node[k]) for k in nodes]
-
-    edges_tg = []
-
-    for source in nodes:
-        for target in nodes:
-
-            val = values[source][target]
-            # if source != target:
-
-            feasible = np.product([fun(val) for fun in conditions])
-
-            val['path'] = paths[source][target]
-
-            if feasible:
-
-                edges_tg.append((source, target, val))
-
-    apg = nx.DiGraph()
-    apg.add_nodes_from(nodes_tg)
-    apg.add_edges_from(edges_tg)
-
-    return apg
-
-def get_paths(graph, terminals = None, k = None, weight = None):
+def get_paths(graph, terminals = None, k = None, r = None, weight = None):
 
     paths = []
 
@@ -58,13 +26,17 @@ def get_paths(graph, terminals = None, k = None, weight = None):
 
         terminals = list(graph.nodes())
 
-    for origin in terminals:
+    for origin in ProgressBar(terminals):
 
         destinations = set(terminals) - set([origin])
 
         lg = level_graph(graph, origin, destinations, weight = weight)
 
-        for destination in destinations:
+        for destination in list(destinations):
+
+            if np.isinf(lg._node[destination]['cost']):
+                
+                continue
 
             ksp = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
 
@@ -122,7 +94,9 @@ class Network():
         # Demand scaling factor
         self.scale = kwargs.get('scale', 1)
 
-        self.expenditure = kwargs.get('expenditure', np.inf)
+        self.penalty = kwargs.get('penalty', 1)
+
+        self.expenditure = kwargs.get('expenditure', 0)
 
         # Objective field
         self.objective = kwargs.get('objective', 'time')
@@ -133,24 +107,27 @@ class Network():
 
     def solve(self, **kwargs):
 
-        self.verbose = kwargs.get('verbose', self.verbose)
+        verbose = kwargs.get('verbose', self.verbose)
         tee = kwargs.get('tee', False)
-        solver_kw = kwargs.get('solver', {'_name': 'glpk'})
+        solver_kw = kwargs.get('solver', {'_name': 'glpk', 'tmlim': 60})
 
         #Generating the solver object
-        solver = opt.SolverFactory(**solver_kw)
+        solver = opt.SolverFactory(solver_kw.pop('_name'))
+        solver.options = {**solver.options, **solver_kw}
 
         # Building and solving as a linear problem
         t0 = time.time()
         self.result = solver.solve(self.model, tee = tee)
-        cprint(f'Problem Solved: {time.time() - t0}', self.verbose)
+        cprint(f'Problem Solved: {time.time() - t0}', verbose)
 
         # Making solution dictionary
         t0 = time.time()
-        self.collect_results()
-        cprint(f'Results Collected: {time.time() - t0}', self.verbose)
+        self.build_solution()
+        cprint(f'Results Collected: {time.time() - t0}', verbose)
 
-    def collect_results(self):
+    def build_solution(self):
+
+        self.objective_value = pyomo.value(self.model.objective)
 
         nodes = []
         edges = []
@@ -159,13 +136,17 @@ class Network():
 
             node_results = node['object'].results(self.model)
 
-            nodes.append((source, {**node, **node_results}))
+            n = {k: v for k, v in node.items() if k != 'object'}
+
+            nodes.append((source, {**n, **node_results}))
 
             for target, edge in self.graph._adj[source].items():
 
                 edge_results = edge['object'].results(self.model)
 
-                edges.append((source, target, {**edge, **edge_results}))
+                e = {k: v for k, v in edge.items() if k != 'object'}
+
+                edges.append((source, target, {**e, **edge_results}))
 
 
         self.solution = nx.DiGraph()
@@ -177,6 +158,8 @@ class Network():
             path['results'] = path['object'].results(self.model)
 
     def from_graph(self, graph, paths = []):
+
+        t0 = time.time()
 
         graph = deepcopy(graph)
         paths = deepcopy(paths)
@@ -224,6 +207,8 @@ class Network():
                 pointer
                 )
 
+        cprint(f'Objects Built: {time.time() - t0}', self.verbose)
+
         return self
 
     def add_node(self, _class, handle, **kwargs):
@@ -241,14 +226,6 @@ class Network():
     def build(self):
 
         self.model = pyomo.ConcreteModel()
-
-        self.model.scale = pyomo.Param(
-            initialize = self.scale, mutable = True
-            )
-
-        self.model.expenditure = pyomo.Param(
-            initialize = self.expenditure, mutable = True
-            )
 
         t0 = time.time()
         self.build_sets()
@@ -327,7 +304,7 @@ class Network():
         # print(expenditure)
 
         self.model.requirement_constraint = pyomo.Constraint(
-            rule = expenditure <= self.model.expenditure
+            rule = expenditure == self.model.expenditure
             )
 
     def build_constraints(self):
@@ -349,16 +326,37 @@ class Network():
         for source, node in self.graph._node.items():
 
             self.model = node['object'].variables(self.model)
+            # print(source, node.get('power', 0))
 
             for target, edge in self.graph._adj[source].items():
 
                 self.model = edge['object'].variables(self.model)
 
+        # print('s')
+
         for path in self.paths:
 
             self.model = path['object'].variables(self.model)
 
+        # print('p')
+
     def build_parameters(self):
+
+        self.model.scale = pyomo.Param(
+            initialize = self.scale, mutable = True
+            )
+
+        self.model.penalty = pyomo.Param(
+            initialize = self.penalty, mutable = True
+            )
+
+        self.model.expenditure = pyomo.Param(
+            initialize = self.expenditure, mutable = True
+            )
+
+        self.model.expenditure_cost = pyomo.Param(
+            initialize = 0, mutable = True
+            )
 
         for source, node in self.graph._node.items():
 

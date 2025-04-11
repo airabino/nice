@@ -162,7 +162,7 @@ class Queue():
 
         self.rho = kwargs.get('rho', np.linspace(0, .99, 100))
         self.m = kwargs.get('m', 1)
-        self.c = kwargs.get('c', list(range(1, 101)))
+        self.c = kwargs.get('c', np.arange(1, 101))
         self.cutoff = kwargs.get('cutoff', np.inf)
         self.bounds = kwargs.get('bounds', (0, np.inf))
         self.initial_guess = kwargs.get('initial_guess', [1.25, 1, .15])
@@ -175,44 +175,26 @@ class Queue():
 
         c[c > max(self.c)] = max(self.c)
 
-        # if c == 0:
-
-        #     return np.ones(len(rho)) * self.bounds[1]
-
-        # c = min([c, max(self.c)])
+        # print(c)
 
         result = np.clip(self.interpolator((c, rho)), *self.bounds)
 
-        result[c < 1] = self.bounds[1]
+        # print(result)
+
+        # result[c < 1] = self.bounds[1]
+        result[np.isnan(result)] = 0
+        result[np.isinf(result)] = 0
 
         return result
 
-    def approximation_function(self, beta, rho, c):
+    def max_rho(self, w):
 
-        return beta[0] / (1 - rho ** (beta[1] * c + beta[2])) - beta[0]
-
-    def difference(self, beta, rho, c, actual):
-
-        approximation = self.approximation_function(beta, rho, c)
-
-        return ((actual - approximation.T) ** 2).sum()
-
-    def fit(self):
-
-        rho_g, c_g = np.meshgrid(self.rho, self.c, indexing = 'ij')
-
-        result = minimize(
-            lambda beta: self.difference(beta, rho_g, c_g, self.waiting_times),
-            self.initial_guess, bounds = self.bounds
+        rho = np.array(
+            [np.interp(w, self.waiting_times[idx], self.rho) \
+            for idx, c in enumerate(self.c)]
             )
 
-        print(result)
-
-        self.beta = result.x
-
-    def approximate(self, rho, c):
-
-        return self.approximation_function(self.beta, rho, c)
+        return rho
 
     def build(self):
 

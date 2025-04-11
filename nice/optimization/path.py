@@ -16,12 +16,12 @@ class Path(Object):
         self.nodes = kwargs.get('nodes', [])
         self.edges = kwargs.get('edges', [])
         
-        self.capacity = kwargs.get('capacity', 1)
-        self.initial = kwargs.get('initial', self.capacity)
+        # self.capacity = kwargs.get('capacity', 1)
+        # self.initial = kwargs.get('initial', self.capacity)
 
         # print('c', self.capacity)
 
-        self.penalty = kwargs.get('penalty', 1)
+        # self.penalty = kwargs.get('penalty', 1)
 
     def parameters(self, model):
 
@@ -42,75 +42,6 @@ class Path(Object):
                 initialize = 0,
                 within = pyomo.NonNegativeReals
                 ),
-            )
-
-        # Level of charge at nodes
-        # for node in self.nodes:
-
-        nodes = getattr(model, f'{self.handle}::nodes')
-
-        handle = f"{self.handle}::level"
-        self.handles.append(handle)
-        setattr(
-            model, handle,
-            pyomo.Var(
-                nodes,
-                initialize = [0] * len(nodes),
-                within = pyomo.NonNegativeReals
-                ),
-            )
-
-        return model
-
-    def constraints(self, model):
-
-        volume = getattr(model, f'{self.handle}::volume')
-        nodes = getattr(model, f'{self.handle}::nodes')
-        level = getattr(model, f'{self.handle}::level')
-        # consume = getattr(model, f'{self.handle}::consume')
-
-        # nodes.pprint()
-        # print(len(self.edges))
-
-        # State of Charge
-        
-        # print()
-        def level_rule(m, n):
-
-            if n == 0:
-
-                rule = volume * self.initial == level[n]
-
-            else:
-
-                rule = level[n] == (
-                    level[n - 1] -
-                    volume * self.edges[n - 1]['object'].energy(model) +
-                    self.nodes[n]['object'].energy(model, self.handle)
-                    )
-
-            return rule
-
-        setattr(
-            model, f"{self.handle}::level_constraint",
-            pyomo.Constraint(
-                nodes,
-                rule = lambda m, n: level_rule(m, n),
-                )
-            )
-
-        def level_bounds_rule(m, n):
-
-            rule = volume * self.capacity >= level[n]
-
-            return rule
-
-        setattr(
-            model, f"{self.handle}::level_bounds_constraint",
-            pyomo.Constraint(
-                nodes,
-                rule = lambda m, n: level_bounds_rule(m, n),
-                )
             )
 
         return model
@@ -148,7 +79,5 @@ class Path(Object):
                 value = np.array(value) / self.capacity
 
             results[handle.split('::')[1]] = value
-
-        # results['total_flow'] = sum([v for k, v in results.items() if 'flow:' in k])
 
         return results

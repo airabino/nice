@@ -144,6 +144,7 @@ def plot_nodes(graph, ax, **kwargs):
 
     cmap = kwargs.get('cmap', Colormap('viridis'))
     field = kwargs.get('field', None)
+    # multiple = kwargs.get('multiple', 1)
     selection = kwargs.get('selection', None)
     colorbar = kwargs.get('colorbar', None)
     kw = kwargs.get('plot', {})
@@ -183,6 +184,44 @@ def plot_nodes(graph, ax, **kwargs):
         plt.colorbar(nodes_plot, ax = ax, **colorbar)
     
     return nodes_plot
+
+def plot_labels(graph, ax, **kwargs):
+
+    field = kwargs.get('field', None)
+    selection = kwargs.get('selection', None)
+    kw = kwargs.get('plot', {})
+
+    if selection == []:
+
+        return None
+
+    if selection is None:
+
+        selection = [s for s in graph.nodes]
+
+    nodes = [graph._node[s] for s in selection]
+
+    x = np.array([node['x'] for node in nodes])
+    y = np.array([node['y'] for node in nodes])
+
+    # print(x)
+
+    values = np.array([v.get(field, '') for v in nodes])
+
+    indices = np.argsort(values)
+
+    # values = values[indices]
+    # x = x[indices]
+    # y = y[indices]
+
+    # print(y)
+
+    for idx in indices:
+        _ = ax.text(
+            x[idx], y[idx], values[idx], **kw
+            )
+
+    return None
 
 def plot_colorbar(cmap, ax, **kwargs):
 

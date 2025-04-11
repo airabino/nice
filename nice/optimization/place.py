@@ -18,17 +18,13 @@ class Place(Object):
         self.flows = kwargs.get('flows', {})
         self.paths = {f: [] for f in self.flows.keys()}
 
-        self.penalty = kwargs.get('penalty', None)
-
-        # print(self.penalty)
+        self.direct = kwargs.get('direct', {f: None for f in self.flows.keys()})
 
     def parameters(self, model):
 
-        if self.penalty is None:
+        for destination, demand in self.flows.items():
 
-            # print('t')
-
-            for destination, demand in self.flows.items():
+            if self.direct[destination] is None:
 
                 handle = f'{self.handle}::{destination}:direct'
                 variable = pyomo.Param(
@@ -42,9 +38,9 @@ class Place(Object):
 
     def variables(self, model):
 
-        if self.penalty is not None:
+        for destination, demand in self.flows.items():
 
-            for destination, demand in self.flows.items():
+            if self.direct[destination] is not None:
 
                 handle = f'{self.handle}::{destination}:direct'
                 variable = pyomo.Var(
@@ -60,12 +56,17 @@ class Place(Object):
 
         for destination, demand in self.flows.items():
 
+            # print(destination, demand)
+
             direct = getattr(model, f"{self.handle}::{destination}:direct")
+            # direct = 0
 
             volume = sum(
                 path['object'].volume(model) \
                 for path in self.paths[destination]
                 )
+
+            # print(volume)
 
             handle = f'{self.handle}:{destination}::volume_constraint'
             constraint = pyomo.Constraint(
@@ -79,14 +80,14 @@ class Place(Object):
 
         cost = 0
 
-        if self.penalty is not None:
+        # if self.penalty is not None:
 
-            direct = sum(
-                [getattr(model, f"{self.handle}::{d}:direct") * self.penalty[d] \
-                for d in self.flows.keys()]
-                )
+        direct = sum(
+            [getattr(model, f"{self.handle}::{d}:direct") * c * model.penalty \
+            for d, c in self.direct.items() if c is not None]
+            )
 
-            cost += direct
+        cost += direct
 
         return cost
     
@@ -103,5 +104,13 @@ class Place(Object):
                 value = value[0]
 
             results[handle.split('::')[1]] = value
+
+        results['direct'] = sum([v for k, v in results.items() if 'direct' in k])
+
+        scale = pyomo.value(model.scale)
+
+        results['total'] = sum([v * scale for k, v in self.flows.items()])
+
+        results['direct_portion'] = results['direct'] / results['total']
 
         return results

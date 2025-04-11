@@ -88,13 +88,15 @@ def relate(atlas, graph):
         node = result[1][idx]
         
 
-        node_assignment.append({
-            'id_atlas':id_atlas[node],
-            'id_graph':id_graph[idx],
-            'query':xy_graph[idx],
-            'result':xy_atlas[node],
-            'distance': haversine(*xy_graph[idx], *xy_atlas[node]),
-            })
+        node_assignment.append(
+                {
+                    'id_atlas':id_atlas[node],
+                    'id_graph':id_graph[idx],
+                    'query':xy_graph[idx],
+                    'result':xy_atlas[node],
+                    'distance': haversine(*xy_graph[idx], *xy_atlas[node]),
+                }
+            )
 
     return node_assignment
 
@@ -209,23 +211,15 @@ def adjacency(atlas, graph, **kwargs):
 
     graph_to_atlas, atlas_to_graph = node_assignment(atlas, graph)
 
-    # print(graph_to_atlas)
-
     destinations = list(graph.nodes)
-    # print(destinations)
 
     destinations_atlas = [graph_to_atlas[node] for node in destinations]
 
-    # print(len(destinations_atlas), len(np.unique(destinations_atlas)))
-
     for origin in ProgressBar(destinations, **pb_kw):
 
-        # print(origin, np.inf if origin in depots else maximum_depth)
-
         origin_atlas = graph_to_atlas[origin]
-        # print(origin, origin_atlas)
 
-        costs, values, _ = dijkstra(
+        costs, values, paths = dijkstra(
             atlas,
             [origin_atlas],
             objective = objective,
@@ -241,15 +235,6 @@ def adjacency(atlas, graph, **kwargs):
             destinations_atlas,
             )
 
-        # print(
-        #     origin, len(destinations_reached), np.inf if origin in depots else maximum_depth
-        #     )
-
-        # print(len(values.keys()))
-        # print(len(np.unique(list(costs.keys()))))
-        # print(costs.keys())
-        # break
-
         for destination in destinations_reached:
 
             nodes = atlas_to_graph[destination]
@@ -257,9 +242,161 @@ def adjacency(atlas, graph, **kwargs):
             for node in nodes:
 
                 adj[node] = values[destination]
+                # adj[node]['path'] = paths[destination]
 
         graph._adj[origin] = adj
 
-        # break
-
     return graph
+
+def get_terminals(graph, origins, **kwargs):
+
+    destinations = kwargs.get('destinations', [])
+    objective = kwargs.get('objective', 'objective')
+    return_paths = kwargs.get('return_paths', True)
+    terminate_at_destinations = kwargs.get('terminate_at_destinations', True)
+    maximum_cost = kwargs.get('maximum_cost', np.inf)
+
+
+    nodes = graph._node
+    edges = graph._adj
+
+    costs = {}
+    paths = {}
+
+    terminal = {k: True for k in graph.nodes}
+
+    terminals = []
+
+    if terminate_at_destinations:
+
+        terminals = [d for d in destinations if d not in origins]
+
+    c = count() # use the count c to avoid comparing nodes (may not be able to)
+    heap = [] # heap is heapq with 3-tuples (cost, c, node)
+
+    for origin in origins:
+
+        paths[origin] = [origin]
+
+        heappush(heap, (0, next(c), origin))
+
+    while heap: # Iterating while there are accessible unseen nodes
+
+        # Popping the lowest cost unseen node from the heap
+        cost, _, source = heappop(heap)
+
+        if source in costs:
+
+            continue  # already searched this node.
+
+        costs[source] = cost
+
+        if source in terminals:
+
+            continue
+
+        for target, edge in edges[source].items():
+
+            # Updating states for edge traversal
+            cost_target = cost + edge.get(objective, 1)
+
+            # Updating the weighted cost for the path
+            savings = cost_target <= costs.get(target, np.inf)
+
+            feasible = cost_target <= maximum_cost
+
+            if savings & feasible:
+               
+                terminal[source] = False
+                paths[target] = paths[source] + [target]
+
+                heappush(heap, (cost_target, next(c), target))
+
+    terminal = {k: terminal[k] for k in costs.keys()}
+
+    return costs, paths, terminal
+
+def reduction(atlas, origins = [], **kwargs):
+
+    objective = kwargs.get('objective', 'distance')
+    maximum_cost = kwargs.get('maximum_cost', np.inf)
+    include_intersections = kwargs.get('include_intersections', True)
+    snowball = kwargs.get('snowball', True)
+
+    if include_intersections:
+
+        intersections = []
+
+        for source, adj in atlas._adj.items():
+
+            if len(adj) != 2:
+
+                intersections.append(source)
+
+        origins += intersections
+
+    heap = []
+    c = count()
+
+    for node in origins:
+
+        heappush(heap, (next(c), node))
+
+    _node = atlas._node
+
+    nodes = []
+    links = []
+
+    while heap:
+
+        idx, origin = heappop(heap)
+
+        print(f'{idx} done, {len(heap)} in queue                 ', end = '\r')
+
+        node = _node[origin]
+        node['id'] = origin
+
+        nodes.append(node)
+
+        costs, paths, terminal = get_terminals(
+            atlas,
+            [origin],
+            destinations = origins,
+            objective = objective,
+            maximum_cost = maximum_cost,
+            terminate_at_destinations = True,
+            return_paths = False,
+            )
+
+        terminal_nodes = [k for k, v in terminal.items() if v]
+
+        destinations_reached = np.intersect1d(
+            terminal_nodes,
+            origins,
+            )
+
+        new_destinations = np.setdiff1d(
+            terminal_nodes,
+            origins,
+            )
+
+        for destination in destinations_reached:
+
+            link = {}
+
+            link['source'] = origin
+            link['target'] = destination
+
+            link[objective] = costs[destination]
+            link['path'] = paths[destination]
+
+            links.append(link)
+
+        if snowball:
+            for destination in new_destinations:
+
+                heappush(heap, (next(c), destination))
+
+                origins.append(destination)
+
+    return graph_from_nlg({'nodes': nodes, 'links': links})

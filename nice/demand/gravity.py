@@ -4,6 +4,86 @@ import networkx as nx
 
 from scipy.stats import rv_histogram
 
+from ..graph import path_cost, dijkstra
+
+def friction_exponential(distance, a = 0.00890009, b = -0.00686443, c = 1 / 1609):
+
+    return a * np.exp(b * c * distance)
+
+def charge_time(costs, consumption = 500, power = 3300):
+
+    return costs['time'] + consumption / power * costs['distance']
+
+def demand(graph, places, **kwargs):
+
+    production = kwargs.get('production', 'production')
+    routing_weight = kwargs.get('routing_weight', 'time')
+    demand_weight = kwargs.get('demand_weight', 'distance')
+    friction_function = kwargs.get('friction_function', friction_exponential)
+    penalty_function = kwargs.get('penalty_function', charge_time)
+
+    sum_demand = 0
+    costs = {p: {p: 0 for p in places} for p in places}
+    friction = {p: {p: 0 for p in places} for p in places}
+    trips = {p: {p: 0 for p in places} for p in places}
+
+    for origin in places:
+
+        destinations = set(places) - set([origin])
+
+        _, values, paths = dijkstra(
+            graph, [origin],
+            objective = routing_weight,
+            fields = [routing_weight, demand_weight],
+            )
+
+        for destination in destinations:
+
+            path = paths[destination]
+            path_costs = values[destination]
+
+            costs[origin][destination] = penalty_function(path_costs)
+            friction[origin][destination] = friction_function(
+                path_costs[demand_weight]
+                )
+
+            sum_demand += (
+                graph._node[origin][production] *
+                friction[origin][destination]
+            )
+
+    trips = {p: {p: 0 for p in places} for p in places}
+
+    sum_trips = 0
+
+    for origin in places:
+
+        destinations = set(places) - set([origin])
+        
+        for destination in destinations:
+
+            trips[origin][destination] = (
+                graph._node[origin][production] * 
+                friction[origin][destination] *
+                graph._node[destination][production]
+            )
+
+            sum_trips += trips[origin][destination]
+
+    for origin in places:
+
+        destinations = set(places) - set([origin])
+        
+        graph._node[origin]['flows'] = (
+            {d: trips[origin][d] / sum_trips for d in destinations}
+        )
+
+        graph._node[origin]['direct'] = (
+            {d: costs[origin][d] for d in destinations}
+        )
+    
+    return graph
+
 class Friction():
 
     def __init__(self, values, bins):

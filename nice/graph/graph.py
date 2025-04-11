@@ -12,321 +12,346 @@ from scipy.spatial import KDTree
 
 def cypher(graph):
 
-	encoder = {k: idx for idx, k in enumerate(graph.nodes)}
-	decoder = {idx: k for idx, k in enumerate(graph.nodes)}
+    encoder = {k: idx for idx, k in enumerate(graph.nodes)}
+    decoder = {idx: k for idx, k in enumerate(graph.nodes)}
 
-	return encoder, decoder
+    return encoder, decoder
 
 # Functions for NLG JSON handling 
 
 class NpEncoder(json.JSONEncoder):
-	'''
-	Encoder to allow for numpy types to be converted to default types for
-	JSON serialization. For use with json.dump(s)/load(s).
-	'''
-	def default(self, obj):
+    '''
+    Encoder to allow for numpy types to be converted to default types for
+    JSON serialization. For use with json.dump(s)/load(s).
+    '''
+    def default(self, obj):
 
-		if isinstance(obj, np.integer):
+        if isinstance(obj, np.integer):
 
-			return int(obj)
+            return int(obj)
 
-		if isinstance(obj, np.floating):
+        if isinstance(obj, np.floating):
 
-			return float(obj)
+            return float(obj)
 
-		if isinstance(obj, np.ndarray):
+        if isinstance(obj, np.ndarray):
 
-			return obj.tolist()
+            return obj.tolist()
 
-		return super(NpEncoder, self).default(obj)
+        return super(NpEncoder, self).default(obj)
 
 def nlg_to_json(nlg, filename):
-	'''
-	Writes nlg to JSON, overwrites previous
-	'''
+    '''
+    Writes nlg to JSON, overwrites previous
+    '''
 
-	with open(filename, 'w') as file:
+    with open(filename, 'w') as file:
 
-		json.dump(nlg, file, indent = 4, cls = NpEncoder)
+        json.dump(nlg, file, indent = 4, cls = NpEncoder)
 
 def nlg_from_json(filename):
-	'''
-	Loads graph from nlg JSON
-	'''
+    '''
+    Loads graph from nlg JSON
+    '''
 
-	with open(filename, 'r') as file:
+    with open(filename, 'r') as file:
 
-		nlg = json.load(file)
+        nlg = json.load(file)
 
-	return nlg
+    return nlg
 
 # Functions for NetworkX graph .json handling
 
 def graph_to_json(graph, filename, **kwargs):
-	'''
-	Writes graph to JSON, overwrites previous
-	'''
+    '''
+    Writes graph to JSON, overwrites previous
+    '''
 
-	with open(filename, 'w') as file:
+    with open(filename, 'w') as file:
 
-		json.dump(nlg_from_graph(graph, **kwargs), file, indent = 4, cls = NpEncoder)
+        json.dump(nlg_from_graph(graph, **kwargs), file, indent = 4, cls = NpEncoder)
 
 def graph_from_json(filename, **kwargs):
-	'''
-	Loads graph from nlg JSON
-	'''
+    '''
+    Loads graph from nlg JSON
+    '''
 
-	with open(filename, 'r') as file:
+    with open(filename, 'r') as file:
 
-		nlg = json.load(file)
+        nlg = json.load(file)
 
-	return graph_from_nlg(nlg, **kwargs)
+    return graph_from_nlg(nlg, **kwargs)
 
 # Functions for converting between NLG and NetworkX graphs
 
 def graph_from_nlg(nlg, **kwargs):
 
-	return nx.node_link_graph(nlg, multigraph = False, **kwargs)
+    return nx.node_link_graph(nlg, multigraph = False, **kwargs)
 
 def nlg_from_graph(nlg, **kwargs):
 
-	nlg = nx.node_link_data(nlg, **kwargs)
+    nlg = nx.node_link_data(nlg, **kwargs)
 
-	return nlg
+    return nlg
 
 # Functions for loading graphs from shapefiles
 
 def graph_from_shapefile(filepath, node_attributes = {}, link_attributes = {}, **kwargs):
-	'''
-	Loads a graph from a shapefile containing nodes and links.
-	Also allows for reformating of the graph into a standard numerically indexed graph.
+    '''
+    Loads a graph from a shapefile containing nodes and links.
+    Also allows for reformating of the graph into a standard numerically indexed graph.
 
-	Reformatting:
+    Reformatting:
 
-	Momepy builds graphs where node ids are tuples of coordinates (x, y). This is somewhat
-	inconvenient for indexing and plotting and results in larger .json files expecially
-	when coordinates are longitude and latitude specified to 10+ decimal places.
-	Reformatted graphs have numerical node ids and the coordinates are moved to the 'x'
-	and 'y' node fields.
+    Momepy builds graphs where node ids are tuples of coordinates (x, y). This is somewhat
+    inconvenient for indexing and plotting and results in larger .json files expecially
+    when coordinates are longitude and latitude specified to 10+ decimal places.
+    Reformatted graphs have numerical node ids and the coordinates are moved to the 'x'
+    and 'y' node fields.
 
-	See reformat_graph for description of node_attributes and link_attributes
-	'''
-	contains_links = kwargs.get('contains_links', True)
-	conditions = kwargs.get('conditions', [])
+    See reformat_graph for description of node_attributes and link_attributes
+    '''
+    contains_links = kwargs.get('contains_links', True)
+    conditions = kwargs.get('conditions', [])
 
-	if contains_links:
+    if contains_links:
 
-		# Loading the road map shapefile into a GeoDataFrame
-		gdf = gpd.read_file(filepath)
+        # Loading the road map shapefile into a GeoDataFrame
+        gdf = gpd.read_file(filepath)
 
-		for condition in conditions:
+        for condition in conditions:
 
-			gdf = gdf[eval(condition)]
+            gdf = gdf[eval(condition)]
 
-		# Making sure that cartographic crs is used so
-		# Haversine distances can be accurately computed
-		gdf = gdf.to_crs(4326)
+        # Making sure that cartographic crs is used so
+        # Haversine distances can be accurately computed
+        gdf = gdf.to_crs(4326)
 
-		# Creating a NetworkX Graph
-		graph = graph_from_gdf(gdf)
+        # Creating a NetworkX Graph
+        graph = graph_from_gdf(gdf)
 
-		# Reformatting the Graph
-		graph = reformat_graph(
-			graph, node_attributes, link_attributes, **kwargs)
+        # Reformatting the Graph
+        graph = reformat_graph(
+            graph, node_attributes, link_attributes, **kwargs)
 
-	else:
+    else:
 
-		# Loading the shapefile into a GeoDataFrame
-		gdf = gpd.read_file(filepath)
+        # Loading the shapefile into a GeoDataFrame
+        gdf = gpd.read_file(filepath)
 
-		# Making sure that cartographic crs is used so
-		# Haversine distances can be accurately computed
-		gdf = gdf.to_crs(4326)
+        # Making sure that cartographic crs is used so
+        # Haversine distances can be accurately computed
+        gdf = gdf.to_crs(4326)
 
-		nlg = nlg_from_dataframe(gdf, node_attributes)
+        nlg = nlg_from_dataframe(gdf, node_attributes)
 
-		graph = graph_from_nlg(nlg)
+        graph = graph_from_nlg(nlg)
 
-	return graph
+    return graph
 
 def graph_from_gdf(gdf, directed = False):
-	'''
-	Calls momepy gdf_to_nx function to make a Graph from a GeoDataFrame.
-	In this case the primal graph (vertex-defined) is called for, multi-paths
-	are disallowed (including self-loops), and directed Graphs are kept as directed.
-	'''
+    '''
+    Calls momepy gdf_to_nx function to make a Graph from a GeoDataFrame.
+    In this case the primal graph (vertex-defined) is called for, multi-paths
+    are disallowed (including self-loops), and directed Graphs are kept as directed.
+    '''
 
-	graph = momepy.gdf_to_nx(
-		gdf,
-		approach = 'primal',
-		multigraph = False,
-		directed = directed,
-		)
+    graph = momepy.gdf_to_nx(
+        gdf,
+        approach = 'primal',
+        multigraph = False,
+        directed = directed,
+        )
 
-	return graph
+    return graph
 
 def reformat_graph(graph, node_attributes = {}, link_attributes = {}, **kwargs):
-	'''
-	Reformats a graph to contain numeric node IDs and specified edge information.
-	This format makes later computation of routes easier.
+    '''
+    Reformats a graph to contain numeric node IDs and specified edge information.
+    This format makes later computation of routes easier.
 
-	node_attributes -> {field: lambda function}
-	link_attributes -> {field: lambda function}
+    node_attributes -> {field: lambda function}
+    link_attributes -> {field: lambda function}
 
-	ex:
+    ex:
 
-	link_attributes = {'speed': lambda e: e['speed'] * 1.609}
-	where e is the graph edge graph._adj[origin][destination]
-	'''
+    link_attributes = {'speed': lambda e: e['speed'] * 1.609}
+    where e is the graph edge graph._adj[origin][destination]
+    '''
 
-	# Extracting node data from the graph
-	node_ids = list(graph.nodes)
+    # Extracting node data from the graph
+    node_ids = list(graph.nodes)
 
-	# Extracting the x and y coordinates from the Graph
-	coordinates = np.array([key for key, value in graph._node.items()])
-	x, y = coordinates.reshape((-1, 2)).T
+    # Extracting the x and y coordinates from the Graph
+    coordinates = np.array([key for key, value in graph._node.items()])
+    x, y = coordinates.reshape((-1, 2)).T
 
-	# Creating a spatial KD Tree for quick identification of matches
-	# between Graph nodes and equivalent vertices
-	kd_tree = KDTree(coordinates.reshape((-1, 2)))
+    # Creating a spatial KD Tree for quick identification of matches
+    # between Graph nodes and equivalent vertices
+    kd_tree = KDTree(coordinates.reshape((-1, 2)))
 
-	nodes = []
-	links = []
+    nodes = []
+    links = []
 
-	# Looping on nodes
-	for source_idx, source in enumerate(node_ids):
+    # Looping on nodes
+    for source_idx, source in enumerate(node_ids):
 
-		# Adding id, x, and y fields
-		node = {
-			'id': source_idx,
-			'x': x[source_idx],
-			'y': y[source_idx],
-			}
+        # Adding id, x, and y fields
+        node = {
+            'id': source_idx,
+            'x': x[source_idx],
+            'y': y[source_idx],
+            }
 
-		for field, fun in node_attributes.items():
+        for field, fun in node_attributes.items():
 
-			if type(fun) is str:
-				
-				fun = eval(fun)
+            if type(fun) is str:
+                
+                fun = eval(fun)
 
-			node[field] = fun(graph._node[source])
-		
-		# Pulling the coordinates of the adjacent nodes from the graph
-		targets = graph._adj[source].keys()
+            node[field] = fun(graph._node[source])
+        
+        # Pulling the coordinates of the adjacent nodes from the graph
+        targets = graph._adj[source].keys()
 
-		# Looping on adjacency
-		for target in targets:
+        # Looping on adjacency
+        for target in targets:
 
-			# Finding the matching node index for the node coordinates
-			target_idx = kd_tree.query(list(target))[1]
+            # Finding the matching node index for the node coordinates
+            target_idx = kd_tree.query(list(target))[1]
 
-			link={
-				'source': source_idx,
-				'target': target_idx,
-				}
+            link={
+                'source': source_idx,
+                'target': target_idx,
+                }
 
-			for field, fun in link_attributes.items():
+            for field, fun in link_attributes.items():
 
-				if type(fun) is str:
-				
-					fun = eval(fun)
+                if type(fun) is str:
+                
+                    fun = eval(fun)
 
-				node[field] = fun(graph._adj[source][target])
-				link[field] = fun(graph._adj[source][target])
+                node[field] = fun(graph._adj[source][target])
+                link[field] = fun(graph._adj[source][target])
 
-			links.append(link)
+            links.append(link)
 
-		nodes.append(node)
+        nodes.append(node)
 
-	nlg = {'nodes': nodes, 'links': links}
+    nlg = {'nodes': nodes, 'links': links}
 
-	return graph_from_nlg(nlg, **kwargs)
+    return graph_from_nlg(nlg, **kwargs)
 
 # Functions for graph operations
 
 def subgraph(graph, nodes):
 
-	_node = graph._node
-	_adj = graph._adj
+    _node = graph._node
+    _adj = graph._adj
 
-	node_list = [(n, _node[n]) for n in nodes]
+    node_list = [(n, _node[n]) for n in nodes]
 
-	edge_list = []
+    edge_list = []
 
-	for source in nodes:
-		for target in nodes:
+    for source in nodes:
+        for target in nodes:
 
-			edge_list.append((source, target, _adj[source].get(target, None)))
+            edge_list.append((source, target, _adj[source].get(target, None)))
 
-	edge_list = [e for e in edge_list if e[2] is not None]
+    edge_list = [e for e in edge_list if e[2] is not None]
 
-	subgraph = graph.__class__()
+    subgraph = graph.__class__()
 
-	subgraph.add_nodes_from(node_list)
+    if node_list:
 
-	subgraph.add_edges_from(edge_list)
+        subgraph.add_nodes_from(node_list)
 
-	subgraph.graph.update(graph.graph)
+    if edge_list:
 
-	return subgraph
+        subgraph.add_edges_from(edge_list)
+
+    subgraph.graph.update(graph.graph)
+
+    return subgraph
 
 def supergraph(graphs):
 
-	supergraph = graphs[0].__class__()
+    supergraph = graphs[0].__class__()
 
-	nodes = []
+    nodes = []
 
-	edges = []
+    edges = []
 
-	names = []
+    names = []
 
-	show = True
+    show = True
 
-	for graph in graphs:
+    for graph in graphs:
 
-		for source, _adj in graph._adj.items():
+        for source, _adj in graph._adj.items():
 
-			nodes.append((source, graph._node[source]))
+            nodes.append((source, graph._node[source]))
 
-			for target, edge in _adj.items():
+            for target, edge in _adj.items():
 
-				edges.append((source, target, edge))
+                edges.append((source, target, edge))
 
-	supergraph.add_nodes_from(nodes)
+    supergraph.add_nodes_from(nodes)
 
-	supergraph.add_edges_from(edges)
+    supergraph.add_edges_from(edges)
 
-	return supergraph
+    return supergraph
+
+def giant_connected_component(graph):
+
+    components = list(nx.components.connected_components(graph))
+
+    gcc_index = np.argmax(components)
+
+    remove = []
+
+    for idx, component in enumerate(components):
+
+        if idx == gcc_index:
+
+            continue
+
+        remove.extend(list(component))
+
+    graph.remove_nodes_from(remove)
+
+    return graph
 
 def remove_self_edges(graph):
 
-	graph.remove_edges_from(nx.selfloop_edges(graph))
+    graph.remove_edges_from(nx.selfloop_edges(graph))
 
-	return graph
+    return graph
 
 def path_cost(graph, path, fields = []):
 
-	_adj = graph._adj
+    _adj = graph._adj
 
-	costs = {field: 0 for field in fields}
+    costs = {field: 0 for field in fields}
 
-	for idx in range(1, len(path)):
+    for idx in range(1, len(path)):
 
-		source = path[idx - 1]
-		target = path[idx]
+        source = path[idx - 1]
+        target = path[idx]
 
-		for field in fields:
+        for field in fields:
 
-			costs[field] += _adj[source][target][field]
+            costs[field] += _adj[source][target][field]
 
-	return costs
+    return costs
 
 def level_graph(graph, origin, destinations = [], weight = None):
 
     _node = graph._node
     _adj = graph._adj
 
-    costs = {} # dictionary of objective values for paths
+    costs = {}
+    # seen = []
 
     c = count() # use the count c to avoid comparing nodes (may not be able to)
     heap = [] # heap is heapq with 3-tuples (cost, c, node)
@@ -336,13 +361,26 @@ def level_graph(graph, origin, destinations = [], weight = None):
     while heap: # Iterating while there are accessible unseen nodes
 
         # Popping the lowest cost unseen node from the heap
-        cost, _, source = heappop(heap)
+        cost, k, source = heappop(heap)
+
+        # print(seen)
 
         if source in costs:
 
             continue  # already searched this node.
 
         costs[source] = cost
+
+        if source in destinations:
+
+            continue
+        # seen.append(source)
+
+        # break
+
+        # if k >= 10:
+
+        #     break
 
         for target, edge in _adj[source].items():
 
@@ -358,21 +396,32 @@ def level_graph(graph, origin, destinations = [], weight = None):
 
                 heappush(heap, (cost_target, next(c), target))
 
-    destination_costs = [costs[d] for d in destinations]
+    destination_costs = [costs.get(d, np.inf) for d in destinations]
     max_destination_cost = np.inf if not destinations else max(destination_costs)
+
+    # print(max_destination_cost)
 
     nodes = []
     edges = []
 
     for source, node in _node.items():
 
-        node['cost'] = costs[source]
+
+        # costs[source] = costs.get(source, np.inf)
+
+        node['cost'] = costs.get(source, np.inf)
 
         nodes.append((source, node))
         
         for target, edge in graph._adj[source].items():
 
+            # costs[target] = costs.get(target, np.inf)
+
             if costs[target] > costs[source] and costs[source] <= max_destination_cost:
+
+                if source in destinations:
+
+                    continue
 
                 edges.append((source, target, edge))
 
@@ -382,46 +431,114 @@ def level_graph(graph, origin, destinations = [], weight = None):
 
     return level_graph
 
+def k_pop(graph, origin, destinations = [], **kwargs):
+
+    objective = kwargs.get('objective', 'objective')
+    maximum_cost = kwargs.get('maximum_cost', np.inf)
+    maximum_paths = kwargs.get('maximum_paths', np.inf)
+
+    nodes = graph._node
+    edges = graph._adj
+
+    costs = []
+    paths = []
+
+    c = count() # use the count c to avoid comparing nodes (may not be able to)
+    heap = [] # heap is heapq with 3-tuples (cost, c, node)
+
+    counts = {k: 0 for k in destinations}
+    out_paths = {k: [] for k in destinations}
+
+    to_find = True
+
+    heappush(heap, (0, next(c), origin, [origin]))
+
+    k = 0
+
+    while (to_find) and heap:
+
+        k += 1
+
+        cost, _, source, path = heappop(heap)
+
+        if counts.get(source, 0) >= maximum_paths:
+
+            continue
+            
+
+        if source in destinations:
+
+            counts[source] += 1
+
+            # costs.append(cost)
+            # paths.append(path)
+
+            out_paths[source].append(path)
+
+        print([c for c in counts.values()])
+
+        if all([c > maximum_paths for c in counts.values()]) or k >= 1000:
+
+            break
+
+        for target, edge in edges[source].items():
+
+            if target in path:
+
+                continue
+
+            new_cost = cost + edge.get(objective, 1)
+            new_path = path + [target]
+
+            heappush(heap, (new_cost, next(c), target, new_path))
+
+    return costs, paths
+
 def k_shortest_paths(graph, origin, destination, k = None, weight = None):
 
-	path_gen = nx.shortest_simple_paths(
-		graph, origin, destination, weight = 'time'
-		)
+    path_gen = nx.shortest_simple_paths(
+        graph, origin, destination, weight = 'time'
+        )
 
-	paths = list(islice(path_gen, k))
+    paths = list(islice(path_gen, k))
 
-	return paths
+    return paths
 
 def k_shortest_paths_graph(graph, terminals = None, k = None, weight = None):
 
-	edges = []
+    edges = []
+    used = []
 
-	if terminals is None:
+    if terminals is None:
 
-		terminals = list(graph.nodes())
+        terminals = list(graph.nodes())
 
-	for origin in terminals:
+    for origin in terminals:
 
-		destinations = set(terminals) - set([origin])
+        destinations = set(terminals) - set([origin])
 
-		lg = level_graph(graph, origin, destinations, weight = weight)
+        lg = level_graph(graph, origin, destinations, weight = weight)
 
-		for destination in destinations:
+        for destination in destinations:
 
-			paths = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
+            # print(origin, destination)
 
-			for path in paths:
+            # paths = [nx.shortest_path(lg, origin, destination, weight = weight)]
 
-				data = {
-					'path': path,
-				}
-				
-				edges.append((origin, destination, data))
+            paths = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
 
-	pg = nx.MultiDiGraph()
-	pg.add_edges_from(edges)
+            for path in paths:
 
-	return pg
+                data = {
+                    'path': path,
+                }
+                
+                edges.append((origin, destination, data))
 
+                used.extend([origin, destination])
 
+    pg = nx.MultiDiGraph()
+    pg.add_nodes_from([(n, graph._node[n]) for n in np.unique(used)])
+    pg.add_edges_from(edges)
 
+    return pg

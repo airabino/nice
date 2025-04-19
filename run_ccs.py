@@ -47,6 +47,7 @@ f = lambda d: p[0] * np.exp(p[1] * d)
 kw = {
     'routing_weight': 'time',
     'production': 'population',
+    'remove_function': lambda x: nice.demand.within_range(x, 500, 75 * 3.6e6),
 }
 
 graph = nice.demand.demand(graph, places, **kw)
@@ -77,6 +78,7 @@ for station in stations:
     graph._node[station]['power'] = power
     graph._node[station]['volumes'] = np.atleast_2d(volumes)
     graph._node[station]['delays'] = np.atleast_2d(delays * volumes)
+    graph._node[station]['counts'] = c
     graph._node[station]['expenditures'] = [0]
 
 '''
@@ -94,6 +96,7 @@ for station in stations:
 for source, _adj in graph._adj.items():
     for target, edge in _adj.items():
 
+        edge['cost'] = edge['time']
         edge['_class'] = nice.optimization.Edge
 
 for path in paths:
@@ -112,7 +115,7 @@ network.build()
 Solving the model
 '''
 
-scales = np.arange(1e3, 1e5 + 1e3, 1e3) / 3600
+scales = np.arange(1e0, 1e6 + 1e4, 1e4) / 3600
 costs = []
 ratios = []
 
@@ -133,7 +136,7 @@ for scale in nice.progress_bar.ProgressBar(scales):
     solution = network.solution
 
     num = sum(
-        [n.get('direct', 0) for n in solution._node.values()]
+        [n.get('mode_switch', 0) for n in solution._node.values()]
     )
     
     den = sum(
@@ -145,11 +148,11 @@ for scale in nice.progress_bar.ProgressBar(scales):
     ratios.append(ratio)
     costs.append(network.objective_value)
 
-    nice.graph.graph_to_json(solution, save_path + f"run_{k}.json")
+    nice.graph.graph_to_json(solution, save_path + f"run_{k}_2.json")
 
     k += 1
 
     # if k > 1:
     #     break
 
-json.dump({'costs': costs, 'ratios': ratios}, open(save_path + "summary.json", 'w'))
+json.dump({'costs': costs, 'ratios': ratios}, open(save_path + "summary_2.json", 'w'))

@@ -65,7 +65,7 @@ class Colormap():
             self.cmap = LinearSegmentedColormap.from_list(
                 'custom', colors, N = 256)
 
-    def colors(self, values):
+    def colors(self, values, **kwargs):
 
         values = np.asarray(values).astype(float)
 
@@ -74,6 +74,9 @@ class Colormap():
 
         vmin = np.nanmin(values)
         vmax = np.nanmax(values)
+
+        vmin = kwargs.get('vmin', vmin)
+        vmax = kwargs.get('vmax', vmax)
 
         if vmin == vmax:
 

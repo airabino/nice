@@ -3,4 +3,4 @@
 from .graph import *
 from .generators import *
 from .adjacency import *
-# from .eppstein import *
+from .cluster import *

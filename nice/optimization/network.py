@@ -181,6 +181,13 @@ class Network():
 
         for path in paths:
 
+            o = path['origin']
+            d = path['destination']
+
+            if d not in self.graph._node[o]['object'].paths:
+
+                continue
+
             p = path['path']
             path['nodes'] = []
             path['edges'] = []
@@ -203,6 +210,7 @@ class Network():
             pointer = {**path, 'object': _class(handle, **path)}
 
             self.paths.append(pointer)
+            # print(self.graph._node[path['origin']]['object'].paths, path['destination'])
             self.graph._node[path['origin']]['object'].paths[path['destination']].append(
                 pointer
                 )

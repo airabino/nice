@@ -18,15 +18,15 @@ class Place(Object):
         self.flows = kwargs.get('flows', {})
         self.paths = {f: [] for f in self.flows.keys()}
 
-        self.direct = kwargs.get('direct', {f: None for f in self.flows.keys()})
+        self.mode_switch = kwargs.get('mode_switch', {f: None for f in self.flows.keys()})
 
     def parameters(self, model):
 
         for destination, demand in self.flows.items():
 
-            if self.direct[destination] is None:
+            if self.mode_switch[destination] is None:
 
-                handle = f'{self.handle}::{destination}:direct'
+                handle = f'{self.handle}::{destination}:mode_switch'
                 variable = pyomo.Param(
                     initialize = 0,
                     domain = pyomo.NonNegativeReals,
@@ -40,9 +40,9 @@ class Place(Object):
 
         for destination, demand in self.flows.items():
 
-            if self.direct[destination] is not None:
+            if self.mode_switch[destination] is not None:
 
-                handle = f'{self.handle}::{destination}:direct'
+                handle = f'{self.handle}::{destination}:mode_switch'
                 variable = pyomo.Var(
                     initialize = 0,
                     domain = pyomo.NonNegativeReals,
@@ -58,8 +58,7 @@ class Place(Object):
 
             # print(destination, demand)
 
-            direct = getattr(model, f"{self.handle}::{destination}:direct")
-            # direct = 0
+            mode_switch = getattr(model, f"{self.handle}::{destination}:mode_switch")
 
             volume = sum(
                 path['object'].volume(model) \
@@ -70,7 +69,7 @@ class Place(Object):
 
             handle = f'{self.handle}:{destination}::volume_constraint'
             constraint = pyomo.Constraint(
-                rule = demand * model.scale - volume - direct == 0
+                rule = demand * model.scale - volume - mode_switch == 0
                 )
             setattr(model, handle, constraint)
 
@@ -78,16 +77,12 @@ class Place(Object):
 
     def objective(self, model):
 
-        cost = 0
-
-        # if self.penalty is not None:
-
-        direct = sum(
-            [getattr(model, f"{self.handle}::{d}:direct") * c * model.penalty \
-            for d, c in self.direct.items() if c is not None]
+        mode_switch = sum(
+            [getattr(model, f"{self.handle}::{d}:mode_switch") * c * model.penalty \
+            for d, c in self.mode_switch.items() if c is not None]
             )
 
-        cost += direct
+        cost = mode_switch
 
         return cost
     
@@ -105,12 +100,18 @@ class Place(Object):
 
             results[handle.split('::')[1]] = value
 
-        results['direct'] = sum([v for k, v in results.items() if 'direct' in k])
+        results['mode_switch'] = sum([v for k, v in results.items() if 'mode_switch' in k])
 
         scale = pyomo.value(model.scale)
 
         results['total'] = sum([v * scale for k, v in self.flows.items()])
 
-        results['direct_portion'] = results['direct'] / results['total']
+        if results['total'] == 0:
+
+            results['mode_switch_portion'] = 0
+
+        else:
+
+            results['mode_switch_portion'] = results['mode_switch'] / results['total']
 
         return results

@@ -375,6 +375,8 @@ def reduction(atlas, origins = [], **kwargs):
             origins,
             )
 
+        print(len(destinations_reached))
+
         new_destinations = np.setdiff1d(
             terminal_nodes,
             origins,

@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{float}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm,amssymb}
+\usepackage{url}
+\urlstyle{same} 
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+\usepackage{fancybox}
+\usepackage{breqn}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage[english]{babel}
+\usepackage[acronym,nomain]{glossaries} % list of acronyms
+\usepackage{xurl}
+%\usepackage{cite} % math and engineering style citations
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{mathptmx}
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{framed}
+\usepackage{empheq}
+\usepackage[T1]{fontenc}
+\usepackage[pdfpagelabels,pdfusetitle,colorlinks=false,pdfborder={0 0 0}]{hyperref}
+
+\renewcommand{\arraystretch}{1.2}
+
+\sloppy
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1-2\tabcolsep}}
+
+\usepackage[%
+backend=bibtex ,     % biber or bibtex
+%style=authoryear,    % Alphabeticalsch
+style=numeric-comp , % numerical-compressed
+sorting=none,        % no sorting
+sortcites=true,      % some other example options ...
+block=none,
+indexing=false,
+citereset=none,
+isbn=true,
+%url=true,
+doi=true,            % prints doi
+natbib=true,         % if you need natbib functions
+]{biblatex}
+\addbibresource{./sources/sources}  % better than \bibliography
+
+\title{Charging Network Optimization with Nonlinear Station Size Effects}
+\author{Aaron Rabinowitz \textit{et al.}}
+\date{}
+
+\input{./glossaries/gloss}
+\makeglossaries
+
+\begin{document}
+
+\maketitle
+
+%\lipsum[55]
+
+\input{./sections/introduction}
+\input{./sections/literature_review}
+\input{./sections/methods}
+\input{./sections/case_study}
+
+\printbibliography[heading=bibintoc,title={References}]
+%\bibliographystyle{ieeetr}
+%\bibliography{./sources/sources}
+
+\end{document}

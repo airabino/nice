@@ -10,9 +10,13 @@ def friction_exponential(distance, a = 0.00890009, b = -0.00686443, c = 1 / 1609
 
     return a * np.exp(b * c * distance)
 
-def charge_time(costs, consumption = 500, power = 3300):
+def charge_time(costs, consumption = 500, power = 6600):
 
     return costs['time'] + consumption / power * costs['distance']
+
+def within_range(costs, consumption = 500, capacity = 75 * 3.6e6):
+
+    return costs['distance'] <= capacity / consumption
 
 def demand(graph, places, **kwargs):
 
@@ -21,9 +25,11 @@ def demand(graph, places, **kwargs):
     demand_weight = kwargs.get('demand_weight', 'distance')
     friction_function = kwargs.get('friction_function', friction_exponential)
     penalty_function = kwargs.get('penalty_function', charge_time)
+    remove_function = kwargs.get('remove_function', within_range)
 
     sum_demand = 0
-    costs = {p: {p: 0 for p in places} for p in places}
+    min_costs = {p: {p: 0 for p in places} for p in places}
+    max_costs = {p: {p: 0 for p in places} for p in places}
     friction = {p: {p: 0 for p in places} for p in places}
     trips = {p: {p: 0 for p in places} for p in places}
 
@@ -42,7 +48,8 @@ def demand(graph, places, **kwargs):
             path = paths[destination]
             path_costs = values[destination]
 
-            costs[origin][destination] = penalty_function(path_costs)
+            min_costs[origin][destination] = path_costs
+            max_costs[origin][destination] = penalty_function(path_costs)
             friction[origin][destination] = friction_function(
                 path_costs[demand_weight]
                 )
@@ -70,17 +77,37 @@ def demand(graph, places, **kwargs):
 
             sum_trips += trips[origin][destination]
 
-    for origin in places:
+    for o in places:
 
-        destinations = set(places) - set([origin])
+        destinations = set(places) - set([o])
+
+        graph._node[o]['flows'] = {}
+        graph._node[o]['free_flow'] = {}
+        graph._node[o]['mode_switch'] = {}
+
+        for d in destinations:
+
+            if remove_function(min_costs[o][d]):
+
+                continue
+
+            graph._node[o]['flows'][d] = trips[o][d] / sum_trips
+            graph._node[o]['free_flow'][d] = min_costs[o][d]
+            graph._node[o]['mode_switch'][d] = max_costs[o][d]
+
+
         
-        graph._node[origin]['flows'] = (
-            {d: trips[origin][d] / sum_trips for d in destinations}
-        )
+        # graph._node[origin]['flows'] = (
+        #     {d: trips[origin][d] / sum_trips for d in destinations}
+        # )
 
-        graph._node[origin]['direct'] = (
-            {d: costs[origin][d] for d in destinations}
-        )
+        # graph._node[origin]['free_flow'] = (
+        #     {d: min_costs[origin][d] for d in destinations}
+        # )
+
+        # graph._node[origin]['direct'] = (
+        #     {d: max_costs[origin][d] for d in destinations}
+        # )
     
     return graph
 

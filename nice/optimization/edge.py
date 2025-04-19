@@ -24,9 +24,9 @@ class Edge(Object):
 
         return self.consumption
 
-    def objective(self, model):
+    # def objective(self, model):
 
-        return self.cost
+    #     return self.cost
     
     def results(self, model):
 

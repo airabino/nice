@@ -1,0 +1,1207 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{Davis_2022}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=DSC}{%
+         family={Davis},
+         familyi={D\bibinitperiod},
+         given={Stacy\bibnamedelima C.},
+         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=BRG}{%
+         family={Boundy},
+         familyi={B\bibinitperiod},
+         given={Robert\bibnamedelima G.},
+         giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {U.S. Department of Energy, Energy Vehicle Technologies Office, Oak Ridge
+  National Laboratory}%
+    }
+    \strng{namehash}{DSCBRG1}
+    \strng{fullhash}{DSCBRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{Tables 6.2 and 6.12}
+    \field{title}{Transportation Energy Data Book, Edition 40}
+    \verb{url}
+    \verb https://tedb.ornl.gov/data/
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{Owen_1998}{article}{}
+    \name{author}{2}{}{%
+      {{hash=OSH}{%
+         family={Owen},
+         familyi={O\bibinitperiod},
+         given={Susan\bibnamedelima Hesse},
+         giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=DMS}{%
+         family={Daskin},
+         familyi={D\bibinitperiod},
+         given={Mark\bibnamedelima S.},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OSHDMS1}
+    \strng{fullhash}{OSHDMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{423\bibrangedash 447}
+    \field{title}{{Strategic facility location: A review}}
+    \verb{url}
+    \verb https://ideas.repec.org/a/eee/ejores/v111y1998i3p423-447.html
+    \endverb
+    \field{volume}{111}
+    \field{journaltitle}{European Journal of Operational Research}
+    \field{year}{1998}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Metais_2022}{article}{}
+    \name{author}{5}{}{%
+      {{hash=MM}{%
+         family={Metais},
+         familyi={M\bibinitperiod},
+         given={M.O.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=JO}{%
+         family={Jouini},
+         familyi={J\bibinitperiod},
+         given={O.},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=PY}{%
+         family={Perez},
+         familyi={P\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Berrada},
+         familyi={B\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Suomalainen},
+         familyi={S\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \keyw{Electric vehicle, Charging station, Charging infrastructure planning,
+  Location problem, Sustainable mobility}
+    \strng{namehash}{MM+1}
+    \strng{fullhash}{MMJOPYBJSE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.rser.2021.111719
+    \endverb
+    \field{issn}{1364-0321}
+    \field{pages}{111719}
+    \field{title}{Too much or not enough? Planning electric vehicle charging
+  infrastructure: A review of modeling options}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S136403212100993X
+    \endverb
+    \field{volume}{153}
+    \field{journaltitle}{Renewable and Sustainable Energy Reviews}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Kuby_2023}{incollection}{}
+    \name{author}{4}{}{%
+      {{hash=KMJ}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael\bibnamedelima J.},
+         giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=MAS}{%
+         family={Martinez},
+         familyi={M\bibinitperiod},
+         given={Andrew\bibnamedelima S.},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=KSB}{%
+         family={Kelley},
+         familyi={K\bibinitperiod},
+         given={Scott\bibnamedelima B.},
+         giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Tal},
+         familyi={T\bibinitperiod},
+         given={Gil},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=SA}{%
+         family={Scipioni},
+         familyi={S\bibinitperiod},
+         given={Antonio},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Manzardo},
+         familyi={M\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Ren},
+         familyi={R\bibinitperiod},
+         given={Jingzheng},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Academic Press}%
+    }
+    \strng{namehash}{KMJ+1}
+    \strng{fullhash}{KMJMASKSBTG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Hydrogen Economy (Second Edition)}
+    \verb{doi}
+    \verb https://doi.org/10.1016/B978-0-323-99514-6.00016-9
+    \endverb
+    \field{edition}{Second Edition}
+    \field{isbn}{978-0-323-99514-6}
+    \field{pages}{315\bibrangedash 380}
+    \field{title}{Chapter 10 - Hydrogen station location analysis and
+  optimization: Advanced models and behavioral evidence}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Yuvaraj_2024}{article}{}
+    \name{author}{5}{}{%
+      {{hash=YT}{%
+         family={Yuvaraj},
+         familyi={Y\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=DKR}{%
+         family={Devabalaji},
+         familyi={D\bibinitperiod},
+         given={K.\bibnamedelima R.},
+         giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=KJA}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={J.\bibnamedelima Anish},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=TSB}{%
+         family={Thanikanti},
+         familyi={T\bibinitperiod},
+         given={Sudhakar\bibnamedelima Babu},
+         giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=NNI}{%
+         family={Nwulu},
+         familyi={N\bibinitperiod},
+         given={Nnamdi\bibnamedelima I.},
+         giveni={N\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \keyw{Batteries;Electric vehicle charging;Electric potential;Costs;Resource
+  management;Object recognition;Charging stations;Energy storage;Electrical
+  vehicles;electric vehicle charging stations;bald eagle search
+  algorithm;cuckoo search algorithm;renewable distributed
+  generations;distribution static compensator;battery energy storage
+  system;capacitor;innovative charging technique;radial distribution system}
+    \strng{namehash}{YT+1}
+    \strng{fullhash}{YTDKRKJATSBNNI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/ACCESS.2023.3349274
+    \endverb
+    \field{pages}{5404\bibrangedash 5461}
+    \field{title}{A Comprehensive Review and Analysis of the Allocation of
+  Electric Vehicle Charging Stations in Distribution Networks}
+    \field{volume}{12}
+    \field{journaltitle}{IEEE Access}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Faustino_2023}{article}{}
+    \name{author}{7}{}{%
+      {{hash=FFJ}{%
+         family={Faustino},
+         familyi={F\bibinitperiod},
+         given={Fausta\bibnamedelima J.},
+         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=LJC}{%
+         family={Lopes},
+         familyi={L\bibinitperiod},
+         given={José\bibnamedelima Calixto},
+         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=MJD}{%
+         family={Melo},
+         familyi={M\bibinitperiod},
+         given={Joel\bibnamedelima D.},
+         giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Sousa},
+         familyi={S\bibinitperiod},
+         given={Thales},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PFA}{%
+         family={Padilha-Feltrin},
+         familyi={P\bibinithyphendelim F\bibinitperiod},
+         given={Antonio},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BJA}{%
+         family={Brito},
+         familyi={B\bibinitperiod},
+         given={José\bibnamedelima A.S.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=GCO}{%
+         family={Garcia},
+         familyi={G\bibinitperiod},
+         given={Claudio\bibnamedelima O.},
+         giveni={C\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FFJ+1}
+    \strng{fullhash}{FFJLJCMJDSTPFABJAGCO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.energy.2023.128436
+    \endverb
+    \field{issn}{0360-5442}
+    \field{pages}{128436}
+    \field{title}{Identifying charging zones to allocate public charging
+  stations for electric vehicles}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0360544223018303
+    \endverb
+    \field{volume}{283}
+    \field{journaltitle}{Energy}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Gupta_2023}{article}{}
+    \name{author}{4}{}{%
+      {{hash=GRS}{%
+         family={Gupta},
+         familyi={G\bibinitperiod},
+         given={Rudraksh\bibnamedelima S.},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=AY}{%
+         family={Anand},
+         familyi={A\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={Tyagi},
+         familyi={T\bibinitperiod},
+         given={Arjun},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AS}{%
+         family={Anand},
+         familyi={A\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GRS+1}
+    \strng{fullhash}{GRSAYTAAS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.est.2023.109052
+    \endverb
+    \field{issn}{2352-152X}
+    \field{pages}{109052}
+    \field{title}{Sustainable charging station allocation in the distribution
+  system for electric vehicles considering technical, economic, and societal
+  factors}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2352152X23024507
+    \endverb
+    \field{volume}{73}
+    \field{journaltitle}{Journal of Energy Storage}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Tungom_2024}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TCE}{%
+         family={Tungom},
+         familyi={T\bibinitperiod},
+         given={Chia\bibnamedelima E.},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=NB}{%
+         family={Niu},
+         familyi={N\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TCENBWH1}
+    \strng{fullhash}{TCENBWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.eswa.2023.121761
+    \endverb
+    \field{issn}{0957-4174}
+    \field{pages}{121761}
+    \field{title}{Hierarchical framework for demand prediction and iterative
+  optimization of EV charging network infrastructure under uncertainty with
+  cost and quality-of-service consideration}
+    \field{volume}{237}
+    \field{journaltitle}{Expert Systems with Applications}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Wu_Fainman_2024}{article}{}
+    \name{author}{5}{}{%
+      {{hash=WT}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Ting},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Fainman},
+         familyi={F\bibinitperiod},
+         given={Emily},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Maïzi},
+         familyi={M\bibinitperiod},
+         given={Yasmina},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shu},
+         familyi={S\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Yongzhen},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WT+1}
+    \strng{fullhash}{WTFEMYSJLY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trd.2024.104178
+    \endverb
+    \field{issn}{1361-9209}
+    \field{pages}{104178}
+    \field{title}{Allocate electric vehicles’ public charging stations with
+  charging demand uncertainty}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S1361920924001354
+    \endverb
+    \field{volume}{130}
+    \field{journaltitle}{Transportation Research Part D: Transport and
+  Environment}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Davatgari_2024}{article}{}
+    \name{author}{5}{}{%
+      {{hash=DA}{%
+         family={Davatgari},
+         familyi={D\bibinitperiod},
+         given={Amir},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Cokyasar},
+         familyi={C\bibinitperiod},
+         given={Taner},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Subramanyam},
+         familyi={S\bibinitperiod},
+         given={Anirudh},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Larson},
+         familyi={L\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MAK}{%
+         family={Mohammadian},
+         familyi={M\bibinitperiod},
+         given={Abolfazl\bibnamedelima (Kouros)},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA+1}
+    \strng{fullhash}{DACTSALJMAK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ejor.2024.04.022
+    \endverb
+    \field{issn}{0377-2217}
+    \field{number}{3}
+    \field{pages}{953\bibrangedash 966}
+    \field{title}{Electric vehicle supply equipment location and capacity
+  allocation for fixed-route networks}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0377221724003035
+    \endverb
+    \field{volume}{317}
+    \field{journaltitle}{European Journal of Operational Research}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Ma_Xie_2021}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MTY}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Tai-Yu},
+         giveni={T\bibinithyphendelim Y\bibinitperiod},
+      }}%
+      {{hash=XS}{%
+         family={Xie},
+         familyi={X\bibinitperiod},
+         given={Simin},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MTYXS1}
+    \strng{fullhash}{MTYXS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trd.2020.102682
+    \endverb
+    \field{issn}{1361-9209}
+    \field{pages}{102682}
+    \field{title}{Optimal fast charging station locations for electric
+  ridesharing with vehicle-charging station assignment}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S136192092030866X
+    \endverb
+    \field{volume}{90}
+    \field{journaltitle}{Transportation Research Part D: Transport and
+  Environment}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Liu_2023}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BLSTTPP}{%
+         family={Bingqing\bibnamedelima Liu},
+         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
+         suffix={Theodoros P.\bibnamedelima Pantelidis},
+         suffixi={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  P\bibinitperiod},
+         given={Stephanie\bibnamedelima Tam},
+         giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=CJYJ}{%
+         family={Chow},
+         familyi={C\bibinitperiod},
+         given={Joseph Y.\bibnamedelima J.},
+         giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim
+  J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{BLTPPSTCJYJ1}
+    \strng{fullhash}{BLTPPSTCJYJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1080/15568318.2022.2029633
+    \endverb
+    \field{number}{3}
+    \field{pages}{228\bibrangedash 244}
+    \field{title}{An electric vehicle charging station access equilibrium model
+  with M/D/C queueing}
+    \field{volume}{17}
+    \field{journaltitle}{International Journal of Sustainable Transportation}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Weekx_2024}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WS}{%
+         family={Weekx},
+         familyi={W\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Tal},
+         familyi={T\bibinitperiod},
+         given={Gil},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=VL}{%
+         family={Vanhaverbeke},
+         familyi={V\bibinitperiod},
+         given={Lieselot},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {English}%
+    }
+    \list{publisher}{1}{%
+      {US National Research Council}%
+    }
+    \strng{namehash}{WSTGVL1}
+    \strng{fullhash}{WSTGVL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{0361-1981}
+    \field{title}{How Many More Charging Stations Do We Need? A Data-Driven
+  Approach Considering Charging Station Overflow Dynamics.}
+    \field{journaltitle}{Transp Res Rec}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Rabinowitz_2023}{article}{}
+    \name{author}{4}{}{%
+      {{hash=RAI}{%
+         family={Rabinowitz},
+         familyi={R\bibinitperiod},
+         given={Aaron\bibnamedelima I.},
+         giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=SJG}{%
+         family={Smart},
+         familyi={S\bibinitperiod},
+         given={John\bibnamedelima G.},
+         giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=CTC}{%
+         family={Coburn},
+         familyi={C\bibinitperiod},
+         given={Timothy\bibnamedelima C.},
+         giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=BTH}{%
+         family={Bradley},
+         familyi={B\bibinitperiod},
+         given={Thomas\bibnamedelima H.},
+         giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \keyw{Cost function;Electric vehicles;Batteries;Systems engineering and
+  theory;Mathematical models;Automobiles;Vehicle dynamics;Battery electric
+  vehicle;BEV convenience;EV equity;EVSE infrastructure}
+    \strng{namehash}{RAI+1}
+    \strng{fullhash}{RAISJGCTCBTH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/ACCESS.2023.3255103
+    \endverb
+    \field{pages}{30486\bibrangedash 30497}
+    \field{title}{Assessment of Factors in the Reduction of BEV Operational
+  Inconvenience}
+    \field{volume}{11}
+    \field{journaltitle}{IEEE Access}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Kuby_2005}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KMLS1}
+    \strng{fullhash}{KMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.seps.2004.03.001
+    \endverb
+    \field{issn}{0038-0121}
+    \field{number}{2}
+    \field{pages}{125\bibrangedash 145}
+    \field{title}{The flow-refueling location problem for alternative-fuel
+  vehicles}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0038012104000175
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{Socio-Economic Planning Sciences}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Kuby_2007}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \keyw{Continuous location; Link; Flow intercepting; Hydrogen refueling;
+  Finite dominating set; Vehicle ran}
+    \strng{namehash}{KMLS1}
+    \strng{fullhash}{KMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1007/s11067-006-9003-6
+    \endverb
+    \field{number}{2}
+    \field{pages}{129\bibrangedash 152}
+    \field{title}{{Location of Alternative-Fuel Stations Using the
+  Flow-Refueling Location Model and Dispersion of Candidate Sites on Arcs}}
+    \field{volume}{7}
+    \field{journaltitle}{Networks and Spatial Economics}
+    \field{year}{2007}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Upchurch_2009}{article}{}
+    \name{author}{3}{}{%
+      {{hash=UC}{%
+         family={Upchurch},
+         familyi={U\bibinitperiod},
+         given={Christopher},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{UCKMLS1}
+    \strng{fullhash}{UCKMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1111/j.1538-4632.2009.00744.x
+    \endverb
+    \field{pages}{85 \bibrangedash  106}
+    \field{title}{A Model for Location of Capacitated Alternative‐Fuel
+  Stations}
+    \field{volume}{41}
+    \field{journaltitle}{Geographical Analysis}
+    \field{month}{01}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Kim_2012}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KJG}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Jong-Geun},
+         giveni={J\bibinithyphendelim G\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \keyw{Deviation, Optimal, Location, Station, Model, Intercepting}
+    \strng{namehash}{KJGKM1}
+    \strng{fullhash}{KJGKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ijhydene.2011.08.108
+    \endverb
+    \field{issn}{0360-3199}
+    \field{note}{Optimization Approaches to Hydrogen Logistics}
+    \field{number}{6}
+    \field{pages}{5406\bibrangedash 5420}
+    \field{title}{The deviation-flow refueling location model for optimizing a
+  network of refueling stations}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0360319911020337
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{International Journal of Hydrogen Energy}
+    \field{year}{2012}
+  \endentry
+
+  \entry{MirHassani_2013}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MSA}{%
+         family={MirHassani},
+         familyi={M\bibinitperiod},
+         given={S.\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=ER}{%
+         family={Ebrazi},
+         familyi={E\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \keyw{fuel station; location problem; maximum flow; mixed-integer
+  programming}
+    \strng{namehash}{MSAER1}
+    \strng{fullhash}{MSAER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    Serious environmental and economic problems of using fossil fuels in
+  transportation sections force managers to think of alternative fuels such as
+  hydrogen, ethanol, biodiesel, natural gas, or electricity. Meanwhile, lack of
+  fuel network infrastructures is a major problem, which needs to be
+  investigated considering the number and optimal location of alternative fuel
+  stations. In the literature, two different flow-based demand modeling
+  concepts (the maximum cover and set cover) have been proposed for solving
+  this problem. Because of the huge number of combinations of fuel stations for
+  covering the flow of each path, the models are impractical for the real size
+  problems. In this paper, the flow refueling location model was reformulated
+  and a flexible mixed-integer linear programming model was presented, which
+  was able to obtain an optimal solution much faster than the previous set
+  cover version. The model also could be solved in the maximum cover form in a
+  reasonable time on the large-sized networks.%
+    }
+    \verb{doi}
+    \verb 10.1287/trsc.1120.0430
+    \endverb
+    \field{number}{4}
+    \field{pages}{617\bibrangedash 628}
+    \field{title}{{A Flexible Reformulation of the Refueling Station Location
+  Problem}}
+    \verb{url}
+    \verb https://ideas.repec.org/a/inm/ortrsc/v47y2013i4p617-628.html
+    \endverb
+    \field{volume}{47}
+    \field{journaltitle}{Transportation Science}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Huang_Li_2015}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yongxi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shengyin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=QZS}{%
+         family={Qian},
+         familyi={Q\bibinitperiod},
+         given={Zhen\bibnamedelima Sean},
+         giveni={Z\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HYLSQZS1}
+    \strng{fullhash}{HYLSQZS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1007/s11067-014-9275-1
+    \endverb
+    \field{title}{Optimal Deployment of Alternative Fueling Stations on
+  Transportation Networks Considering Deviation Paths}
+    \field{journaltitle}{Netowrks and Spatial Economics}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Li_Huang_2016}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shengyin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yongxi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MSJ}{%
+         family={Mason},
+         familyi={M\bibinitperiod},
+         given={Scott\bibnamedelima J.},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LSHYMSJ1}
+    \strng{fullhash}{LSHYMSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trc.2016.01.008
+    \endverb
+    \field{issn}{0968-090X}
+    \field{pages}{128\bibrangedash 143}
+    \field{title}{A multi-period optimization model for the deployment of
+  public electric vehicle charging stations on network}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0968090X16000267
+    \endverb
+    \field{volume}{65}
+    \field{journaltitle}{Transportation Research Part C: Emerging Technologies}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Zhang_2017}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZA}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Anpeng},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KJE}{%
+         family={Kang},
+         familyi={K\bibinitperiod},
+         given={Jee\bibnamedelima Eun},
+         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kwon},
+         familyi={K\bibinitperiod},
+         given={Changhyun},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZAKJEKC1}
+    \strng{fullhash}{ZAKJEKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trb.2017.04.016
+    \endverb
+    \field{issn}{0191-2615}
+    \field{note}{Green Urban Transportation}
+    \field{pages}{5\bibrangedash 29}
+    \field{title}{Incorporating demand dynamics in multi-period capacitated
+  fast-charging location planning for electric vehicles}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0191261516304349
+    \endverb
+    \field{volume}{103}
+    \field{journaltitle}{Transportation Research Part B: Methodological}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Arslan_2019}{article}{}
+    \name{author}{4}{}{%
+      {{hash=AO}{%
+         family={Arslan},
+         familyi={A\bibinitperiod},
+         given={Okan},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=KOE}{%
+         family={Kara\c{s}an},
+         familyi={K\bibinitperiod},
+         given={Oya\bibnamedelima Ekin},
+         giveni={O\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=MAR}{%
+         family={Mahjoub},
+         familyi={M\bibinitperiod},
+         given={A.\bibnamedelima Ridha},
+         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=YH}{%
+         family={Yaman},
+         familyi={Y\bibinitperiod},
+         given={Hande},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AO+1}
+    \strng{fullhash}{AOKOEMARYH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1287/trsc.2018.0869
+    \endverb
+    \field{number}{4}
+    \field{pages}{1107\bibrangedash 1125}
+    \field{title}{A Branch-and-Cut Algorithm for the Alternative Fuel Refueling
+  Station Location Problem with Routing}
+    \field{volume}{53}
+    \field{journaltitle}{Transportation Science}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Anjos_2020}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AMF}{%
+         family={Anjos},
+         familyi={A\bibinitperiod},
+         given={Miguel\bibnamedelima F.},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=GB}{%
+         family={Gendron},
+         familyi={G\bibinitperiod},
+         given={Bernard},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=JMM}{%
+         family={Joyce-Moniz},
+         familyi={J\bibinithyphendelim M\bibinitperiod},
+         given={Martim},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMFGBJMM1}
+    \strng{fullhash}{AMFGBJMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ejor.2020.01.055
+    \endverb
+    \field{issn}{0377-2217}
+    \field{number}{1}
+    \field{pages}{263\bibrangedash 278}
+    \field{title}{Increasing electric vehicle adoption through the optimal
+  deployment of fast-charging stations for local and long-distance travel}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0377221720300928
+    \endverb
+    \field{volume}{285}
+    \field{journaltitle}{European Journal of Operational Research}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Yen_1971}{article}{}
+    \name{author}{1}{}{%
+      {{hash=YJY}{%
+         family={Yen},
+         familyi={Y\bibinitperiod},
+         given={Jin\bibnamedelima Y.},
+         giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {INFORMS}%
+    }
+    \strng{namehash}{YJY1}
+    \strng{fullhash}{YJY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    This paper presents an algorithm for finding the K loopless paths that have
+  the shortest lengths from one node to another node in a network. The
+  significance of the new algorithm is that its computational upper bound
+  increases only linearly with the value of K. Consequently, in general, the
+  new algorithm is extremely efficient as compared with the algorithms proposed
+  by Bock, Kantner, and Haynes [2], Pollack [7], [8], Clarke, Krikorian, and
+  Rausan [3], Sakarovitch [9] and others. This paper first reviews the
+  algorithms presently available for finding the K shortest loopless paths in
+  terms of the computational effort and memory addresses they require. This is
+  followed by the presentation of the new algorithm and its justification.
+  Finally, the efficiency of the new algorithm is examined and compared with
+  that of other algorithms.%
+    }
+    \field{issn}{00251909, 15265501}
+    \field{number}{11}
+    \field{pages}{712\bibrangedash 716}
+    \field{title}{Finding the K Shortest Loopless Paths in a Network}
+    \verb{url}
+    \verb http://www.jstor.org/stable/2629312
+    \endverb
+    \field{volume}{17}
+    \field{journaltitle}{Management Science}
+    \field{year}{1971}
+    \field{urlday}{02}
+    \field{urlmonth}{10}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{Qian_2013}{article}{}
+    \name{author}{2}{}{%
+      {{hash=QZ}{%
+         family={Qian},
+         familyi={Q\bibinitperiod},
+         given={Zhen},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \keyw{Dynamic traffic assignment; Hybrid route choice; Traveler
+  heterogeneity}
+    \strng{namehash}{QZZH1}
+    \strng{fullhash}{QZZH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1007/s11067-012-9177-z
+    \endverb
+    \field{number}{2}
+    \field{pages}{183\bibrangedash 203}
+    \field{title}{{A Hybrid Route Choice Model for Dynamic Traffic Assignment}}
+    \field{volume}{13}
+    \field{journaltitle}{Networks and Spatial Economics}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Eppstein_1998}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ED}{%
+         family={Eppstein},
+         familyi={E\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ED1}
+    \strng{fullhash}{ED1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1137/S0097539795290477
+    \endverb
+    \field{number}{2}
+    \field{pages}{652\bibrangedash 673}
+    \field{title}{Finding the k Shortest Paths}
+    \field{volume}{28}
+    \field{journaltitle}{SIAM Journal on Computing}
+    \field{year}{1998}
+  \endentry
+
+  \entry{afdc_2023}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={{Alternative Fuels Data Center}},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Department of Energy}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Alternative fuels data center home page}
+    \verb{url}
+    \verb https://afdc.energy.gov/
+    \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{cec_2024}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={{California Energy Commission}},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {California Energy Commission}%
+    }
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Light-Duty Vehicle Population in California}
+    \verb{url}
+    \verb https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-v
+    \verb ehicle-and-infrastructure-statistics-collection/light
+    \endverb
+    \field{year}{2024}
+  \endentry
+\enddatalist
+\endinput

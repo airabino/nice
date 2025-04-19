@@ -1,0 +1,60 @@
+\section{Literature Review}
+
+The the problem of optimal \gls{esn} expansion belongs to the larger field of strategic facility location optimization, a fundamental problem in operations research \citep{Owen_1998}. The optimal \gls{esn} expansion problem seeks to find the set of station locations and characteristics which most efficiently serves a set of demands. The underlying goal of the optimization is multi-objective: to find a solution which maximizes level-of-service while minimizing cost. In order to compute an optimal solution, one must either define an equivalence between cost and level-of-service or optimize for one subject to a constraint on the other. The constraint approach has two varieties. A service-constrained problem is one where cost is minimized subject to a minimum level-of-service. A cost-constrained problem is one where level-of-service is maximized subject to a maximum cost. Where level-of-service is defined as demand coverage service and cost constrained problems become set-covering and maximal-covering problems. Because much of the literature defines level-of-service in this way, the terms set-covering and maximal-covering are commonly used.
+
+Demand may be defined by locations (nodal), or trips/tours (travel) \citep{Metais_2022}. Nodal demand formulations attempt to minimize the cost of relocating from locations where users will be when they desire to charge to charging locations. This is accomplished by assigning equipment to locations and demand nodes to equipment. Nodal demand studies have employed various formulations \citep{Kuby_2023} to optimize around technical, economic, and environmental objectives and constraints \citep{Yuvaraj_2024, Faustino_2023, Gupta_2023}. Variations introduce stochasticity \citep{Tungom_2024, Wu_Fainman_2024}, fleet operations \citep{Davatgari_2024, Ma_Xie_2021}, nonlinear queuing \citep{Liu_2023} dynamics, and over-flow relocation \citep{Weekx_2024}. Nodal demand problems are most relevant to planning on a municipal scale. Most travel is routine and short-distance [SOURCE], and most charging is accomplished during long-dwells [SOURCE]. Access to low-rate charging is an important aspect of \gls{bev} user convenience \citep{Rabinowitz_2023}.
+
+Travel demand formulations attempt to minimize the added cost of charging/fueling for itineraries which are likely to exceed vehicle range. This is accomplished by assigning equipment to locations and flows to equipment. Charging and fueling add time to trips because of the time required to charge/fuel, the time required to wait for available equipment, and the time required to deviate from one's route to reach a station. Flow-capturing formulations optimize an \gls{esn} to best serve traffic flows along the routes they normally take, often the shortest path \citep{Kuby_2005, Kuby_2007, Upchurch_2009}. Flow-enabling formulations optimize and \gls{esn} to best enable traffic flows by dictating what routes they will take from a set of possible paths \citep{Kim_2012, MirHassani_2013, Huang_Li_2015, Li_Huang_2016, Zhang_2017, Arslan_2019, Anjos_2020} [SOURCE - more and more recent]. Travel demand problems are most relevant to regional-scale planning.
+
+Although each of the cited papers presents a different formulation, a basic synthesis of travel demand formulations is possible. The first step in each problem is defining the set of origin-destination demands and the set of alternative paths for each. Paths of sufficient range will require the use of charging/fueling stations. The problem, then, becomes finding a best allocation of equipment to stations and demands to paths. A set-covering formulation will require all demands to be connected by $n$ paths where $n$ is usually equal to one. A maximal-coverage formulation problem will seek to maximize he number of demands connected by at least $n$ paths. The level of service aspect is handled implicitly in path selection by only considering paths whose cost is below a given limit. 
+
+This methodology is well suited to a scenario where the existing \gls{esn} is sparse. However, the focus on connectivity renders the methodology unable to effectively consider how a well connected system might be improved. A philosophical shift is required to address this. Rather than viewing an \gls{esn}'s function as being to connect, one can view it as to reduce travel costs. If no charging stations exist between two cities, that does not mean that a \gls{bev} driver cannot travel between the them. The \gls{bev} driver would have to shift modes or rent an \gls{icev} which would provide additional cost. It is further true that, if the charging \gls{esn} between the cities exists but is slow and expensive, the driver might still prefer an alternative. In this case, the \gls{esn} is insufficient even if the cities are technically connected. The alternatives available to the driver provide a ceiling on cost. Drivers will elect to use the \gls{esn} if the cost of doing so is lower. The goal of the optimal \gls{esn} expansion problem in such a scenario is to minimize driver costs.
+
+%The methodology presented herein is derivative of the flow-enabling philosophy. Although each of the cited papers presents a different formulation, a basic synthetic representation of the flow-enabling problem can be presented. The first step is the graph transformation introduced in \citep{MirHassani_2013} and used subsequently. Starting from a road network graph $G_R = \{V_R, E_R\}$ and a set of origins, $O$, destinations $D$, and refueling station location $S$, an \gls{esn} graph $G = \{V, E\}$ is created where $V = O \cup D \cup S$ and $E$ contains edges representing the shortest paths between the nodes of $V$. A key point to understand is there may be many paths along $G$ which use the same elements of $G_R$. In other words, the same path on the road network may pass many stations and a driver will have many options for which to utilize.
+%
+%
+%Travel demand is represented as tuples $q = \langle o, d, v, r \rangle$ where $o\in O$ is the origin, $d \in D$ is the destination, $v$ is the volume (e.g. cars per hour), and $r$ is vehicle range. For each demand $q$ there will be a sum of acceptable paths $P(q)$ which contain a set of stations utilized. Assignment of stations to paths is represented by the assignment matrix $y$. Depending on $r$ some of the edges in $E_S$, and thus some of the paths in $P^q$, may be infeasible. Station locations are allocated to charging/fueling resources, which may be individual ports or whole stations, using an integer assignment matrix $x$. Demands are assigned to paths using the assignment matrix $z$ which may be integral or fractional. Considering a problem with $N$ stations, $M$ resources, and $A$ demands, and $B$ paths, a generic set-covering problem may be formulated as:
+%
+%%\begin{gather}
+%%	x_{ij} = \begin{cases}
+%%		1 & \text{if resource $j$ is allocated to station $i$} \\
+%%		0 & \text{otherwise}
+%%	\end{cases}
+%%\end{gather}
+%
+%%\begin{gather}
+%%	\min \left[\sum_{i}^{N}\sum_{j}^{M} f_x(x_{ij}) + \sum_{k}^{A}\sum_{l}^{B}f_z(z_{kl})\right]
+%%\end{gather}
+%
+%\begin{gather}
+%	\min \sum_{i}^{N}\sum_{j}^{M} c^x_{ij}x_{ij}\\
+%\end{gather}
+%
+%subject to
+%
+%\begin{gather}
+%	\sum_{i}^{N} x_{ij} - M \leq 0\quad \forall j \in 0, 1, \dots M \label{eq:ex:resource_limit}\\
+%	\sum_{k}^{A}\sum_{l}^{B}z_{kl}y_{il} - \sum_{j}^{M} c^c_{ij}x_{ij} \leq 0\quad \forall i \in 0, 1, \dots N\label{eq:ex:station_capacity} \\
+%	\sum_{l}^{B}c^z_{kl}z_{kl} - v_k = 0\quad \forall k \in 0, 1, \dots, A\label{eq:ex:set_covering}\\
+%	\sum_{k}^{A}\sum_{l}^{B}c^z_{kl}z_{kl} - J^z \leq 0\label{eq:ex:max_cost}
+%\end{gather}
+%
+%
+%where $c^x$ is a matrix of costs of assigning resources to stations $c^z$ is a matrix of costs of assigning demand to paths, and $c^c$ is a matrix relating station resources to station capacity. The set-covering constraint may be made a soft constraint if the set of candidate paths for each demand $P^q$ includes a "penalty" path. The "penalty" path is an infeasible path which comes with a large cost. Constraint \eqref{eq:ex:resource_limit} forces each resource to only be allocated once, \eqref{eq:ex:station_capacity} forces the flow of vehicles assigned to a station to be less than or equal to that stations capacity, \eqref{eq:ex:set_covering} forces all demand volume to be assigned to paths, and \eqref{eq:ex:max_cost} limits the acceptable traversal cost for demand $k$ to $J^z_k$. A generic maximal-covering problem may be formulated as
+%
+%\begin{gather}
+%	\min \sum_{k}^{A}\sum_{l}^{B}c^z_{kl}z_{kl}
+%\end{gather}
+%
+%subject to
+%
+%\begin{gather}
+%	\sum_{i}^{N} x_{ij} - M \leq 0\quad \forall j \in 0, 1, \dots M \label{eq:ex1:resource_limit}\\
+%	\sum_{k}^{A}\sum_{l}^{B}z_{kl}y_{il} - \sum_{j}^{M} c^c_{ij}x_{ij} \leq 0\quad \forall i \in 0, 1, \dots N\label{eq:ex1:station_capacity} \\
+%	\sum_{l}^{B}c^z_{kl}z_{kl} - v_k \leq 0\quad \forall\ k \in 0, 1, \dots, A\label{eq:ex1:set_covering}\\
+%	\sum_{i}^{N}\sum_{j}^{M} c^x_{ij}x_{ij} - J^x \leq 0\quad\forall\ k \in 0, 1, \dots, A \label{eq:ex1:max_spend}
+%\end{gather}
+%
+%where $f_z$ is a function which defines the reward for assigning demand to paths, $J^x \leq M$ is a limit on resource expenditure. Constraint \eqref{eq:ex1:max_spend} forces resource expenditure to be less than or equal to $J^x$. 
+%
+%The set-covering formulation is best suited to a scenario in which existing infrastructure is minimal and many stations need to be added to guarantee connectivity. Once connectivity is nearly guaranteed this formulation becomes less useful. If an \gls{esn} already accommodates all demands along shortest paths, then neither the set-covering nor maximal-covering versions of the problem will call for more resources to be deployed

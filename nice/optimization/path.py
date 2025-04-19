@@ -54,7 +54,7 @@ class Path(Object):
 
     def objective(self, model):
 
-        edge_cost = sum(e['object'].objective(model) for e in self.edges)
+        edge_cost = sum(e['object'].cost for e in self.edges)
 
         volume = getattr(model, f'{self.handle}::volume')
 

@@ -44,12 +44,22 @@ class Vehicle():
     def __init__(self, **kwargs):
 
         self.capacity = kwargs.get('capacity', 80 * 3.6e6)
+        self.consumption = kwargs.get('consumption', 500)
         self.soc_min = kwargs.get('soc_min', .1)
         self.soc_max = kwargs.get('soc_max', 1.)
 
         self.usable_capacity = self.capacity * (self.soc_max - self.soc_min)
 
         self.fields = kwargs.get('fields', ['time', 'distance', 'energy'])
+
+    def energy(self, graph, field = 'distance'):
+
+        for source, _adj in graph._adj.items():
+            for target, edge in _adj.items():
+
+                edge['energy'] = edge[field] * self.consumption
+
+        return graph
 
     def trim(self, graph, nodes = None):
 
@@ -76,7 +86,7 @@ class Vehicle():
 
         return graph
 
-    def transform(self, atlas, nodes):
+    def transform(self, atlas, nodes = None):
 
         conditions = [
             lambda e: e['energy'] >= self.soc_min * self.capacity,

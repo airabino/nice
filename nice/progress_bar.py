@@ -49,7 +49,8 @@ class ProgressBar():
 
 		str_0 = f"\r{self.color}"
 		str_1 = ""
-		str_3 = f" ({current-1}/{self.total}) {percent:.2f}%,"
+		# str_3 = f" ({current-1}/{self.total}) {percent:.2f}%,"
+		str_3 = f" {percent:.2f}%,"
 		str_4 = f" {itps:.2f} it/s,"
 		str_5 = f" {run_time:.2f} s elapsed, {projrem:.2f} s remaining"
 		str_6 = self.end_color
@@ -58,8 +59,8 @@ class ProgressBar():
 
 		bar_length = self.message_length - columns_used - 5
 
-		arrow='-'*int(percent/100*bar_length-1)+'>'
-		spaces=' '*(bar_length-len(arrow))
+		arrow = '-' * int(percent / 100 * bar_length - 1) + '>'
+		spaces = ' ' * (bar_length - len(arrow))
 
 		str_2 = f" [{arrow}{spaces}]"
 
@@ -72,28 +73,28 @@ class ProgressBar():
 class PBIterator():
 	def __init__(self,ProgressBar):
 
-		self.ProgressBar=ProgressBar
-		self.index=0
-		self.run_time=0
-		self.t0=time.time()
+		self.ProgressBar = ProgressBar
+		self.index = 0
+		self.run_time = 0
+		self.t0 = time.time()
 
 	def __next__(self):
 
-		if self.index<len(self.ProgressBar.iterable):
+		if self.index < len(self.ProgressBar.iterable):
 
-			self.index+=1
-			self.run_time=time.time()-self.t0
+			self.index += 1
+			self.run_time = time.time() - self.t0
 
-			if self.index%self.ProgressBar.freq==0:
-				self.ProgressBar.update(self.index,self.run_time)
+			if self.index % self.ProgressBar.freq == 0:
+				self.ProgressBar.update(self.index, self.run_time)
 
-			return self.ProgressBar.iterable[self.index-1]
+			return self.ProgressBar.iterable[self.index - 1]
 
 		else:
 
-			self.index+=1
-			self.run_time=time.time()-self.t0
+			self.index += 1
+			self.run_time = time.time() - self.t0
 
-			self.ProgressBar.update(self.index,self.run_time)
+			self.ProgressBar.update(self.index, self.run_time)
 
 			raise StopIteration

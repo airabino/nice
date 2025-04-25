@@ -32,10 +32,24 @@ paths = json.load(open('Data/paths_nacs_100k.json', 'r'))
 # save_path = '/media/aaron/Extreme SSD/nice_results/ccs/'
 save_path = '/media/aaron/Extreme SSD/nice_results/nacs/'
 
+for source, _adj in graph._adj.items():
+    for target, edge in _adj.items():
+
+        edge['cost'] = edge['time']
 
 places = [k for k, n in graph._node.items() if 'station' not in k]
 stations = [k for k, n in graph._node.items() if 'station' in k]
 paths = [p for p in paths if len(p['path']) > 2]
+
+threshold = 20 * 60
+
+local_stations = []
+
+for source in places:
+    for target in stations:
+        if graph._adj[source].get(target, {'cost': np.inf})['cost'] <= threshold:
+
+            local_stations.append(target)
 
 '''
 Setting travel demand
@@ -47,7 +61,6 @@ f = lambda d: p[0] * np.exp(p[1] * d)
 kw = {
     'routing_weight': 'time',
     'production': 'population',
-    'remove_function': lambda x: nice.demand.within_range(x, 500, 75 * 3.6e6),
 }
 
 graph = nice.demand.demand(graph, places, **kw)
@@ -59,7 +72,13 @@ Adding charging information at stations
 energy = 35 * 3.6e6
 power = 80e3
 m = 1 / (energy / power)
-rho = np.concatenate((np.linspace(0, .8, 2), np.linspace(.81, .99, 20)))
+rho = np.concatenate(
+    (
+        np.linspace(0, .5, 2),
+        np.linspace(.51, .99, 10),
+        np.linspace(.991, .999, 10)
+        )
+    )
 
 for station in stations:
 
@@ -75,11 +94,16 @@ for station in stations:
         [queue.interpolate(rho, size)[0] * rho * m * size for size in c]
     )
 
+    base_volume = (
+        0 * volumes.max() * (station in local_stations)
+    )
+
     graph._node[station]['power'] = power
     graph._node[station]['volumes'] = np.atleast_2d(volumes)
-    graph._node[station]['delays'] = np.atleast_2d(delays * volumes)
+    graph._node[station]['delays'] = np.atleast_2d(delays * 3600 / (1 / volumes))
     graph._node[station]['counts'] = c
     graph._node[station]['expenditures'] = [0]
+    graph._node[station]['base_volume'] = base_volume
 
 '''
 Adding classes and Building the network
@@ -115,7 +139,7 @@ network.build()
 Solving the model
 '''
 
-scales = np.arange(1e0, 1e6 + 1e4, 1e4) / 3600
+scales = np.arange(1e3, 1e5 + 1e3, 1e3)
 costs = []
 ratios = []
 
@@ -132,6 +156,8 @@ for scale in nice.progress_bar.ProgressBar(scales):
     }
     
     network.model.scale = scale
+    network.model.duration = 3600
+
     network.solve(**kw)
     solution = network.solution
 
@@ -145,16 +171,14 @@ for scale in nice.progress_bar.ProgressBar(scales):
     
     ratio = np.nan_to_num(num / den)
 
-    # print(scale, ratio)
-
     ratios.append(ratio)
     costs.append(network.objective_value)
 
-    nice.graph.graph_to_json(solution, save_path + f"run_{k}_2.json")
+    nice.graph.graph_to_json(solution, save_path + f"run_{k}_3.json")
 
     k += 1
 
-    # if k > 1:
-    #     break
-
-json.dump({'costs': costs, 'ratios': ratios}, open(save_path + "summary_2.json", 'w'))
+nice.utilities.to_json(
+    {'scales': scales, 'costs': costs, 'ratios': ratios},
+    save_path + "summary_3.json",
+    )

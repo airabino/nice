@@ -14,7 +14,7 @@ As is the case in prior work, the method presented requires a set of alternative
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = .7\linewidth]{./figures/formulation/road_charging_paths.png}
+	\includegraphics[width = \linewidth]{./figures/formulation/road_charging_paths.png}
 	\caption{Graphs for simple vehicular transportation network. Panel I shows a graph $G$ for a section of road from $A$ to $B$ with stations $S_0$, $S_1$, and $S_2$. Panel II shows the transformed graph $\hat{G}$ for a vehicle with sufficient range to reach $S_1$ from $A$ and $B$. Panel III shows the level graph $\overline{G}_A$ for the same vehicle leaving $A$. The simple supply-paths for pair $\langle A, B \rangle$ are $A-S_0-S_1-B$, $A-S_0-S_2-B$, $A-S_1-B$, and $A-S_1-S_2-B$.}
 	\label{fig:paths}
 \end{figure}
@@ -31,10 +31,12 @@ The time cost of edge $(i, j) \in \hat{E}$ is the total trip time. This includes
 where $\tau$ is edge traversal time, $\epsilon$ is edge energy consumption, and $f_c$ is a function relating energy to charging time. Charging is modeled using a CC-CV relationship. The first part of charging is linear and the second part follows an exponential decay function. The time required for a given charge event is
 
 \begin{gather}
-	f_{c}(\epsilon, \beta, \alpha) = \begin{cases}
+	\begin{gathered}
+	f_{c}(\epsilon, \beta, \alpha) = \\\begin{cases}
 		\frac{\epsilon}{\alpha} & \epsilon \leq \eta\beta \\
 		\frac{\eta\beta}{\alpha}\left(1-\ln{\left(1-\frac{\epsilon - \eta\beta}{\beta(1-\eta)}\right)}\right) &  \epsilon > \eta\beta
 	\end{cases}
+	\end{gathered}
 \end{gather}
 
 where $\eta$ is the inflection point separating linear and nonlinear charging. A typical value for $\eta$ will be in the range of 0.7 to 0.8. Charging past $\eta$ will be substantially slower than below $\eta$.
@@ -53,7 +55,7 @@ Queue formation is a combinatorial effect. In order to maintain a stable queue l
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = .7\linewidth]{./figures/formulation/queue.png}
+	\includegraphics[width = \linewidth]{./figures/formulation/queue.png}
 	\caption{Queuing time with M/M/c queue model}
 	\label{fig:queue}
 \end{figure}
@@ -106,8 +108,10 @@ Optimization uses the following sets:
 The objective of the optimization is
 
 \begin{gather}
-	\min_{\overline{X},\overline{U}}\quad \underbrace{\sum_{q \in Q} x^q_qy^q_q}_{\text{Penalty Time}} + \underbrace{\sum_{q \in Q}\sum_{P^q \in P}\sum_{p \in P^q}\sum_{(i, j) \in p} x^p_py^t_{(i, j)}}_{\text{Edge Traversal Time}} + \underbrace{\sum_{s \in S}\sum_{c \in C_s}
+	\begin{gathered}
+	\min_{\overline{X},\overline{U}}\quad \underbrace{\sum_{q \in Q} x^q_qy^q_q}_{\text{Penalty Time}} + \underbrace{\sum_{q \in Q}\sum_{P^q \in P}\sum_{p \in P^q}\sum_{(i, j) \in p} x^p_py^t_{(i, j)}}_{\text{Edge Traversal Time}} \\+ \underbrace{\sum_{s \in S}\sum_{c \in C_s}
 		\sum_{k \in K_{s, c}} u^s_{s, c}x^u_{s, c, k}y^d_{s, c, k}}_{\text{Queuing Time}} \label{eq:tm:obj}
+	\end{gathered}
 \end{gather}
 
 subject to
@@ -124,8 +128,8 @@ subject to
 The objective function \eqref{eq:tm:obj} minimizes total travel time in three terms. The first term is the time penalties accrued for failing to accommodate demand. The theory is that, without dedicated charging infrastructure, vehicles could, theoretically, complete the trip using level 1 charging but this would be very slow if the trip is beyond full-charge range. The second term is the time spent driving along edges and charging to drive along edges. The third term is the time spend queuing for a charger. Constraint \eqref{eq:tm:flow_dem} forces the sum of flows and un-accommodated flows to be equal to total demand. Constraint \eqref{eq:tm:flow_cons} forces the sum of utilization intervals at a station to be equal to the sum of flows which pass through the station. Constraint \eqref{eq:tm:sz_int} forces station utilization to only accrue for the selected station size. Constraint \eqref{eq:tm:chg_unity} forces only one station size to be selected per station and \eqref{eq:tm:chg_tot} limits the total number of chargers in the network. This formulation can be used for two varieties of analysis.
 
 \begin{description}
-	\item [Performance of Current System:] If one fixes the values of all Booleans in $U^S$ to reflect an existing system, the result of the optimization will be the best possible performance of the existing system subject to a given demand level.
-	\item [Optimal Expansion:] If one allows for the Booleans in $U^S$ to be changed by the optimizer, then the result of the optimization will be the best possible allocation of resources to facilitate travel for a given demand level.
+	\item [Performance of Current System:] If all Booleans in $U^S$ are fixed to reflect an existing system, the result of the optimization will be the best possible performance of the existing system for a given demand level.
+	\item [Optimal Expansion:] If the Booleans in $U^S$ are allowed to be changed by the optimizer, the result of the optimization will be the best possible allocation of resources to facilitate travel for a given demand level.
 \end{description}
 
-Taking the example simple network from Figure \ref{fig:paths}, one can intuit that, if each additional charger at each station is of the same cost ($Y^C_{s, c} = 1\ \forall s\in S,\ c\in C_s$), the optimal solution will be to place all available resources at the central station $S_1$ because only it can be reached from both $A$ and $B$. Doing so will give the greatest benefit in terms of queuing efficiency. The costs of adding and removing chargers may scale in a nonlinear manner. It is easy to imagine a scenario where a network operator finds it easier to remove an existing charger than to install a new charger. Swapping equipment between stations in a network is unlikely to be a net-zero cost operation. In such a case, the optimal solution may or may not be altered.
+Taking the example simple network from Figure \ref{fig:paths}, one can intuit that, if each additional charger at each station is of the same cost ($Y^C_{s, c} = 1\ \forall s\in S,\ c\in C_s$), the optimal solution will be to place all available resources at the central station $S_1$ because only it can be reached from both $A$ and $B$. Doing so will give the greatest benefit in terms of queuing efficiency. The costs of adding and removing chargers may scale in a nonlinear manner. It is easy to imagine a scenario where a network operator finds it easier to remove an existing charger than to install a new charger. Re-allocating equipment between stations in a network is unlikely to be a net-zero cost operation. In such a case, the optimal solution may or may not be altered.

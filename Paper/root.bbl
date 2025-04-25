@@ -48,6 +48,73 @@
     \field{year}{2022}
   \endentry
 
+  \entry{Gamage_2023}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GT}{%
+         family={Gamage},
+         familyi={G\bibinitperiod},
+         given={Tisura},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Tal},
+         familyi={T\bibinitperiod},
+         given={Gil},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=JAT}{%
+         family={Jenn},
+         familyi={J\bibinitperiod},
+         given={Alan\bibnamedelima T.},
+         giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \keyw{Battery electric vehicles, Corridor chargers, DC fast charging
+  infrastructure, Make-ready infrastructure}
+    \strng{namehash}{GTTGJAT1}
+    \strng{fullhash}{GTTGJAT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    A national network of DC Fast Charging infrastructure (DCFC) corridors can
+  facilitate connectivity and long-distance travel using battery electric
+  vehicles (BEVs). Optimal locations of such facilities are where BEV drivers
+  have easy access to charging where drivers will not have to make any
+  deviation from their pre-planned trips. Such optimally located corridor DCFCs
+  are usually in remote, underserved communities and immediately next to a
+  highway where they lack the advantages of shared utility infrastructure in an
+  urban setting. Therefore, we find that other studies and industry knowledge
+  of infrastructure investments do not apply to corridor DCFC locations. This
+  study evaluates the full project costs of installing and commissioning 54 DC
+  Fast Chargers in 36 sites located in major transportation corridors in
+  California and finds significant variation in costs between them. While
+  existing studies show costs ranging from $20,000 - $150,000, we find costs
+  range anywhere between $122,000 and $440,000. This data is critical for new
+  investment in the U.S. to construct a national charging network of DC Fast
+  charging corridors. We find that a significant proportion of the full project
+  costs are taken up by on site “make-ready infrastructure” costs that vary
+  greatly due to site-specific factors and design choices. DCFC installations
+  should be considered civil construction projects with significant electrical
+  infrastructure planning and installation that requires the cooperation of
+  many local stakeholders. We find that costs can be greatly reduced by working
+  with local electrical utilities early in the design and site selection stages
+  when possible. Our study finds that some cost shift towards utility side
+  costs can greatly reduce overall construction costs for sites along highways.
+  We also find that grid-connected DCFC design are substantially cheaper than
+  off-grid solar powered DCFC with onsite storage.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.cstp.2023.100969
+    \endverb
+    \field{issn}{2213-624X}
+    \field{pages}{100969}
+    \field{title}{The costs and challenges of installing corridor DC Fast
+  Chargers in California}
+    \field{volume}{11}
+    \field{journaltitle}{Case Studies on Transport Policy}
+    \field{year}{2023}
+  \endentry
+
   \entry{Owen_1998}{article}{}
     \name{author}{2}{}{%
       {{hash=OSH}{%

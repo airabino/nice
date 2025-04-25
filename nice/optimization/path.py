@@ -15,13 +15,6 @@ class Path(Object):
 
         self.nodes = kwargs.get('nodes', [])
         self.edges = kwargs.get('edges', [])
-        
-        # self.capacity = kwargs.get('capacity', 1)
-        # self.initial = kwargs.get('initial', self.capacity)
-
-        # print('c', self.capacity)
-
-        # self.penalty = kwargs.get('penalty', 1)
 
     def parameters(self, model):
 
@@ -55,10 +48,16 @@ class Path(Object):
     def objective(self, model):
 
         edge_cost = sum(e['object'].cost for e in self.edges)
+        node_cost = sum(
+            self.nodes[idx]['object'].charging_time(self.edges[idx]['object'].energy) \
+            for idx in range(1, len(self.nodes) - 1)
+            )
 
         volume = getattr(model, f'{self.handle}::volume')
 
-        cost = volume * edge_cost
+        cost = volume * (edge_cost + node_cost)
+        # cost = volume * edge_cost
+        # cost = 0
 
         return cost
 

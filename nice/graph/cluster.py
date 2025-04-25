@@ -30,7 +30,7 @@ def cluster(graph, n_clusters, **kwargs):
     for cluster_id, cluster in clusters_to_nodes.items():
 
         node = {
-            field: fun([graph._node[n][field] for n in cluster]) \
+            field: fun([graph._node[n].get(field, np.nan) for n in cluster]) \
             for field, fun in node_functions.items()
         }
 
@@ -56,7 +56,7 @@ def cluster(graph, n_clusters, **kwargs):
         for field, fun in edge_functions.items():
 
             _adj[nodes_to_clusters[s]][nodes_to_clusters[t]][field].append(
-                graph._adj[s][t][field]
+                graph._adj[s][t].get(field, np.nan)
             )
 
     edges = []
@@ -66,12 +66,13 @@ def cluster(graph, n_clusters, **kwargs):
             if _adj[s][t]['present']:
 
                 edge = {
-                    field: fun(_adj[s][t][field]) for field, fun in edge_functions.items()
+                    field: fun(_adj[s][t].get(field, np.nan)) \
+                    for field, fun in edge_functions.items()
                 }
 
                 edges.append((s, t, edge))
 
-    g = nx.DiGraph()
+    g = nx.Graph()
     g.add_nodes_from(nodes)
     g.add_edges_from(edges)
 

@@ -18,6 +18,8 @@ class Station(Object):
         self.power = kwargs.get('power', 80e3) # Charging power
         self.price = kwargs.get('price', .5 / 3.6e6)
 
+        self.base_volume = kwargs.get('base_volume', 0)
+
         self.volumes = kwargs.get('volumes', [[0, sys.maxsize]])
         self.delays = kwargs.get('delays', [[0, 0]])
 
@@ -25,11 +27,15 @@ class Station(Object):
         self.delta_delay = np.diff(self.delays, axis = 1)
         self.sizes, self.intervals = self.delta_volume.shape
 
+        # print(self.delta_volume * 3600)
+
         self.size = kwargs.get('size', [1] + [0] * (self.sizes - 1))
         self.counts = kwargs.get('counts', np.arange(0, self.sizes) + 1)
         self.expenditures = kwargs.get('expenditures', np.arange(0, self.sizes) + 1)
 
-        # print(self.expenditures)
+    def charging_time(self, energy):
+
+        return energy / self.power
 
     def sets(self, model):
 
@@ -63,6 +69,16 @@ class Station(Object):
             setattr(model, handle, variable)
             self.handles.append(handle)
 
+        # Baseline volume
+        handle = f'{self.handle}::base_volume'
+        variable = pyomo.Param(
+            initialize = self.base_volume,
+            domain = pyomo.NonNegativeReals,
+            mutable = True,
+            )
+        setattr(model, handle, variable)
+        self.handles.append(handle)
+
         return model
 
     def variables(self, model):
@@ -85,16 +101,6 @@ class Station(Object):
             setattr(model, handle, variable)
             self.handles.append(handle)
 
-        # for p in self.path_handles:
-
-        #     handle = f'{self.handle}::{p}:energy'
-        #     variable = pyomo.Var(
-        #         initialize = 0,
-        #         domain = pyomo.NonNegativeReals,
-        #         )
-        #     setattr(model, handle, variable)
-        #     self.handles.append(handle)
-
         # Capacity intervals
         handle = f'{self.handle}::usage'
         variable = pyomo.Var(
@@ -104,6 +110,16 @@ class Station(Object):
             )
         setattr(model, handle, variable)
         self.handles.append(handle)
+
+        # Capacity intervals
+        # handle = f'{self.handle}::overflow'
+        # variable = pyomo.Var(
+        #     sizes,
+        #     initialize = 0,
+        #     domain = pyomo.NonNegativeReals,
+        #     )
+        # setattr(model, handle, variable)
+        # self.handles.append(handle)
 
         # Tracking values
         handle = f'{self.handle}::volume'
@@ -128,9 +144,12 @@ class Station(Object):
         intervals = getattr(model, f'{self.handle}::intervals')
 
         usage = getattr(model, f'{self.handle}::usage')
+        # overflow = getattr(model, f'{self.handle}::overflow')
         volume = getattr(model, f'{self.handle}::volume')
         delay = getattr(model, f'{self.handle}::delay')
         size = getattr(model, f'{self.handle}::size')
+
+        base_volume = getattr(model, f'{self.handle}::base_volume')
 
         if len(self.size) > 1:
 
@@ -144,13 +163,13 @@ class Station(Object):
 
         if self.path_handles:
 
-            observed_volume = sum(
+            observed_volume = (sum(
                 getattr(model, f'{p}::volume') for p in self.path_handles
-                )
+                ) + base_volume) / model.duration
 
         else:
 
-            observed_volume = 0
+            observed_volume = base_volume / model.duration
 
         for i in sizes:
 
@@ -162,14 +181,20 @@ class Station(Object):
                 )
             setattr(model, handle, constraint)
 
-        volume_sum = pyomo.quicksum(
-            usage[i , j] * self.delta_volume[i][j] \
-            for i in sizes for j in intervals
+        volume_sum = (
+            pyomo.quicksum(
+                usage[i , j] * self.delta_volume[i][j] \
+                for i in sizes for j in intervals
+                )
+            # + pyomo.quicksum(overflow[i] for i in sizes)
             )
 
-        delay_sum = pyomo.quicksum(
-            usage[i , j] * self.delta_delay[i][j] \
-            for i in sizes for j in intervals
+        delay_sum = (
+            pyomo.quicksum(
+                usage[i , j] * self.delta_delay[i][j] \
+                for i in sizes for j in intervals
+                )
+            # + pyomo.quicksum(overflow[i] * self.delta_delay[i][-1] for i in sizes)
             )
 
         # Capacity
@@ -195,20 +220,6 @@ class Station(Object):
 
         return model
 
-    # def energy(self, model, path = None):
-
-    #     if path is None:
-
-    #         energy = sum(
-    #             getattr(model, f'{self.handle}::{p}:energy') for p in self.path_handles
-    #             )
-
-    #     else:
-
-    #         energy = getattr(model, f'{self.handle}::{path}:energy')
-
-    #     return energy
-
     def expenditure(self, model):
 
         if len(self.size) == 1:
@@ -229,24 +240,6 @@ class Station(Object):
         delay = getattr(model, f'{self.handle}::delay')
 
         return delay
-
-        # sizes = getattr(model, f'{self.handle}::sizes')
-        # size = getattr(model, f'{self.handle}::size')
-
-        # if len(self.size) == 1:
-
-            # expenditure = 0
-
-        # else:
-
-            # print(self.expenditures)
-
-            # expenditure = pyomo.quicksum(size[s] * self.expenditures[s] for s in sizes)
-
-        # energy_sum = self.energy(model) 
-        # charging_time = energy_sum / self.power
-
-        # return delay + charging_time + expenditure * model.expenditure_cost
     
     def results(self, model):
 
@@ -262,7 +255,8 @@ class Station(Object):
 
             results[handle.split('::')[1]] = value
 
-        results['utilization'] = np.array(results['usage']).sum() / self.intervals
+        # results['utilization'] = np.array(results['usage']).sum() / self.intervals
+        results['utilization'] = results['volume'] / self.volumes.max()
         results['selection'] = self.counts[np.argmax(results['size'])]
 
         return results

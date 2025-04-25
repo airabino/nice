@@ -1,9 +1,48 @@
 import sys
 import time
+import json
 import numpy as np
 
 from scipy.stats import t
 from shutil import get_terminal_size
+
+class NpEncoder(json.JSONEncoder):
+    '''
+    Encoder to allow for numpy types to be converted to default types for
+    JSON serialization. For use with json.dump(s)/load(s).
+    '''
+    def default(self, obj):
+
+        if isinstance(obj, np.integer):
+
+            return int(obj)
+
+        if isinstance(obj, np.floating):
+
+            return float(obj)
+
+        if isinstance(obj, np.ndarray):
+
+            return obj.tolist()
+
+        return super(NpEncoder, self).default(obj)
+
+def to_json(data, filename, **kwargs):
+
+    with open(filename, 'w') as file:
+
+        json.dump(data, file, indent = 4, cls = NpEncoder)
+
+def from_json(filename, **kwargs):
+    '''
+    Loads graph from nlg JSON
+    '''
+
+    with open(filename, 'r') as file:
+
+        data = json.load(file)
+
+    return data
 
 def nested_add(dictionary, value, *keys):
     '''

@@ -95,7 +95,7 @@ def mmc_queue(arrival_rate, service_rate, servicers, cutoff = np.inf):
         ((1 - rho) ** 2 * factorial(servicers))
         )
 
-    waiting_time = mean_queue_length ** 2 / arrival_rate
+    waiting_time = mean_queue_length / arrival_rate
 
     waiting_time[rho == 0] = 0
     waiting_time[rho >= 1] = cutoff

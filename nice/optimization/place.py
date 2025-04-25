@@ -69,6 +69,7 @@ class Place(Object):
 
             handle = f'{self.handle}:{destination}::volume_constraint'
             constraint = pyomo.Constraint(
+                # rule = demand * model.scale - volume == 0
                 rule = demand * model.scale - volume - mode_switch == 0
                 )
             setattr(model, handle, constraint)

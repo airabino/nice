@@ -15,18 +15,8 @@ class Edge(Object):
 
         self.path_handles = kwargs.get('path_handles', [])
 
-        self.consumption = kwargs.get('consumption', 0)
+        self.energy = kwargs.get('energy', 0)
         self.cost = kwargs.get('cost', 0)
-
-        # print(self.energy)
-
-    def energy(self, model):
-
-        return self.consumption
-
-    # def objective(self, model):
-
-    #     return self.cost
     
     def results(self, model):
 
@@ -43,8 +33,6 @@ class Edge(Object):
                 value = value[0]
 
             results[handle] = value
-
-        # print(results)
 
         results['volume'] = sum(results.values())
 

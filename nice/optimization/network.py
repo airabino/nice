@@ -15,43 +15,8 @@ from itertools import count
 from copy import deepcopy
 
 from ..utilities import cprint, nested_add
-from ..graph import remove_self_edges, level_graph, k_shortest_paths
+from ..graph import remove_self_edges
 from ..progress_bar import ProgressBar
-
-def get_paths(graph, terminals = None, k = None, r = None, weight = None):
-
-    paths = []
-
-    if terminals is None:
-
-        terminals = list(graph.nodes())
-
-    for origin in ProgressBar(terminals):
-
-        destinations = set(terminals) - set([origin])
-
-        lg = level_graph(graph, origin, destinations, weight = weight)
-
-        for destination in list(destinations):
-
-            if np.isinf(lg._node[destination]['cost']):
-                
-                continue
-
-            ksp = k_shortest_paths(lg, origin, destination, k = k, weight = weight)
-
-            for idx, path in enumerate(ksp):
-
-                paths.append(
-                    {
-                        'origin': origin,
-                        'destination': destination,
-                        'index': idx,
-                        'path': path,
-                        }
-                    )
-
-    return paths
 
 def solution_atlas(solution, atlas, fields = []):
 
@@ -88,15 +53,19 @@ class Network():
 
         self.graph = nx.DiGraph()
         self.paths = []
+        # self.local_paths = kwargs.get('local_paths': [])
 
         self.verbose = kwargs.get('verbose', False)
 
         # Demand scaling factor
         self.scale = kwargs.get('scale', 1)
+        self.duration = kwargs.get('duration', 1)
+        # self.nodal_demand = kwargs.get('nodal_demand', 1)
 
         self.penalty = kwargs.get('penalty', 1)
 
         self.expenditure = kwargs.get('expenditure', 0)
+        self.expenditure_mode = kwargs.get('expenditure_mode', 'exact')
 
         # Objective field
         self.objective = kwargs.get('objective', 'time')
@@ -181,6 +150,8 @@ class Network():
 
         for path in paths:
 
+            # print(path)
+
             o = path['origin']
             d = path['destination']
 
@@ -193,6 +164,8 @@ class Network():
             path['edges'] = []
 
             handle = f"{path['origin']}_{path['destination']}_{path['index']}"
+
+            # print(path)
 
             for idx in range(1, len(p)):
 
@@ -311,9 +284,17 @@ class Network():
 
         # print(expenditure)
 
-        self.model.requirement_constraint = pyomo.Constraint(
-            rule = expenditure == self.model.expenditure
-            )
+        if self.expenditure_mode == 'exact':
+
+            self.model.requirement_constraint = pyomo.Constraint(
+                rule = expenditure == self.model.expenditure
+                )
+
+        elif self.expenditure_mode == 'limit':
+
+            self.model.requirement_constraint = pyomo.Constraint(
+                rule = expenditure <= self.model.expenditure
+                )
 
     def build_constraints(self):
 
@@ -352,6 +333,10 @@ class Network():
 
         self.model.scale = pyomo.Param(
             initialize = self.scale, mutable = True
+            )
+
+        self.model.duration = pyomo.Param(
+            initialize = self.duration, mutable = True
             )
 
         self.model.penalty = pyomo.Param(

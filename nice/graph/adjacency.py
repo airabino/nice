@@ -248,6 +248,51 @@ def adjacency(atlas, graph, **kwargs):
 
     return graph
 
+def route_edges(atlas, graph, **kwargs):
+    '''
+    Adds adjacency to graph by routing on atlas
+    '''
+    objective = kwargs.get('objective', 'distance')
+    maximum_cost = kwargs.get('maximum_cost', np.inf)
+    maximum_depth = kwargs.get('maximum_depth', np.inf)
+    fields = kwargs.get('fields', ['distance', 'time'])
+    pb_kw = kwargs.get('progress_bar', {})
+    paths = kwargs.get('paths', False)
+
+    graph_to_atlas, atlas_to_graph = node_assignment(atlas, graph)
+
+    sources = list(graph.nodes)
+
+    for source in ProgressBar(sources, **pb_kw):
+
+        source_atlas = graph_to_atlas[source]
+
+        targets = list(graph._adj[source].keys())
+
+        costs, values, paths = dijkstra(
+            atlas,
+            [source_atlas],
+            terminals = targets,
+            objective = objective,
+            maximum_cost = maximum_cost,
+            maximum_depth = maximum_depth,
+            fields = fields,
+            )
+
+        for target, edge in graph._adj[source].items():
+
+            target_atlas = graph_to_atlas[target]
+
+            for field in fields:
+
+                edge[field] = values[target_atlas][field]
+
+            if paths:
+
+                edge['path'] = paths[target_atlas]
+
+    return graph
+
 def get_terminals(graph, origins, **kwargs):
 
     destinations = kwargs.get('destinations', [])

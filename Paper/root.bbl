@@ -17,6 +17,72 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{Brown_2023}{report}{}
+    \name{author}{5}{}{%
+      {{hash=BA}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={Abby},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Cappellucci},
+         familyi={C\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WE}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Emily},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Heinrich},
+         familyi={H\bibinitperiod},
+         given={Alexia},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CE}{%
+         family={Cost},
+         familyi={C\bibinitperiod},
+         given={Emma},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \keyw{electric vehicle, electric vehicle supply equipment, EV, EV charger,
+  EV charging, EV infrastructure, EVSE, station locator}
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BACJWEHACE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    Electric vehicle (EV) charging infrastructure continues to rapidly change
+  and grow. Using data from the U.S. Department of Energy's Alternative Fueling
+  Station Locator, this report provides a snapshot of the state of EV charging
+  infrastructure in the United States in the second calendar quarter of 2023 by
+  charging level, network, and location. Additionally, this report measures the
+  current state of charging infrastructure compared with a 2030 infrastructure
+  requirement scenario. This information is intended to help transportation
+  planners, policymakers, researchers, infrastructure developers, and others
+  understand the rapidly changing landscape of EV charging infrastructure. This
+  is the fourteenth report in a series. Reports from previous quarters can be
+  found in the Alternative Fuels Data Center (AFDC) and National Renewable
+  Energy Laboratory publication databases, as well as the AFDC Charging
+  Infrastructure Trends page
+  (https://afdc.energy.gov/fuels/electricity_infrastructure_trends.html).%
+    }
+    \verb{doi}
+    \verb 10.2172/2203059
+    \endverb
+    \field{title}{Electric Vehicle Charging Infrastructure Trends from the
+  Alternative Fueling Station Locator: Second Quarter 2023}
+    \field{type}{techreport}
+    \field{year}{2023}
+  \endentry
+
   \entry{Davis_2022}{inbook}{}
     \name{author}{2}{}{%
       {{hash=DSC}{%
@@ -40,12 +106,378 @@
     \strng{fullhash}{DSCBRG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
     \field{pages}{Tables 6.2 and 6.12}
     \field{title}{Transportation Energy Data Book, Edition 40}
     \verb{url}
     \verb https://tedb.ornl.gov/data/
     \endverb
     \field{year}{2022}
+  \endentry
+
+  \entry{Ortuzar_2024}{book}{}
+    \name{author}{2}{}{%
+      {{hash=dDOJ}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Dios\bibnamedelima Ort{\'u}zar},
+         familyi={D\bibinitperiod\bibinitdelim O\bibinitperiod},
+         given={Juan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WLG}{%
+         family={Willumsen},
+         familyi={W\bibinitperiod},
+         given={Luis\bibnamedelima G},
+         giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John wiley \& sons}%
+    }
+    \strng{namehash}{DOJdWLG1}
+    \strng{fullhash}{DOJdWLG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{title}{Modelling transport}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Raveau_2016}{incollection}{}
+    \name{author}{3}{}{%
+      {{hash=RS}{%
+         family={Raveau},
+         familyi={R\bibinitperiod},
+         given={Sebastián},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MJC}{%
+         family={Munoz},
+         familyi={M\bibinitperiod},
+         given={Juan\bibnamedelima Carlos},
+         giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=dDOJ}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Dios\bibnamedelima Ortúzar},
+         familyi={D\bibinitperiod\bibinitdelim O\bibinitperiod},
+         given={Juan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Policy Press}%
+    }
+    \strng{namehash}{RSMJCDOJd1}
+    \strng{fullhash}{RSMJCDOJd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{booktitle}{Restructuring Public Transport through Bus Rapid Transit}
+    \verb{doi}
+    \verb 10.51952/9781447326182.ch012
+    \endverb
+    \field{isbn}{9781447326182}
+    \field{pages}{231 \bibrangedash  246}
+    \field{title}{Twelve: User preferences and route choice}
+    \verb{url}
+    \verb https://bristoluniversitypressdigital.com/view/book/9781447326182/ch0
+    \verb 12.xml
+    \endverb
+    \list{location}{1}{%
+      {Bristol, UK}%
+    }
+    \field{year}{2016}
+  \endentry
+
+  \entry{BenAkiva_2004}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BAME}{%
+         family={Ben-Akiva},
+         familyi={B\bibinithyphendelim A\bibinitperiod},
+         given={Moshe\bibnamedelima E.},
+         giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=RMS}{%
+         family={Ramming},
+         familyi={R\bibinitperiod},
+         given={M.\bibnamedelima Scott},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bekhor},
+         familyi={B\bibinitperiod},
+         given={Shlomo},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=SM}{%
+         family={Schreckenberg},
+         familyi={S\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Selten},
+         familyi={S\bibinitperiod},
+         given={Reinhard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{BAMERMSBS1}
+    \strng{fullhash}{BAMERMSBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    We present alternative discrete choice models of route choice behavior in
+  road networks. A route choice model has two components: 1. The generation of
+  a choice set of alternative routes; and 2. The choice of route among the
+  alternatives in the choice set. The route choice models used in traffic
+  equilibrium tend to be very simple with implicit generation of very large
+  path choice sets. The advent of Intelligent Transportation Systems has
+  renewed the interest in modeling the effects of traffic information systems
+  on route choice behavior. Developments in discrete choice methods have also
+  led to the more sophisticated route choice models. We present results of a
+  small sample route choice survey of MIT employees showing that only a small
+  percentage of drivers select the minimum travel time, minimum distance or
+  minimum generalized cost paths as calculated from the model of the road
+  network. These results demonstrate that the usual deterministic route choice
+  model can be rejected. We then focus on the formulation of probabilistic
+  route choice models. We consider the problem of overlapping paths and the
+  modified Logit solutions that have been developed: C-Logit and Path-Size
+  Logit. We also consider applications to route choice of more general discrete
+  choice models including Cross-Nested Logit, Probit and, ultimately, the Logit
+  Kernel model, which is a flexible hybrid of Logit and Probit. The properties
+  of the different models are examined using simple network examples. Finally,
+  we present estimation results for the different choice models. The results
+  show that the Logit Kernel model with a Path-Size term gives the best fit.
+  The application of Probit and Logit Kernel models requires simulation. Among
+  the closed-form models, the Cross-Nested Logit with a Path-Size term provides
+  a slightly better fit then the Path-Size Logit. The Path-Size formulation
+  appears to have significant explanatory power of the way travelers perceive
+  the alternative paths in a road network.%
+    }
+    \field{booktitle}{Human Behaviour and Traffic Networks}
+    \field{isbn}{978-3-662-07809-9}
+    \field{pages}{23\bibrangedash 45}
+    \field{title}{Route Choice Models}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2004}
+  \endentry
+
+  \entry{DePalma_2005}{article}{}
+    \name{author}{2}{}{%
+      {{hash=dA}{%
+         family={{de Palma}},
+         familyi={d\bibinitperiod},
+         given={André},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Picard},
+         familyi={P\bibinitperiod},
+         given={Nathalie},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \keyw{Route choice, Travel time, Risk, Expected utility theory, Survey,
+  Ordered probit}
+    \strng{namehash}{dAPN1}
+    \strng{fullhash}{dAPN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    We study route choice behavior when travel time is uncertain. In this case,
+  users choice depends both on expected travel time and travel time
+  variability. We collected survey data in the Paris area and analyzed them
+  using a method based on the ordered probit. This leads to an ordinal as well
+  as to different cardinal measures of risk aversion. Such an approach is
+  consistent with expected and with non-expected utility theory. Econometric
+  estimates suggest that absolute risk aversion is constant and show that risk
+  aversion is larger for transit users, blue collars and for business
+  appointments.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.tra.2004.10.001
+    \endverb
+    \field{issn}{0965-8564}
+    \field{note}{Connection Choice: Papers from the 10th IATBR Conference}
+    \field{number}{4}
+    \field{pages}{295\bibrangedash 324}
+    \field{title}{Route choice decision under travel time uncertainty}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0965856404001041
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{Transportation Research Part A: Policy and Practice}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Hongli_2017}{article}{}
+    \name{author}{4}{}{%
+      {{hash=XH}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Hongli},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=YH}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Hai},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Jing},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yin},
+         familyi={Y\bibinitperiod},
+         given={Yafeng},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XH+1}
+    \strng{fullhash}{XHYHZJYY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This paper proposes a route choice model that incorporates the various
+  behavioral mechanisms in route choice proposed in the literature including
+  the shortest path, bounded rationality, asymmetric preference, and the time
+  surplus maximization. In the proposed model, travelers are assumed to compare
+  travel cost to their status quo (travel cost of the currently used path) in
+  deciding whether to switch to another alternative, and the underlying value
+  of time is adaptive in the sense that it varies across different route choice
+  contexts. We find that the status quo-dependent route choice model can handle
+  the route choice inertia resulting from different sources (e.g., travelers’
+  misperceptions, satisficing behavior, asymmetric preference). Moreover, the
+  inertia is path-specific and can incorporate the scaling effect of travel
+  cost on travelers’ route choices. Examples are provided to illustrate the
+  proposed status quo-dependent route choice model as well as its connection
+  with various existing route choice models.%
+    }
+    \verb{doi}
+    \verb 10.1287/trsc.2016.0710
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1287/trsc.2016.0710
+    \endverb
+    \field{number}{2}
+    \field{pages}{536\bibrangedash 548}
+    \field{title}{A Route Choice Model with Context-Dependent Value of Time}
+    \verb{url}
+    \verb https://doi.org/10.1287/trsc.2016.0710
+    \endverb
+    \field{volume}{51}
+    \field{journaltitle}{Transportation Science}
+    \field{year}{2017}
+  \endentry
+
+  \entry{ev_database_2025}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=DEV}{%
+         family={Database},
+         familyi={D\bibinitperiod},
+         given={Electric\bibnamedelima Vehicle},
+         giveni={E\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Electric Vehicle Database}%
+    }
+    \strng{namehash}{DEV1}
+    \strng{fullhash}{DEV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2025}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{title}{Energy consumption of full electric vehicles}
+    \verb{url}
+    \verb https://ev-database.org/cheatsheet/energy-consumption-electric-car
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{Miller_2024}{report}{}
+    \name{author}{2}{}{%
+      {{hash=MKG}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Kevin\bibnamedelima George},
+         giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=RH}{%
+         family={Richardson},
+         familyi={R\bibinitperiod},
+         given={Heather},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MKGRH1}
+    \strng{fullhash}{MKGRH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{number}{DOE/EE-2884}
+    \field{title}{Electric Vehicle Supply Equipment and Considerations for a
+  Reasonable Rate of Return}
+    \list{institution}{2}{%
+      {Joint Office of Energy}%
+      {Transportation}%
+    }
+    \field{type}{techreport}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Nicholas_2019}{report}{}
+    \name{author}{1}{}{%
+      {{hash=NM}{%
+         family={Nicholas},
+         familyi={N\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NM1}
+    \strng{fullhash}{NM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{title}{Estimating electric vehicle charging infrastructure costs
+  across major U.S. metropolitan areas}
+    \verb{url}
+    \verb https://theicct.org/publication/estimating-electric-vehicle-charging-
+    \verb infrastructure-costs-across-major-u-s-metropolitan-areas/
+    \endverb
+    \list{institution}{1}{%
+      {International Council for Clean Transportation (ICCT)}%
+    }
+    \field{type}{techreport}
+    \field{year}{2019}
   \endentry
 
   \entry{Gamage_2023}{article}{}
@@ -75,6 +507,8 @@
     \strng{fullhash}{GTTGJAT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \field{abstract}{%
     A national network of DC Fast Charging infrastructure (DCFC) corridors can
   facilitate connectivity and long-distance travel using battery electric
@@ -115,6 +549,150 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Jenn_2025}{article}{}
+    \name{author}{16}{}{%
+      {{hash=JA}{%
+         family={Jenn},
+         familyi={J\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Chakraborty},
+         familyi={C\bibinitperiod},
+         given={Amrita},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Hardman},
+         familyi={H\bibinitperiod},
+         given={Scott},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hoogland},
+         familyi={H\bibinitperiod},
+         given={Kelly},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sugihara},
+         familyi={S\bibinitperiod},
+         given={Claire},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Tal},
+         familyi={T\bibinitperiod},
+         given={Gil},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Helveston},
+         familyi={H\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Rich},
+         familyi={R\bibinitperiod},
+         given={Jeppe},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JP}{%
+         family={Jochem},
+         familyi={J\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Plötz},
+         familyi={P\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Sprei},
+         familyi={S\bibinitperiod},
+         given={Frances},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=WB}{%
+         family={Williams},
+         familyi={W\bibinitperiod},
+         given={Brett},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Axsen},
+         familyi={A\bibinitperiod},
+         given={Jonn},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Figenbaum},
+         familyi={F\bibinitperiod},
+         given={Erik},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pontes},
+         familyi={P\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Refa},
+         familyi={R\bibinitperiod},
+         given={Nazir},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IOP Publishing}%
+    }
+    \strng{namehash}{JA+1}
+    \strng{fullhash}{JACAHSHKSCTGHJRJJPPPSFWBAJFEPJRN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2025}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    In this review paper, we delve into the supply-side challenges and
+  considerations for transitioning to 100% zero-emission vehicles (ZEVs),
+  weaving together an analysis of batteries, vehicle production, charging
+  infrastructure, and relevant supply-side policies. We begin by examining the
+  innovations and environmental impacts of lithium mining and recycling,
+  highlighting the need for robust frameworks to ensure sustainable battery
+  production. Our exploration of vehicle production reveals important issues
+  regarding labor dynamics and global competitiveness. Our investigation into
+  charging infrastructure reveals complexities in deployment models and access,
+  reflecting broader societal and economic considerations. Lastly, a critical
+  evaluation of policies across various jurisdictions provides insights into
+  the effectiveness and potential improvements needed to support the ZEV
+  transition. We emphasize the need for coordinated efforts and further
+  research, particularly in areas such as end-of-life considerations for
+  batteries and the alignment of international production standards. Our
+  findings contribute to a comprehensive understanding of the supply-side
+  landscape for ZEVs and underscore the essential research directions to ensure
+  a responsible and successful electrification of the transportation system.%
+    }
+    \verb{doi}
+    \verb 10.1088/2516-1083/ada199
+    \endverb
+    \field{number}{2}
+    \field{pages}{022002}
+    \field{title}{Supply-side challenges and research needs on the road to 100%
+  zero-emissions vehicle sales}
+    \verb{url}
+    \verb https://dx.doi.org/10.1088/2516-1083/ada199
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{Progress in Energy}
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{Owen_1998}{article}{}
     \name{author}{2}{}{%
       {{hash=OSH}{%
@@ -134,6 +712,8 @@
     \strng{fullhash}{OSHDMS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{1998}
+    \field{labeldatesource}{}
     \field{number}{3}
     \field{pages}{423\bibrangedash 447}
     \field{title}{{Strategic facility location: A review}}
@@ -146,7 +726,7 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{Metais_2022}{article}{}
+  \entry{Metais_2022_rser}{article}{}
     \name{author}{5}{}{%
       {{hash=MM}{%
          family={Metais},
@@ -185,6 +765,8 @@
     \strng{fullhash}{MMJOPYBJSE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1016/j.rser.2021.111719
     \endverb
@@ -200,7 +782,261 @@
     \field{year}{2022}
   \endentry
 
-  \entry{Kuby_2023}{incollection}{}
+  \entry{Zhu_2018_jssse}{article}{}
+    \name{author}{4}{}{%
+      {{hash=ZZ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Zhihong},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GZ}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Ziyou},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Jianfeng},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=DH}{%
+         family={Du},
+         familyi={D\bibinitperiod},
+         given={Haoming},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZZ+1}
+    \strng{fullhash}{ZZGZZJDH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    A novel model for the charging station planning problem of plug-in electric
+  vehicles is proposed in this paper considering the users’ daily travel.
+  With the objective of minimizing the total cost, including the charging
+  stations’ cost (including installing cost and management cost) and the
+  users’ cost (including station access cost and charging cost), the proposed
+  model simultaneously handles the problems where to locate the charging
+  stations and how many chargers to be established in each charging station.
+  Considering that different users may have different perception of station
+  access cost and charging cost, two cases (i.e., homogeneous users and
+  heterogeneous users) are typically investigated. The impacts of different
+  discount rates, operating period of the charging stations, number of electric
+  vehicles and number of charging stations on the location of the charging
+  station are also studied. The simulation results not only show that it is
+  very important to locate the charging stations according to the traveling
+  behavior of users, but also verify the validity of the proposed model.%
+    }
+    \verb{doi}
+    \verb 10.1007/s11518-017-5352-6
+    \endverb
+    \field{issn}{1861-9576}
+    \field{pages}{24\bibrangedash 45}
+    \field{title}{Charging Station Planning for Plug-In Electric Vehicles}
+    \verb{url}
+    \verb https://doi.org/10.1007/s11518-017-5352-6
+    \endverb
+    \field{volume}{27}
+    \field{journaltitle}{Journal of Systems Science and Systems Engineering}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Yi_2019_e}{article}{}
+    \name{author}{4}{}{%
+      {{hash=YT}{%
+         family={Yi},
+         familyi={Y\bibinitperiod},
+         given={Tao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CXb}{%
+         family={Cheng},
+         familyi={C\bibinitperiod},
+         given={Xiao-bin},
+         giveni={X\bibinithyphendelim b\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Hao},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LJp}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Jin-peng},
+         giveni={J\bibinithyphendelim p\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YT+1}
+    \strng{fullhash}{YTCXbZHLJp1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    The development of electric vehicles has significant value for the
+  sustainable utilization of energy resources. However, the unreasonable
+  construction of charging stations causes problems such as low user
+  satisfaction, waste of land resources, unstable power systems, and so on.
+  Reasonable planning of the location and capacity of charging stations is of
+  great significance to users, investors and power grids. This paper
+  synthetically considers three indicators of user satisfaction: charging
+  convenience, charging cost and charging time. Considering the load and
+  charging requirements, the model of electric vehicle charging station
+  location and volume is established, and the model based on artificial immune
+  algorithm is used to optimize the solution. An empirical analysis was
+  conducted based on a typical regional survey. The research results show that
+  increasing the density of charging stations, lowering the charging price and
+  shortening the charging time can effectively improve user satisfaction. The
+  constructed site and capacity selection optimization solving model can
+  scientifically guide charging station resource allocation under the
+  constraints of the optimal user comprehensive satisfaction target, improve
+  the capacity of scientific planning and resource allocation of regional
+  electric vehicle charging stations, and support the large-scale promotion and
+  application of electric vehicles.%
+    }
+    \verb{doi}
+    \verb 10.3390/en12101915
+    \endverb
+    \field{issn}{1996-1073}
+    \field{number}{10}
+    \field{title}{Research on Location and Capacity Optimization Method for
+  Electric Vehicle Charging Stations Considering User’s Comprehensive
+  Satisfaction}
+    \verb{url}
+    \verb https://www.mdpi.com/1996-1073/12/10/1915
+    \endverb
+    \field{volume}{12}
+    \field{journaltitle}{Energies}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Xiao_2020_jes}{article}{}
+    \name{author}{5}{}{%
+      {{hash=XD}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=AS}{%
+         family={An},
+         familyi={A\bibinitperiod},
+         given={Shi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CH}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Hua},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Jian},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CH}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Haiming},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \keyw{Electric vehicles, Charging infrastructure, Facility location,
+  Queuing theory, Finite queue length}
+    \strng{namehash}{XD+1}
+    \strng{fullhash}{XDASCHWJCH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    As clean energy vehicles, electric vehicles (EVs) have been paid
+  unprecedented attention in dealing with serious energy crises and heavy
+  tailpipe emission in recent years. Due to its limited battery range and long
+  charging time, it's significant to reasonably determine the locations and
+  capacities of EV charging infrastructure. There are two research gaps in
+  existing researches: unrealistically assuming the infinite queuing length
+  based on the M/M/1 or M/M/S queuing model and lacking the research on
+  variable quantities of chargers allocated at different charging stations. To
+  fill up these gaps, we propose an optimal location model to determine the
+  optimal locations and capacities of EV charging infrastructure to minimize
+  the comprehensive total cost, which considers the charging queuing behavior
+  with finite queue length and various siting constrains. And the results show
+  that (1) the proposed model has a good performance in determining the optimal
+  locations and capacities of EV charging infrastructure (i.e. the optimal
+  locations of charging stations, the optimal quantities of chargers installed
+  at each charging station, the optimal allowable maximum queue length and
+  maximum capacity of each charging station); (2) the quantity of chargers and
+  allowable maximum queue length at each charging station are consistent with
+  the distribution densities of existing charging stations at these locations;
+  (3) the two parameters of unit value of time and unit distance cost have a
+  more significant impact on the total cost. Therefore, the total cost can be
+  effectively reduced by appropriately increasing the quantity of chargers at
+  each charging station and the distribution density of charging stations.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.est.2020.101317
+    \endverb
+    \field{issn}{2352-152X}
+    \field{pages}{101317}
+    \field{title}{An optimization model for electric vehicle charging
+  infrastructure planning considering queuing behavior with finite queue
+  length}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2352152X19309053
+    \endverb
+    \field{volume}{29}
+    \field{journaltitle}{Journal of Energy Storage}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Ma_Xie_2021_trd}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MTY}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Tai-Yu},
+         giveni={T\bibinithyphendelim Y\bibinitperiod},
+      }}%
+      {{hash=XS}{%
+         family={Xie},
+         familyi={X\bibinitperiod},
+         given={Simin},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MTYXS1}
+    \strng{fullhash}{MTYXS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trd.2020.102682
+    \endverb
+    \field{issn}{1361-9209}
+    \field{pages}{102682}
+    \field{title}{Optimal fast charging station locations for electric
+  ridesharing with vehicle-charging station assignment}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S136192092030866X
+    \endverb
+    \field{volume}{90}
+    \field{journaltitle}{Transportation Research Part D: Transport and
+  Environment}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Kuby_2023_he}{incollection}{}
     \name{author}{4}{}{%
       {{hash=KMJ}{%
          family={Kuby},
@@ -254,6 +1090,8 @@
     \strng{fullhash}{KMJMASKSBTG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \field{booktitle}{Hydrogen Economy (Second Edition)}
     \verb{doi}
     \verb https://doi.org/10.1016/B978-0-323-99514-6.00016-9
@@ -266,61 +1104,7 @@
     \field{year}{2023}
   \endentry
 
-  \entry{Yuvaraj_2024}{article}{}
-    \name{author}{5}{}{%
-      {{hash=YT}{%
-         family={Yuvaraj},
-         familyi={Y\bibinitperiod},
-         given={T.},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=DKR}{%
-         family={Devabalaji},
-         familyi={D\bibinitperiod},
-         given={K.\bibnamedelima R.},
-         giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
-      }}%
-      {{hash=KJA}{%
-         family={Kumar},
-         familyi={K\bibinitperiod},
-         given={J.\bibnamedelima Anish},
-         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=TSB}{%
-         family={Thanikanti},
-         familyi={T\bibinitperiod},
-         given={Sudhakar\bibnamedelima Babu},
-         giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod},
-      }}%
-      {{hash=NNI}{%
-         family={Nwulu},
-         familyi={N\bibinitperiod},
-         given={Nnamdi\bibnamedelima I.},
-         giveni={N\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-    }
-    \keyw{Batteries;Electric vehicle charging;Electric potential;Costs;Resource
-  management;Object recognition;Charging stations;Energy storage;Electrical
-  vehicles;electric vehicle charging stations;bald eagle search
-  algorithm;cuckoo search algorithm;renewable distributed
-  generations;distribution static compensator;battery energy storage
-  system;capacitor;innovative charging technique;radial distribution system}
-    \strng{namehash}{YT+1}
-    \strng{fullhash}{YTDKRKJATSBNNI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1109/ACCESS.2023.3349274
-    \endverb
-    \field{pages}{5404\bibrangedash 5461}
-    \field{title}{A Comprehensive Review and Analysis of the Allocation of
-  Electric Vehicle Charging Stations in Distribution Networks}
-    \field{volume}{12}
-    \field{journaltitle}{IEEE Access}
-    \field{year}{2024}
-  \endentry
-
-  \entry{Faustino_2023}{article}{}
+  \entry{Faustino_2023_e}{article}{}
     \name{author}{7}{}{%
       {{hash=FFJ}{%
          family={Faustino},
@@ -369,6 +1153,8 @@
     \strng{fullhash}{FFJLJCMJDSTPFABJAGCO1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1016/j.energy.2023.128436
     \endverb
@@ -384,7 +1170,7 @@
     \field{year}{2023}
   \endentry
 
-  \entry{Gupta_2023}{article}{}
+  \entry{Gupta_2023_jes}{article}{}
     \name{author}{4}{}{%
       {{hash=GRS}{%
          family={Gupta},
@@ -415,6 +1201,8 @@
     \strng{fullhash}{GRSAYTAAS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1016/j.est.2023.109052
     \endverb
@@ -431,98 +1219,143 @@
     \field{year}{2023}
   \endentry
 
-  \entry{Tungom_2024}{article}{}
-    \name{author}{3}{}{%
-      {{hash=TCE}{%
-         family={Tungom},
-         familyi={T\bibinitperiod},
-         given={Chia\bibnamedelima E.},
-         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+  \entry{Liu_2023_ijst}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BLSTTPP}{%
+         family={Bingqing\bibnamedelima Liu},
+         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
+         suffix={Theodoros P.\bibnamedelima Pantelidis},
+         suffixi={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  P\bibinitperiod},
+         given={Stephanie\bibnamedelima Tam},
+         giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
       }}%
-      {{hash=NB}{%
-         family={Niu},
-         familyi={N\bibinitperiod},
-         given={Ben},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=WH}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Hong},
-         giveni={H\bibinitperiod},
+      {{hash=CJYJ}{%
+         family={Chow},
+         familyi={C\bibinitperiod},
+         given={Joseph Y.\bibnamedelima J.},
+         giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim
+  J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{TCENBWH1}
-    \strng{fullhash}{TCENBWH1}
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{BLTPPSTCJYJ1}
+    \strng{fullhash}{BLTPPSTCJYJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb https://doi.org/10.1016/j.eswa.2023.121761
+    \verb 10.1080/15568318.2022.2029633
     \endverb
-    \field{issn}{0957-4174}
-    \field{pages}{121761}
-    \field{title}{Hierarchical framework for demand prediction and iterative
-  optimization of EV charging network infrastructure under uncertainty with
-  cost and quality-of-service consideration}
-    \field{volume}{237}
-    \field{journaltitle}{Expert Systems with Applications}
+    \field{number}{3}
+    \field{pages}{228\bibrangedash 244}
+    \field{title}{An electric vehicle charging station access equilibrium model
+  with M/D/C queueing}
+    \field{volume}{17}
+    \field{journaltitle}{International Journal of Sustainable Transportation}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Weekx_2024_trr}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WS}{%
+         family={Weekx},
+         familyi={W\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Tal},
+         familyi={T\bibinitperiod},
+         given={Gil},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=VL}{%
+         family={Vanhaverbeke},
+         familyi={V\bibinitperiod},
+         given={Lieselot},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {English}%
+    }
+    \list{publisher}{1}{%
+      {US National Research Council}%
+    }
+    \strng{namehash}{WSTGVL1}
+    \strng{fullhash}{WSTGVL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{issn}{0361-1981}
+    \field{title}{How Many More Charging Stations Do We Need? A Data-Driven
+  Approach Considering Charging Station Overflow Dynamics.}
+    \field{journaltitle}{Transp Res Rec}
     \field{year}{2024}
   \endentry
 
-  \entry{Wu_Fainman_2024}{article}{}
+  \entry{Yuvaraj_2024_ia}{article}{}
     \name{author}{5}{}{%
-      {{hash=WT}{%
-         family={Wu},
-         familyi={W\bibinitperiod},
-         given={Ting},
+      {{hash=YT}{%
+         family={Yuvaraj},
+         familyi={Y\bibinitperiod},
+         given={T.},
          giveni={T\bibinitperiod},
       }}%
-      {{hash=FE}{%
-         family={Fainman},
-         familyi={F\bibinitperiod},
-         given={Emily},
-         giveni={E\bibinitperiod},
+      {{hash=DKR}{%
+         family={Devabalaji},
+         familyi={D\bibinitperiod},
+         given={K.\bibnamedelima R.},
+         giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
       }}%
-      {{hash=MY}{%
-         family={Maïzi},
-         familyi={M\bibinitperiod},
-         given={Yasmina},
-         giveni={Y\bibinitperiod},
+      {{hash=KJA}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={J.\bibnamedelima Anish},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
       }}%
-      {{hash=SJ}{%
-         family={Shu},
-         familyi={S\bibinitperiod},
-         given={Jia},
-         giveni={J\bibinitperiod},
+      {{hash=TSB}{%
+         family={Thanikanti},
+         familyi={T\bibinitperiod},
+         given={Sudhakar\bibnamedelima Babu},
+         giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod},
       }}%
-      {{hash=LY}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Yongzhen},
-         giveni={Y\bibinitperiod},
+      {{hash=NNI}{%
+         family={Nwulu},
+         familyi={N\bibinitperiod},
+         given={Nnamdi\bibnamedelima I.},
+         giveni={N\bibinitperiod\bibinitdelim I\bibinitperiod},
       }}%
     }
-    \strng{namehash}{WT+1}
-    \strng{fullhash}{WTFEMYSJLY1}
+    \keyw{Batteries;Electric vehicle charging;Electric potential;Costs;Resource
+  management;Object recognition;Charging stations;Energy storage;Electrical
+  vehicles;electric vehicle charging stations;bald eagle search
+  algorithm;cuckoo search algorithm;renewable distributed
+  generations;distribution static compensator;battery energy storage
+  system;capacitor;innovative charging technique;radial distribution system}
+    \strng{namehash}{YT+2}
+    \strng{fullhash}{YTDKRKJATSBNNI1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb https://doi.org/10.1016/j.trd.2024.104178
+    \verb 10.1109/ACCESS.2023.3349274
     \endverb
-    \field{issn}{1361-9209}
-    \field{pages}{104178}
-    \field{title}{Allocate electric vehicles’ public charging stations with
-  charging demand uncertainty}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S1361920924001354
-    \endverb
-    \field{volume}{130}
-    \field{journaltitle}{Transportation Research Part D: Transport and
-  Environment}
+    \field{pages}{5404\bibrangedash 5461}
+    \field{title}{A Comprehensive Review and Analysis of the Allocation of
+  Electric Vehicle Charging Stations in Distribution Networks}
+    \field{volume}{12}
+    \field{journaltitle}{IEEE Access}
     \field{year}{2024}
   \endentry
 
-  \entry{Davatgari_2024}{article}{}
+  \entry{Davatgari_2024_ejor}{article}{}
     \name{author}{5}{}{%
       {{hash=DA}{%
          family={Davatgari},
@@ -559,6 +1392,8 @@
     \strng{fullhash}{DACTSALJMAK1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1016/j.ejor.2024.04.022
     \endverb
@@ -575,86 +1410,231 @@
     \field{year}{2024}
   \endentry
 
-  \entry{Ma_Xie_2021}{article}{}
-    \name{author}{2}{}{%
-      {{hash=MTY}{%
-         family={Ma},
-         familyi={M\bibinitperiod},
-         given={Tai-Yu},
-         giveni={T\bibinithyphendelim Y\bibinitperiod},
+  \entry{Tungom_2024_esa}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TCE}{%
+         family={Tungom},
+         familyi={T\bibinitperiod},
+         given={Chia\bibnamedelima E.},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
       }}%
-      {{hash=XS}{%
-         family={Xie},
-         familyi={X\bibinitperiod},
-         given={Simin},
-         giveni={S\bibinitperiod},
+      {{hash=NB}{%
+         family={Niu},
+         familyi={N\bibinitperiod},
+         given={Ben},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
       }}%
     }
-    \strng{namehash}{MTYXS1}
-    \strng{fullhash}{MTYXS1}
+    \strng{namehash}{TCENBWH1}
+    \strng{fullhash}{TCENBWH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb https://doi.org/10.1016/j.trd.2020.102682
+    \verb https://doi.org/10.1016/j.eswa.2023.121761
     \endverb
-    \field{issn}{1361-9209}
-    \field{pages}{102682}
-    \field{title}{Optimal fast charging station locations for electric
-  ridesharing with vehicle-charging station assignment}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S136192092030866X
-    \endverb
-    \field{volume}{90}
-    \field{journaltitle}{Transportation Research Part D: Transport and
-  Environment}
-    \field{year}{2021}
+    \field{issn}{0957-4174}
+    \field{pages}{121761}
+    \field{title}{Hierarchical framework for demand prediction and iterative
+  optimization of EV charging network infrastructure under uncertainty with
+  cost and quality-of-service consideration}
+    \field{volume}{237}
+    \field{journaltitle}{Expert Systems with Applications}
+    \field{year}{2024}
   \endentry
 
-  \entry{Liu_2023}{article}{}
-    \name{author}{2}{}{%
-      {{hash=BLSTTPP}{%
-         family={Bingqing\bibnamedelima Liu},
-         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
-         suffix={Theodoros P.\bibnamedelima Pantelidis},
-         suffixi={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
-  P\bibinitperiod},
-         given={Stephanie\bibnamedelima Tam},
-         giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
+  \entry{Vijay_2024_es}{article}{}
+    \name{author}{3}{}{%
+      {{hash=VV}{%
+         family={Vijay},
+         familyi={V\bibinitperiod},
+         given={Vutla},
+         giveni={V\bibinitperiod},
       }}%
-      {{hash=CJYJ}{%
-         family={Chow},
-         familyi={C\bibinitperiod},
-         given={Joseph Y.\bibnamedelima J.},
-         giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim
-  J\bibinitperiod},
+      {{hash=VC}{%
+         family={Venkaiah},
+         familyi={V\bibinitperiod},
+         given={Chintham},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KDMV}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={D.\bibnamedelima M.\bibnamedelima Vinod},
+         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim
+  V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VVVCKDMV1}
+    \strng{fullhash}{VVVCKDMV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb 10.1002/est2.484
+    \endverb
+    \field{note}{Cited by: 3}
+    \field{number}{1}
+    \field{title}{Multi objective queue theory based optimal planning of rapid
+  charging stations and distributed generators in coupled transportation and
+  distribution network}
+    \verb{url}
+    \verb https://www.scopus.com/inward/record.uri?eid=2-s2.0-85159620720&doi=1
+    \verb 0.1002%2fest2.484&partnerID=40&md5=ac82f824c9df19d7e56a0da691009ca4
+    \endverb
+    \field{volume}{6}
+    \field{type}{Article}
+    \field{journaltitle}{Energy Storage}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Wu_2024_trd}{article}{}
+    \name{author}{5}{}{%
+      {{hash=WT}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Ting},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Fainman},
+         familyi={F\bibinitperiod},
+         given={Emily},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Maïzi},
+         familyi={M\bibinitperiod},
+         given={Yasmina},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shu},
+         familyi={S\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Yongzhen},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \keyw{Robust optimization, Allocation problem, Electric vehicle charging
+  infrastructure, Discrete-event simulation}
+    \strng{namehash}{WT+1}
+    \strng{fullhash}{WTFEMYSJLY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    Nowadays, electric vehicles (EVs) have developed rapidly due to their great
+  advantages in fuel savings, reduced greenhouse gas emissions, and low air
+  pollution. However, charging imbalances and shortages have limited the
+  prevalence of EVs. We optimize the siting and sizing of public charging
+  stations under uncertain urban en-route recharging demand. Considering
+  charging congestion, we introduce the Erlang’s loss formula to represent
+  the service level requirement of each charging station. First, we determine
+  the optimal locations and sizes of those stations by a robust optimization
+  model, where we figure out its deterministic dual following linear
+  approximation of the loss rate in queueing models. We further use a
+  discrete-event simulation to relax the assumption of time-independent
+  charging demand in the optimization approach and model real-time traffic
+  based on real-world traffic and power grid information in Nanjing, China.
+  Thus, we verify the robust optimum outperforming deterministic and stochastic
+  optimums.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trd.2024.104178
+    \endverb
+    \field{issn}{1361-9209}
+    \field{pages}{104178}
+    \field{title}{Allocate electric vehicles’ public charging stations with
+  charging demand uncertainty}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S1361920924001354
+    \endverb
+    \field{volume}{130}
+    \field{journaltitle}{Transportation Research Part D: Transport and
+  Environment}
+    \field{year}{2024}
+  \endentry
+
+  \entry{NHTS_2017}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FFHA}{%
+         family={(FHA)},
+         familyi={F\bibinitperiod},
+         given={Federal Highway\bibnamedelima Administration},
+         giveni={F\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  A\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Taylor \& Francis}%
+      {U.S. Department of Transportation}%
     }
-    \strng{namehash}{BLTPPSTCJYJ1}
-    \strng{fullhash}{BLTPPSTCJYJ1}
+    \strng{namehash}{FFHA1}
+    \strng{fullhash}{FFHA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1080/15568318.2022.2029633
-    \endverb
-    \field{number}{3}
-    \field{pages}{228\bibrangedash 244}
-    \field{title}{An electric vehicle charging station access equilibrium model
-  with M/D/C queueing}
-    \field{volume}{17}
-    \field{journaltitle}{International Journal of Sustainable Transportation}
-    \field{year}{2023}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{note}{\url{https://nhts.ornl.gov/}}
+    \field{title}{2017 National Household Travel Survey}
+    \field{journaltitle}{Federal Highway Administration (FHA)}
+    \field{year}{2017}
   \endentry
 
-  \entry{Weekx_2024}{article}{}
-    \name{author}{3}{}{%
-      {{hash=WS}{%
-         family={Weekx},
-         familyi={W\bibinitperiod},
-         given={Simon},
+  \entry{NHTS_2022}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FFHA}{%
+         family={(FHWA)},
+         familyi={F\bibinitperiod},
+         given={Federal Highway\bibnamedelima Administration},
+         giveni={F\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {U.S. Department of Transportation}%
+    }
+    \strng{namehash}{FFHA2}
+    \strng{fullhash}{FFHA2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{note}{\url{https://nhts.ornl.gov/}}
+    \field{title}{2022 National Household Travel Survey}
+    \field{journaltitle}{Federal Highway Administration (FHWA)}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Hardman_2018}{article}{}
+    \name{author}{16}{}{%
+      {{hash=HS}{%
+         family={Hardman},
+         familyi={H\bibinitperiod},
+         given={Scott},
          giveni={S\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={Jenn},
+         familyi={J\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
       }}%
       {{hash=TG}{%
          family={Tal},
@@ -662,31 +1642,909 @@
          given={Gil},
          giveni={G\bibinitperiod},
       }}%
-      {{hash=VL}{%
-         family={Vanhaverbeke},
-         familyi={V\bibinitperiod},
-         given={Lieselot},
-         giveni={L\bibinitperiod},
+      {{hash=AJ}{%
+         family={Axsen},
+         familyi={A\bibinitperiod},
+         given={Jonn},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Beard},
+         familyi={B\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=DN}{%
+         family={Daina},
+         familyi={D\bibinitperiod},
+         given={Nicolo},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Figenbaum},
+         familyi={F\bibinitperiod},
+         given={Erik},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=JN}{%
+         family={Jakobsson},
+         familyi={J\bibinitperiod},
+         given={Niklas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=JP}{%
+         family={Jochem},
+         familyi={J\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KN}{%
+         family={Kinnear},
+         familyi={K\bibinitperiod},
+         given={Neale},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Plötz},
+         familyi={P\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pontes},
+         familyi={P\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Refa},
+         familyi={R\bibinitperiod},
+         given={Nazir},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Sprei},
+         familyi={S\bibinitperiod},
+         given={Frances},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=TT}{%
+         family={Turrentine},
+         familyi={T\bibinitperiod},
+         given={Tom},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=WB}{%
+         family={Witkamp},
+         familyi={W\bibinitperiod},
+         given={Bert},
+         giveni={B\bibinitperiod},
       }}%
     }
-    \list{language}{1}{%
-      {English}%
-    }
-    \list{publisher}{1}{%
-      {US National Research Council}%
-    }
-    \strng{namehash}{WSTGVL1}
-    \strng{fullhash}{WSTGVL1}
+    \strng{namehash}{HS+1}
+    \strng{fullhash}{HSJATGAJBGDNFEJNJPKNPPPJRNSFTTWB1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{issn}{0361-1981}
-    \field{title}{How Many More Charging Stations Do We Need? A Data-Driven
-  Approach Considering Charging Station Overflow Dynamics.}
-    \field{journaltitle}{Transp Res Rec}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This paper presents a literature review of studies that investigate
+  infrastructure needs to support the market introduction of plug-in electric
+  vehicles (PEVs). It focuses on literature relating to consumer preferences
+  for charging infrastructure, and how consumers interact with and use this
+  infrastructure. This includes studies that use questionnaire surveys,
+  interviews, modelling, GPS data from vehicles, and data from electric vehicle
+  charging equipment. These studies indicate that the most important location
+  for PEV charging is at home, followed by work, and then public locations.
+  Studies have found that more effort is needed to ensure consumers have easy
+  access to PEV charging and that charging at home, work, or public locations
+  should not be free of cost. Research indicates that PEV charging will not
+  impact electricity grids on the short term, however charging may need to be
+  managed when the vehicles are deployed in greater numbers. In some areas of
+  study the literature is not sufficiently mature to draw any conclusions from.
+  More research is especially needed to determine how much infrastructure is
+  needed to support the roll out of PEVs. This paper ends with policy
+  implications and suggests avenues of future research.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trd.2018.04.002
+    \endverb
+    \field{issn}{1361-9209}
+    \field{pages}{508\bibrangedash 523}
+    \field{title}{A review of consumer preferences of and interactions with
+  electric vehicle charging infrastructure}
+    \field{volume}{62}
+    \field{journaltitle}{Transportation Research Part D: Transport and
+  Environment}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Kuby_2005_seps}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KMLS1}
+    \strng{fullhash}{KMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.seps.2004.03.001
+    \endverb
+    \field{issn}{0038-0121}
+    \field{number}{2}
+    \field{pages}{125\bibrangedash 145}
+    \field{title}{The flow-refueling location problem for alternative-fuel
+  vehicles}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0038012104000175
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{Socio-Economic Planning Sciences}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Kuby_2007_nse}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \keyw{Continuous location; Link; Flow intercepting; Hydrogen refueling;
+  Finite dominating set; Vehicle ran}
+    \strng{namehash}{KMLS1}
+    \strng{fullhash}{KMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1007/s11067-006-9003-6
+    \endverb
+    \field{number}{2}
+    \field{pages}{129\bibrangedash 152}
+    \field{title}{{Location of Alternative-Fuel Stations Using the
+  Flow-Refueling Location Model and Dispersion of Candidate Sites on Arcs}}
+    \field{volume}{7}
+    \field{journaltitle}{Networks and Spatial Economics}
+    \field{year}{2007}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Upchurch_2009_ga}{article}{}
+    \name{author}{3}{}{%
+      {{hash=UC}{%
+         family={Upchurch},
+         familyi={U\bibinitperiod},
+         given={Christopher},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Seow},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{UCKMLS1}
+    \strng{fullhash}{UCKMLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1111/j.1538-4632.2009.00744.x
+    \endverb
+    \field{pages}{85 \bibrangedash  106}
+    \field{title}{A Model for Location of Capacitated Alternative‐Fuel
+  Stations}
+    \field{volume}{41}
+    \field{journaltitle}{Geographical Analysis}
+    \field{month}{01}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Kim_2012_ijhe}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KJG}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Jong-Geun},
+         giveni={J\bibinithyphendelim G\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kuby},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \keyw{Deviation, Optimal, Location, Station, Model, Intercepting}
+    \strng{namehash}{KJGKM1}
+    \strng{fullhash}{KJGKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2012}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ijhydene.2011.08.108
+    \endverb
+    \field{issn}{0360-3199}
+    \field{note}{Optimization Approaches to Hydrogen Logistics}
+    \field{number}{6}
+    \field{pages}{5406\bibrangedash 5420}
+    \field{title}{The deviation-flow refueling location model for optimizing a
+  network of refueling stations}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0360319911020337
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{International Journal of Hydrogen Energy}
+    \field{year}{2012}
+  \endentry
+
+  \entry{MirHassani_2013_ts}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MSA}{%
+         family={MirHassani},
+         familyi={M\bibinitperiod},
+         given={S.\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=ER}{%
+         family={Ebrazi},
+         familyi={E\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \keyw{fuel station; location problem; maximum flow; mixed-integer
+  programming}
+    \strng{namehash}{MSAER1}
+    \strng{fullhash}{MSAER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    Serious environmental and economic problems of using fossil fuels in
+  transportation sections force managers to think of alternative fuels such as
+  hydrogen, ethanol, biodiesel, natural gas, or electricity. Meanwhile, lack of
+  fuel network infrastructures is a major problem, which needs to be
+  investigated considering the number and optimal location of alternative fuel
+  stations. In the literature, two different flow-based demand modeling
+  concepts (the maximum cover and set cover) have been proposed for solving
+  this problem. Because of the huge number of combinations of fuel stations for
+  covering the flow of each path, the models are impractical for the real size
+  problems. In this paper, the flow refueling location model was reformulated
+  and a flexible mixed-integer linear programming model was presented, which
+  was able to obtain an optimal solution much faster than the previous set
+  cover version. The model also could be solved in the maximum cover form in a
+  reasonable time on the large-sized networks.%
+    }
+    \verb{doi}
+    \verb 10.1287/trsc.1120.0430
+    \endverb
+    \field{number}{4}
+    \field{pages}{617\bibrangedash 628}
+    \field{title}{{A Flexible Reformulation of the Refueling Station Location
+  Problem}}
+    \verb{url}
+    \verb https://ideas.repec.org/a/inm/ortrsc/v47y2013i4p617-628.html
+    \endverb
+    \field{volume}{47}
+    \field{journaltitle}{Transportation Science}
+    \field{year}{2013}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Huang_Li_2015_nse}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yongxi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shengyin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=QZS}{%
+         family={Qian},
+         familyi={Q\bibinitperiod},
+         given={Zhen\bibnamedelima Sean},
+         giveni={Z\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HYLSQZS1}
+    \strng{fullhash}{HYLSQZS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1007/s11067-014-9275-1
+    \endverb
+    \field{title}{Optimal Deployment of Alternative Fueling Stations on
+  Transportation Networks Considering Deviation Paths}
+    \field{journaltitle}{Netowrks and Spatial Economics}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Li_Huang_2016_trc}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shengyin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yongxi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MSJ}{%
+         family={Mason},
+         familyi={M\bibinitperiod},
+         given={Scott\bibnamedelima J.},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LSHYMSJ1}
+    \strng{fullhash}{LSHYMSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trc.2016.01.008
+    \endverb
+    \field{issn}{0968-090X}
+    \field{pages}{128\bibrangedash 143}
+    \field{title}{A multi-period optimization model for the deployment of
+  public electric vehicle charging stations on network}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0968090X16000267
+    \endverb
+    \field{volume}{65}
+    \field{journaltitle}{Transportation Research Part C: Emerging Technologies}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Zhang_2017_trb}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZA}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Anpeng},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KJE}{%
+         family={Kang},
+         familyi={K\bibinitperiod},
+         given={Jee\bibnamedelima Eun},
+         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kwon},
+         familyi={K\bibinitperiod},
+         given={Changhyun},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZAKJEKC1}
+    \strng{fullhash}{ZAKJEKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.trb.2017.04.016
+    \endverb
+    \field{issn}{0191-2615}
+    \field{note}{Green Urban Transportation}
+    \field{pages}{5\bibrangedash 29}
+    \field{title}{Incorporating demand dynamics in multi-period capacitated
+  fast-charging location planning for electric vehicles}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0191261516304349
+    \endverb
+    \field{volume}{103}
+    \field{journaltitle}{Transportation Research Part B: Methodological}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Tian_2018_s}{article}{}
+    \name{author}{5}{}{%
+      {{hash=TZ}{%
+         family={Tian},
+         familyi={T\bibinitperiod},
+         given={Zhihui},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=HW}{%
+         family={Hou},
+         familyi={H\bibinitperiod},
+         given={Wenbin},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=GX}{%
+         family={Gu},
+         familyi={G\bibinitperiod},
+         given={Xiaoning},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=GF}{%
+         family={Gu},
+         familyi={G\bibinitperiod},
+         given={Feng},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=YB}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Baozhen},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TZ+1}
+    \strng{fullhash}{TZHWGXGFYB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    The electric vehicle is seen as an effective way to alleviate the current
+  energy crisis and environmental problems. However, the lack of supporting
+  charging facilities is still a bottleneck in the development of electric
+  vehicles in the Chinese market. In this paper, the cloud model is used to
+  first predict drivers’ charging behavior. An optimization model of charging
+  stations is proposed, which is based on waiting time. The target of this
+  optimization model is to minimize the time cost to electric vehicle drivers.
+  We use the SCE-UA algorithm to solve the optimization model. We apply our
+  method to Dalian, China to optimize charging station locations. We also
+  analyze the optimized result with or without behavior prediction, the
+  optimized result of different numbers of electric vehicles, and the optimized
+  result of different cost constraints. The analysis shows the feasibility and
+  advantages of the charging station location optimization method proposed in
+  this paper.%
+    }
+    \verb{doi}
+    \verb 10.1177/0037549717743807
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1177/0037549717743807
+    \endverb
+    \field{number}{7}
+    \field{pages}{625\bibrangedash 636}
+    \field{title}{The location optimization of electric vehicle charging
+  stations considering charging behavior}
+    \verb{url}
+    \verb https://doi.org/10.1177/0037549717743807
+    \endverb
+    \field{volume}{94}
+    \field{journaltitle}{SIMULATION}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Arslan_2019_ts}{article}{}
+    \name{author}{4}{}{%
+      {{hash=AO}{%
+         family={Arslan},
+         familyi={A\bibinitperiod},
+         given={Okan},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=KOE}{%
+         family={Kara\c{s}an},
+         familyi={K\bibinitperiod},
+         given={Oya\bibnamedelima Ekin},
+         giveni={O\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=MAR}{%
+         family={Mahjoub},
+         familyi={M\bibinitperiod},
+         given={A.\bibnamedelima Ridha},
+         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=YH}{%
+         family={Yaman},
+         familyi={Y\bibinitperiod},
+         given={Hande},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AO+1}
+    \strng{fullhash}{AOKOEMARYH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1287/trsc.2018.0869
+    \endverb
+    \field{number}{4}
+    \field{pages}{1107\bibrangedash 1125}
+    \field{title}{A Branch-and-Cut Algorithm for the Alternative Fuel Refueling
+  Station Location Problem with Routing}
+    \field{volume}{53}
+    \field{journaltitle}{Transportation Science}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Anjos_2020_ejor}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AMF}{%
+         family={Anjos},
+         familyi={A\bibinitperiod},
+         given={Miguel\bibnamedelima F.},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=GB}{%
+         family={Gendron},
+         familyi={G\bibinitperiod},
+         given={Bernard},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=JMM}{%
+         family={Joyce-Moniz},
+         familyi={J\bibinithyphendelim M\bibinitperiod},
+         given={Martim},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMFGBJMM1}
+    \strng{fullhash}{AMFGBJMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ejor.2020.01.055
+    \endverb
+    \field{issn}{0377-2217}
+    \field{number}{1}
+    \field{pages}{263\bibrangedash 278}
+    \field{title}{Increasing electric vehicle adoption through the optimal
+  deployment of fast-charging stations for local and long-distance travel}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0377221720300928
+    \endverb
+    \field{volume}{285}
+    \field{journaltitle}{European Journal of Operational Research}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Wu_2024_e}{article}{}
+    \name{author}{4}{}{%
+      {{hash=WJ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Jiabin},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LQ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Qihang},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bie},
+         familyi={B\bibinitperiod},
+         given={Yiming},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZW}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \keyw{Electric vehicles, Public charging stations, Location-routing
+  optimization problem, Intelligent algorithms, Energy conservation}
+    \strng{namehash}{WJ+1}
+    \strng{fullhash}{WJLQBYZW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    The rapid growth of Electric Vehicles (EVs) has led to issues such as
+  insufficient and unevenly distributed charging stations, posing an
+  increasingly severe challenge. This not only means higher economic and time
+  costs for EV users traveling to charging stations, but also indicates that
+  EVs need to incur additional energy consumption. To address these challenges,
+  this paper first establishes an extended space-time-state network to describe
+  the temporal variability and uncertainty of the traffic environment.
+  Secondly, considering the impact of the energy consumption incurred by EVs
+  traveling to charging stations (CSs) on the layout of CSs, a co-evolutionary
+  optimization model of the location-routing problem is proposed. To solve the
+  model, a two-stage Adaptive Co-evolutionary Clustering Algorithm (ACECA)
+  integrating an adaptive clustering framework and a co-evolutionary mechanism
+  is designed. Finally, the experiment results indicate that there exists a
+  game between a short-term economic investment and long-term benefits of
+  energy conservation and emission reduction. Moreover, ACECA demonstrates
+  stronger solution performance and robustness compared to other algorithms,
+  with the resulting CS location schemes showing superior advantages in energy
+  conservation and in cost saving for users. The research findings can provide
+  theoretical support for the planning of charging station locations for
+  electric vehicles.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.energy.2024.132142
+    \endverb
+    \field{issn}{0360-5442}
+    \field{pages}{132142}
+    \field{title}{Location-routing optimization problem for electric vehicle
+  charging stations in an uncertain transportation network: An adaptive
+  co-evolutionary clustering algorithm}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0360544224019169
+    \endverb
+    \field{volume}{304}
+    \field{journaltitle}{Energy}
     \field{year}{2024}
   \endentry
 
-  \entry{Rabinowitz_2023}{article}{}
+  \entry{Zeng_2024_mt}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZX}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Xueqi},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=XC}{%
+         family={Xie},
+         familyi={X\bibinitperiod},
+         given={Chi},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \keyw{Electric vehicles, Charging station location problems, Metanetworks,
+  Bi-level programming models, Branch-and-bound algorithm}
+    \strng{namehash}{ZXXC1}
+    \strng{fullhash}{ZXXC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This paper investigates a widely discussed class of charging station
+  location problems for the en-route charging need of electric vehicles
+  traveling in intercity highway networks. Due to the necessity for multiple
+  charges along an intercity long-haul trip, this type of charging station
+  location problems implies such an individual behavior that electric vehicle
+  drivers make self-optimal route-and-charge decisions while ensuring the
+  driving range of their vehicles to sustain trips without running out of
+  charge. The main contribution of this paper is on analytically and
+  computationally comparing the modeling and solution methods for the charging
+  station location problems within uncongested and congested networks. Two
+  distinct modeling frameworks are presented and analyzed: A metanetwork-based
+  two-stage model for uncongested networks and a network-based bi-level model
+  for congested networks. Both models are tackled by the classic
+  branch-and-bound algorithm, which, however, resorts to different problem
+  decomposition schemes, subregion bounding strategies, and network flow
+  evaluation methods. Specifically, for uncongested networks, a two-phase
+  procedure first employs a bi-criterion label-correcting algorithm for
+  constructing a metanetwork and then implements the branch-and-bound algorithm
+  on the metanetwork embedding a single-criterion label-setting algorithm for
+  deriving network flows; on the other hand, for congested networks, the
+  branch-and-bound algorithm is directly applied on the original network
+  encapsulating a convex combinations method for deriving network flows.
+  Finally, the two network scenarios and their modeling and solution methods
+  are quantitatively evaluated with two real-world highway networks, in terms
+  of implementation complexity, solution efficiency, and routing behavior.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.multra.2024.100150
+    \endverb
+    \field{issn}{2772-5863}
+    \field{number}{3}
+    \field{pages}{100150}
+    \field{title}{A comparative analysis of modeling and solution methods for
+  the en-route charging station location problems within uncongested and
+  congested highway networks}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2772586324000315
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{Multimodal Transportation}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Ala_2024_scis}{article}{}
+    \name{author}{4}{}{%
+      {{hash=AA}{%
+         family={Ala},
+         familyi={A\bibinitperiod},
+         given={Ali},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Deveci},
+         familyi={D\bibinitperiod},
+         given={Muhammet},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BEA}{%
+         family={Bani},
+         familyi={B\bibinitperiod},
+         given={Erfan\bibnamedelima Amani},
+         giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SAH}{%
+         family={Sadeghi},
+         familyi={S\bibinitperiod},
+         given={Amir\bibnamedelima Hossein},
+         giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \keyw{Renewable energy, Stochastic programming, Optimization algorithm,
+  Reinforcement learning, Facility location, Sustainability}
+    \strng{namehash}{AA+1}
+    \strng{fullhash}{AADMBEASAH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    The deployment of mobile renewable energy charging stations plays a crucial
+  role in facilitating the overall adoption of electric vehicles and reducing
+  reliance on fossil fuels. This study addresses the dynamic capacitated
+  facility location problem in mobile charging stations from a sustainability
+  perspective. This paper proposes Two-stage stochastic programming with
+  recourse that performs well for this application, and the location of the
+  mobile renewable energy charging station (MRECS) management addresses the
+  complex dynamics of reusable items. To solve this problem, we suggested
+  dealing with differential evolutionary (DE) and DE Q-learning (DEQL)
+  algorithms, as two novel optimization and reinforcement learning approaches,
+  are presented as solution approaches to validate their performance.
+  Evaluation of the outcomes reveals a considerable disparity between the
+  algorithms, and DEQL performs better in solving the presented problem. In
+  addition, DEQL could minimize the total operation cost and carbon emission by
+  7% and 20%, respectively. In contrast, the DE could decrease carbon emissions
+  and total operation costs by 5% and 2.5%, respectively.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.suscom.2023.100954
+    \endverb
+    \field{issn}{2210-5379}
+    \field{pages}{100954}
+    \field{title}{Dynamic capacitated facility location problem in mobile
+  renewable energy charging stations under sustainability consideration}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2210537923001099
+    \endverb
+    \field{volume}{41}
+    \field{journaltitle}{Sustainable Computing: Informatics and Systems}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Pourvaziri_2024_tre}{article}{}
+    \name{author}{5}{}{%
+      {{hash=PH}{%
+         family={Pourvaziri},
+         familyi={P\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Sarhadi},
+         familyi={S\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Azad},
+         familyi={A\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=AH}{%
+         family={Afshari},
+         familyi={A\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Taghavi},
+         familyi={T\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \keyw{Electric vehicles, Charging station planning, Location-capacity
+  decision, Deep learning, Bi-objective optimization, Queueing models}
+    \strng{namehash}{PH+1}
+    \strng{fullhash}{PHSHANAHTM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This study presents a hybrid solution for the charging station
+  location-capacity problem. The proposed approach simultaneously determines
+  the location and capacity of charging stations (i.e., number of charging
+  piles), and assigns piles to electric vehicles based on their level of
+  charge. The problem is formulated as a bi-objective mixed-integer nonlinear
+  programming model to minimize the total cost of establishing charging
+  stations together with the average customers’ waiting time. The proposed
+  solution combines queueing theory with mathematical modelling to estimate the
+  average waiting time. A deep learning algorithm is then developed to enhance
+  the precision of waiting time estimation. Another contribution is involving a
+  deep neural network model in improving NSGA-II algorithm. Numerical
+  experiments are conducted in Halifax, Canada to assess the performance of the
+  proposed framework. The results demonstrate the strong predictive performance
+  of the deep learning algorithm and highlight the limitations of traditional
+  queueing models in estimating waiting times in charging stations (i.e., 99.8%
+  improvement in computation time, as well as accuracy improvement of time
+  estimations from 13% to 1.6% deviation). Several valuable insights are
+  obtained to improve the operational performance of charging stations such as
+  achieving a significant (i.e., 61.5%) drop in the average waiting time across
+  the network by a modest (i.e., 29.2%) increase in the initial investments.
+  Also, it reveals that the variability of service rate significantly impacts
+  the average waiting time (i.e., a 50% increase in the variability of service
+  rate causes a substantial 950.56% surge in the average waiting time). The
+  findings underscore the need to control service rate fluctuations to reduce
+  wait times and boost driver satisfaction. The improved NSGA-II algorithm
+  shows 12.77% improvement in the Pareto front solutions. Finally, the proposed
+  prioritization strategy based on the charging level of vehicles could reduce
+  the average waiting time and cost compared to the first-come-first-served
+  strategy.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.tre.2024.103568
+    \endverb
+    \field{issn}{1366-5545}
+    \field{pages}{103568}
+    \field{title}{Planning of electric vehicle charging stations: An integrated
+  deep learning and queueing theory approach}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S1366554524001595
+    \endverb
+    \field{volume}{186}
+    \field{journaltitle}{Transportation Research Part E: Logistics and
+  Transportation Review}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Rabinowitz_2023_ia}{article}{}
     \name{author}{4}{}{%
       {{hash=RAI}{%
          family={Rabinowitz},
@@ -720,6 +2578,8 @@
     \strng{fullhash}{RAISJGCTCBTH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb 10.1109/ACCESS.2023.3255103
     \endverb
@@ -731,399 +2591,512 @@
     \field{year}{2023}
   \endentry
 
-  \entry{Kuby_2005}{article}{}
-    \name{author}{2}{}{%
-      {{hash=KM}{%
-         family={Kuby},
-         familyi={K\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
+  \entry{Wang_2022_er}{article}{}
+    \name{author}{4}{}{%
+      {{hash=WL}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Limeng},
+         giveni={L\bibinitperiod},
       }}%
-      {{hash=LS}{%
-         family={Lim},
-         familyi={L\bibinitperiod},
-         given={Seow},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{KMLS1}
-    \strng{fullhash}{KMLS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb https://doi.org/10.1016/j.seps.2004.03.001
-    \endverb
-    \field{issn}{0038-0121}
-    \field{number}{2}
-    \field{pages}{125\bibrangedash 145}
-    \field{title}{The flow-refueling location problem for alternative-fuel
-  vehicles}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0038012104000175
-    \endverb
-    \field{volume}{39}
-    \field{journaltitle}{Socio-Economic Planning Sciences}
-    \field{year}{2005}
-  \endentry
-
-  \entry{Kuby_2007}{article}{}
-    \name{author}{2}{}{%
-      {{hash=KM}{%
-         family={Kuby},
-         familyi={K\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Lim},
-         familyi={L\bibinitperiod},
-         given={Seow},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \keyw{Continuous location; Link; Flow intercepting; Hydrogen refueling;
-  Finite dominating set; Vehicle ran}
-    \strng{namehash}{KMLS1}
-    \strng{fullhash}{KMLS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb https://doi.org/10.1007/s11067-006-9003-6
-    \endverb
-    \field{number}{2}
-    \field{pages}{129\bibrangedash 152}
-    \field{title}{{Location of Alternative-Fuel Stations Using the
-  Flow-Refueling Location Model and Dispersion of Candidate Sites on Arcs}}
-    \field{volume}{7}
-    \field{journaltitle}{Networks and Spatial Economics}
-    \field{year}{2007}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
-
-  \entry{Upchurch_2009}{article}{}
-    \name{author}{3}{}{%
-      {{hash=UC}{%
-         family={Upchurch},
-         familyi={U\bibinitperiod},
-         given={Christopher},
+      {{hash=YC}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Chao},
          giveni={C\bibinitperiod},
       }}%
-      {{hash=KM}{%
-         family={Kuby},
-         familyi={K\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Yi},
+         giveni={Y\bibinitperiod},
       }}%
-      {{hash=LS}{%
-         family={Lim},
+      {{hash=BF}{%
+         family={Bu},
+         familyi={B\bibinitperiod},
+         given={Fanjin},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{Location and capacity of electric vehicle charging station, Road
+  time-consuming index, User’s charging additional cost, NSGA-II algorithm,
+  Chaotic mapping}
+    \strng{namehash}{WL+1}
+    \strng{fullhash}{WLYCZYBF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    As an important supporting facility for electric vehicles, the reasonable
+  planning and layout of charging stations are of great significance to the
+  development of electric vehicles. However, the planning and layout of
+  charging stations is affected by various complex factors such as policy
+  economy, charging demand, user charging comfort, and road traffic conditions.
+  How to weigh various factors to construct a reasonable model of charging
+  station location and capacity has become a major difficulty in the field of
+  electric vehicle charging facility planning. Firstly, this paper constructs
+  the location and capacity optimization model of the charging station with the
+  goal of maximizing the revenue of operators and minimizing the user’s
+  charging additional cost. At the same time, the road time-consuming index is
+  introduced to quantify the impact of road congestion on the user’s charging
+  additional cost, so as to effectively improve the user’s satisfaction
+  during charging. Then, aiming at the charging station planning model, a
+  non-dominated sorting genetic algorithm with an elite strategy (NSGA-II)
+  based on chaos initialization and arithmetic crossover operator is proposed.
+  Finally, taking the Haidian District of Beijing as the simulation object, the
+  results show that compared with the situation of urban traffic networks not
+  considered, the model proposed in this paper significantly reduces the cost
+  of lost time of users by 11.4% and the total additional cost of users’
+  charging by 7.6%. It not only ensures the economy of the system, but also
+  effectively improves the charging satisfaction of users, which further
+  verifies the feasibility and effectiveness of the model, and can provide a
+  reference for the planning and layout of charging stations in the future.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.egyr.2022.08.242
+    \endverb
+    \field{issn}{2352-4847}
+    \field{pages}{11825\bibrangedash 11839}
+    \field{title}{Research on multi-objective planning of electric vehicle
+  charging stations considering the condition of urban traffic network}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2352484722016869
+    \endverb
+    \field{volume}{8}
+    \field{journaltitle}{Energy Reports}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Marra_2012}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=MF}{%
+         family={Marra},
+         familyi={M\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=YG}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Guangya},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Træholt},
+         familyi={T\bibinitperiod},
+         given={Chresten},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LE}{%
+         family={Larsen},
          familyi={L\bibinitperiod},
-         given={Seow},
+         given={Esben},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RC}{%
+         family={Rasmussen},
+         familyi={R\bibinitperiod},
+         given={C.N.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=YS}{%
+         family={You},
+         familyi={Y\bibinitperiod},
+         given={Shi},
          giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{UCKMLS1}
-    \strng{fullhash}{UCKMLS1}
+    \strng{namehash}{MF+1}
+    \strng{fullhash}{MFYGTCLERCYS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2012}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb https://doi.org/10.1111/j.1538-4632.2009.00744.x
+    \verb 10.1109/PESGM.2012.6345063
     \endverb
-    \field{pages}{85 \bibrangedash  106}
-    \field{title}{A Model for Location of Capacitated Alternative‐Fuel
-  Stations}
-    \field{volume}{41}
-    \field{journaltitle}{Geographical Analysis}
-    \field{month}{01}
-    \field{year}{2009}
-  \endentry
-
-  \entry{Kim_2012}{article}{}
-    \name{author}{2}{}{%
-      {{hash=KJG}{%
-         family={Kim},
-         familyi={K\bibinitperiod},
-         given={Jong-Geun},
-         giveni={J\bibinithyphendelim G\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Kuby},
-         familyi={K\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \keyw{Deviation, Optimal, Location, Station, Model, Intercepting}
-    \strng{namehash}{KJGKM1}
-    \strng{fullhash}{KJGKM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb https://doi.org/10.1016/j.ijhydene.2011.08.108
-    \endverb
-    \field{issn}{0360-3199}
-    \field{note}{Optimization Approaches to Hydrogen Logistics}
-    \field{number}{6}
-    \field{pages}{5406\bibrangedash 5420}
-    \field{title}{The deviation-flow refueling location model for optimizing a
-  network of refueling stations}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0360319911020337
-    \endverb
-    \field{volume}{37}
-    \field{journaltitle}{International Journal of Hydrogen Energy}
+    \field{isbn}{978-1-4673-2727-5}
+    \field{pages}{1\bibrangedash 7}
+    \field{title}{Demand profile study of battery electric vehicle under
+  different charging options}
+    \field{journaltitle}{Power and Energy Society General Meeting, 2012 IEEE}
+    \field{month}{07}
     \field{year}{2012}
   \endentry
 
-  \entry{MirHassani_2013}{article}{}
-    \name{author}{2}{}{%
-      {{hash=MSA}{%
-         family={MirHassani},
-         familyi={M\bibinitperiod},
-         given={S.\bibnamedelima A.},
-         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+  \entry{Zhang_2023_ijpr}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZB}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
       }}%
-      {{hash=ER}{%
-         family={Ebrazi},
-         familyi={E\bibinitperiod},
-         given={R.},
-         giveni={R\bibinitperiod},
+      {{hash=ZM}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Meng},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=aXH}{%
+         family={and},
+         familyi={a\bibinitperiod},
+         given={Xiangpei\bibnamedelima Hu},
+         giveni={X\bibinitperiod\bibinitdelim H\bibinitperiod},
       }}%
     }
-    \keyw{fuel station; location problem; maximum flow; mixed-integer
-  programming}
-    \strng{namehash}{MSAER1}
-    \strng{fullhash}{MSAER1}
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{ZBZMaXH1}
+    \strng{fullhash}{ZBZMaXH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{abstract}{%
-    Serious environmental and economic problems of using fossil fuels in
-  transportation sections force managers to think of alternative fuels such as
-  hydrogen, ethanol, biodiesel, natural gas, or electricity. Meanwhile, lack of
-  fuel network infrastructures is a major problem, which needs to be
-  investigated considering the number and optimal location of alternative fuel
-  stations. In the literature, two different flow-based demand modeling
-  concepts (the maximum cover and set cover) have been proposed for solving
-  this problem. Because of the huge number of combinations of fuel stations for
-  covering the flow of each path, the models are impractical for the real size
-  problems. In this paper, the flow refueling location model was reformulated
-  and a flexible mixed-integer linear programming model was presented, which
-  was able to obtain an optimal solution much faster than the previous set
-  cover version. The model also could be solved in the maximum cover form in a
-  reasonable time on the large-sized networks.%
-    }
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb 10.1287/trsc.1120.0430
+    \verb 10.1080/00207543.2021.2023832
     \endverb
-    \field{number}{4}
-    \field{pages}{617\bibrangedash 628}
-    \field{title}{{A Flexible Reformulation of the Refueling Station Location
-  Problem}}
+    \verb{eprint}
+    \verb https://doi.org/10.1080/00207543.2021.2023832
+    \endverb
+    \field{number}{5}
+    \field{pages}{1394\bibrangedash 1423}
+    \field{title}{Location planning of electric vehicle charging station with
+  users’ preferences and waiting time: multi-objective bi-level programming
+  model and HNSGA-II algorithm}
     \verb{url}
-    \verb https://ideas.repec.org/a/inm/ortrsc/v47y2013i4p617-628.html
+    \verb https://doi.org/10.1080/00207543.2021.2023832
     \endverb
-    \field{volume}{47}
-    \field{journaltitle}{Transportation Science}
-    \field{year}{2013}
-    \warn{\item Invalid format of field 'month'}
+    \field{volume}{61}
+    \field{journaltitle}{International Journal of Production Research}
+    \field{year}{2023}
   \endentry
 
-  \entry{Huang_Li_2015}{article}{}
-    \name{author}{3}{}{%
-      {{hash=HY}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={Yongxi},
-         giveni={Y\bibinitperiod},
+  \entry{Trinko_2021}{article}{}
+    \name{author}{5}{}{%
+      {{hash=TD}{%
+         family={Trinko},
+         familyi={T\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
       }}%
-      {{hash=LS}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Shengyin},
-         giveni={S\bibinitperiod},
+      {{hash=PE}{%
+         family={Porter},
+         familyi={P\bibinitperiod},
+         given={Emily},
+         giveni={E\bibinitperiod},
       }}%
-      {{hash=QZS}{%
-         family={Qian},
-         familyi={Q\bibinitperiod},
-         given={Zhen\bibnamedelima Sean},
-         giveni={Z\bibinitperiod\bibinitdelim S\bibinitperiod},
+      {{hash=DJ}{%
+         family={Dunckley},
+         familyi={D\bibinitperiod},
+         given={Jamie},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Bradley},
+         familyi={B\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Coburn},
+         familyi={C\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
       }}%
     }
-    \strng{namehash}{HYLSQZS1}
-    \strng{fullhash}{HYLSQZS1}
+    \strng{namehash}{TD+1}
+    \strng{fullhash}{TDPEDJBTCT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    Electric vehicle (EV) charging infrastructure is present all over the
+  United States, but charging prices vary greatly, both in amount and in the
+  methods by which they are assessed. For this paper, we interpret and analyze
+  charging price information from PlugShare, a crowd-sourced EV charging data
+  platform. Because prices in these data exist in a semi-structured textual
+  format, an ad hoc text mining approach is used to extract quantitative price
+  information. Descriptive analytics of the processed dataset demonstrate how
+  the prices of EV charging vary with charging level (Direct Current Fast
+  Charging versus Level 2), geographic location, network provider, and location
+  type. Our research indicates that a great deal of diversity and flexibility
+  exists in structuring the prices of EV charging to enable incentives for
+  shaping charging behaviors, but that it has yet to be widely standardized or
+  utilized. Comparisons with estimates of the levelized cost of EV charging
+  illustrate some of the challenges associated with operating and using these
+  stations.%
+    }
     \verb{doi}
-    \verb https://doi.org/10.1007/s11067-014-9275-1
+    \verb https://doi.org/10.3390/en14175240
     \endverb
-    \field{title}{Optimal Deployment of Alternative Fueling Stations on
-  Transportation Networks Considering Deviation Paths}
-    \field{journaltitle}{Netowrks and Spatial Economics}
+    \field{issn}{1996-1073}
+    \field{number}{17}
+    \field{title}{Combining Ad Hoc Text Mining and Descriptive Analytics to
+  Investigate Public EV Charging Prices in the United States}
+    \verb{url}
+    \verb https://www.mdpi.com/1996-1073/14/17/5240
+    \endverb
+    \field{volume}{14}
+    \field{journaltitle}{Energies}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Li_2024_pnas}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Yanning},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={Jenn},
+         familyi={J\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LYJA1}
+    \strng{fullhash}{LYJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This study conducts a quantification of electric vehicles’ (EVs) impact
+  on distribution grids—the primary bottleneck of EV-grid integration. We
+  find that 67\% of the feeders in California will need capacity upgrades by
+  2045, with a total of 25 GW upgrades needed, corresponding to a cost between
+  \$6 and \$20 billion. However, the effect of the additional cost is offset by
+  downward pressure on electricity rates due to the overall growth in
+  electricity consumption, leading to an overall rate reduction between \$0.01
+  and \$0.06/kWh. Our work indicates that feeders in residential areas will
+  require twice as much upgrade compared to commercial areas, revealing the
+  potential to ease the grid’s stress by shifting home-charging demand.
+  California, a pioneer in EV adoption, has enacted ambitious electric vehicle
+  (EV) policies that will generate a large burden on the state’s electric
+  distribution system. We investigate the statewide impact of uncontrolled EV
+  charging on the electric distribution networks at a large scale and high
+  granularity, by employing an EV charging profile projection that combines
+  travel demand model, EV adoption model, and real-world EV charging data. We
+  find a substantial need for infrastructure upgrades in 50\% of feeders by
+  2035, and 67\% of feeders by 2045. The distribution system across California
+  must upgrade its capacity by 25 GW by 2045, corresponding to a cost between
+  \$6 and \$20 billion. While the additional infrastructure cost drives the
+  electricity price up, it is offset by the downward pressure from the growth
+  of total electricity consumption and leads to a reduction in electricity rate
+  between \$0.01 and \$0.06/kWh by 2045. We also find that overloading
+  conditions are highly diverse spatially, with feeders in residential areas
+  requiring twice as much upgrade compared to commercial areas. Our study
+  provides a framework for evaluating EVs’ impact on the distribution grid
+  and indicates the potential to reduce infrastructure upgrade costs by
+  shifting home-charging demand. The imminent challenges confronting California
+  serve as a microcosm of the forthcoming obstacles anticipated worldwide due
+  to the prevailing global trend of EV adoption.%
+    }
+    \verb{doi}
+    \verb 10.1073/pnas.2317599121
+    \endverb
+    \verb{eprint}
+    \verb https://www.pnas.org/doi/pdf/10.1073/pnas.2317599121
+    \endverb
+    \field{number}{18}
+    \field{pages}{e2317599121}
+    \field{title}{Impact of electric vehicle charging demand on power
+  distribution grid congestion}
+    \verb{url}
+    \verb https://www.pnas.org/doi/abs/10.1073/pnas.2317599121
+    \endverb
+    \field{volume}{121}
+    \field{journaltitle}{Proceedings of the National Academy of Sciences}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Bandyopadhyay_2015_is}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BS}{%
+         family={Bandyopadhyay},
+         familyi={B\bibinitperiod},
+         given={Sanghamitra},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Chakraborty},
+         familyi={C\bibinitperiod},
+         given={Rudrasis},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MU}{%
+         family={Maulik},
+         familyi={M\bibinitperiod},
+         given={Ujjwal},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \keyw{-dominance, Multiobjective simulated annealing, Multiobjective
+  knapsack problem, PBE-AMOSA}
+    \strng{namehash}{BSCRMU1}
+    \strng{fullhash}{BSCRMU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    Dominance is a fundamental concept in Multiobjective Optimization (MOO)
+  where a solution is said to dominate the other if it is better in at least
+  one objective, and same as or better in the other objectives. Given a pair of
+  solutions, if neither dominates the other, then the solutions are said to be
+  non-dominated. In real spaces, a large number of non-dominated solutions can
+  exist in principle, making convergence of MOO techniques rather slow. Relaxed
+  forms of dominance have been proposed in the literature for faster
+  convergence. One such form is the ∊-dominance, which in principle,
+  partitions the space into ∊-sized grids. The value of ∊ is often user
+  defined and the performance of ∊-dominance based multiobjective
+  evolutionary algorithms (∊-MOEAs) critically depends on the value of ∊.
+  In this article we propose a novel way of determining the value of ∊, which
+  is different for each objective function, based on the correlation between
+  them. We call this approach Priority Based ∊ (PBE) as the method ranks the
+  objectives according to their priority before calculating the ∊ values. PBE
+  is incorporated in an archived simulated annealing based MOO technique called
+  AMOSA. AMOSA has been earlier shown to outperform several well-known MOO
+  techniques especially for many objective optimization. PBE based AMOSA,
+  referred to as PBE-AMOSA, is found to comprehensively outperform AMOSA,
+  MOEA/D-DE, the conventional ∊ based version ∊-AMOSA and ∊-MOEA both in
+  case of benchmark test problems and 0/1 knapsack problem.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.ins.2015.01.018
+    \endverb
+    \field{issn}{0020-0255}
+    \field{pages}{97\bibrangedash 109}
+    \field{title}{Priority based ∊ dominance: A new measure in multiobjective
+  optimization}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0020025515000560
+    \endverb
+    \field{volume}{305}
+    \field{journaltitle}{Information Sciences}
     \field{year}{2015}
   \endentry
 
-  \entry{Li_Huang_2016}{article}{}
-    \name{author}{3}{}{%
-      {{hash=LS}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Shengyin},
-         giveni={S\bibinitperiod},
+  \entry{Deb_2002_tec}{article}{}
+    \name{author}{4}{}{%
+      {{hash=DK}{%
+         family={Deb},
+         familyi={D\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
       }}%
-      {{hash=HY}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={Yongxi},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=MSJ}{%
-         family={Mason},
-         familyi={M\bibinitperiod},
-         given={Scott\bibnamedelima J.},
-         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{LSHYMSJ1}
-    \strng{fullhash}{LSHYMSJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb https://doi.org/10.1016/j.trc.2016.01.008
-    \endverb
-    \field{issn}{0968-090X}
-    \field{pages}{128\bibrangedash 143}
-    \field{title}{A multi-period optimization model for the deployment of
-  public electric vehicle charging stations on network}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0968090X16000267
-    \endverb
-    \field{volume}{65}
-    \field{journaltitle}{Transportation Research Part C: Emerging Technologies}
-    \field{year}{2016}
-  \endentry
-
-  \entry{Zhang_2017}{article}{}
-    \name{author}{3}{}{%
-      {{hash=ZA}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Anpeng},
+      {{hash=PA}{%
+         family={Pratap},
+         familyi={P\bibinitperiod},
+         given={A.},
          giveni={A\bibinitperiod},
       }}%
-      {{hash=KJE}{%
-         family={Kang},
-         familyi={K\bibinitperiod},
-         given={Jee\bibnamedelima Eun},
-         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=KC}{%
-         family={Kwon},
-         familyi={K\bibinitperiod},
-         given={Changhyun},
-         giveni={C\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ZAKJEKC1}
-    \strng{fullhash}{ZAKJEKC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb https://doi.org/10.1016/j.trb.2017.04.016
-    \endverb
-    \field{issn}{0191-2615}
-    \field{note}{Green Urban Transportation}
-    \field{pages}{5\bibrangedash 29}
-    \field{title}{Incorporating demand dynamics in multi-period capacitated
-  fast-charging location planning for electric vehicles}
-    \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0191261516304349
-    \endverb
-    \field{volume}{103}
-    \field{journaltitle}{Transportation Research Part B: Methodological}
-    \field{year}{2017}
-  \endentry
-
-  \entry{Arslan_2019}{article}{}
-    \name{author}{4}{}{%
-      {{hash=AO}{%
-         family={Arslan},
+      {{hash=AS}{%
+         family={Agarwal},
          familyi={A\bibinitperiod},
-         given={Okan},
-         giveni={O\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
       }}%
-      {{hash=KOE}{%
-         family={Kara\c{s}an},
-         familyi={K\bibinitperiod},
-         given={Oya\bibnamedelima Ekin},
-         giveni={O\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=MAR}{%
-         family={Mahjoub},
+      {{hash=MT}{%
+         family={Meyarivan},
          familyi={M\bibinitperiod},
-         given={A.\bibnamedelima Ridha},
-         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
-      }}%
-      {{hash=YH}{%
-         family={Yaman},
-         familyi={Y\bibinitperiod},
-         given={Hande},
-         giveni={H\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
       }}%
     }
-    \strng{namehash}{AO+1}
-    \strng{fullhash}{AOKOEMARYH1}
+    \keyw{Genetic algorithms;Sorting;Computational complexity;Evolutionary
+  computation;Computational modeling;Testing;Decision making;Associate
+  members;Diversity reception;Constraint optimization}
+    \strng{namehash}{DK+1}
+    \strng{fullhash}{DKPAASMT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
     \verb{doi}
-    \verb https://doi.org/10.1287/trsc.2018.0869
+    \verb 10.1109/4235.996017
     \endverb
-    \field{number}{4}
-    \field{pages}{1107\bibrangedash 1125}
-    \field{title}{A Branch-and-Cut Algorithm for the Alternative Fuel Refueling
-  Station Location Problem with Routing}
-    \field{volume}{53}
-    \field{journaltitle}{Transportation Science}
-    \field{year}{2019}
+    \field{number}{2}
+    \field{pages}{182\bibrangedash 197}
+    \field{title}{A fast and elitist multiobjective genetic algorithm: NSGA-II}
+    \field{volume}{6}
+    \field{journaltitle}{IEEE Transactions on Evolutionary Computation}
+    \field{year}{2002}
   \endentry
 
-  \entry{Anjos_2020}{article}{}
-    \name{author}{3}{}{%
-      {{hash=AMF}{%
-         family={Anjos},
-         familyi={A\bibinitperiod},
-         given={Miguel\bibnamedelima F.},
-         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+  \entry{Rao_2021_ec}{article}{}
+    \name{author}{2}{}{%
+      {{hash=RRV}{%
+         family={Rao},
+         familyi={R\bibinitperiod},
+         given={R.\bibnamedelima Venkata},
+         giveni={R\bibinitperiod\bibinitdelim V\bibinitperiod},
       }}%
-      {{hash=GB}{%
-         family={Gendron},
-         familyi={G\bibinitperiod},
-         given={Bernard},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=JMM}{%
-         family={Joyce-Moniz},
-         familyi={J\bibinithyphendelim M\bibinitperiod},
-         given={Martim},
-         giveni={M\bibinitperiod},
+      {{hash=KHS}{%
+         family={Keesari},
+         familyi={K\bibinitperiod},
+         given={Hameer\bibnamedelima Singh},
+         giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{AMFGBJMM1}
-    \strng{fullhash}{AMFGBJMM1}
+    \list{publisher}{1}{%
+      {Springer-Verlag}%
+    }
+    \keyw{Decision making in multi-objective optimization, Solar-assisted
+  Brayton heat engine, Solar-dish Stirling heat engine, Multi-objective
+  optimization, Rao algorithms}
+    \strng{namehash}{RRVKHS1}
+    \strng{fullhash}{RRVKHS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{abstract}{%
+    This work proposes multi-objective Rao algorithms. The basic Rao algorithms
+  are modified for solving multi-objective optimization problems. The proposed
+  algorithms have no algorithm-specific parameters and no metaphorical meaning.
+  Based on the interaction of the population with best, worst, and randomly
+  selected solutions, the proposed algorithms explore the search space. The
+  proposed algorithms handle multiple objectives simultaneously based on
+  dominance principles and crowding distance evaluation. In addition,
+  multi-attribute decision-making method-based selection scheme for identifying
+  the best solutions from the Pareto fronts is included. The proposed algorithm
+  performances are investigated on a case study of solar-assisted Brayton heat
+  engine system and a case study of Stirling heat engine system to see whether
+  there can be any improvement in the performances of the considered systems.
+  Furthermore, the efficiencies of the Rao algorithms are evaluated in terms of
+  spacing, hypervolume, and coverage metrics. The results obtained by the
+  proposed algorithms are compared with those obtained by the latest advanced
+  optimization algorithms. It is observed that the results obtained by the
+  proposed algorithms are superior. The performances of the considered case
+  studies are improved by the application of the proposed optimization
+  algorithms. The proposed optimization algorithms are simple, robust, and can
+  be easily implemented to solve different engineering optimization problems.%
+    }
     \verb{doi}
-    \verb https://doi.org/10.1016/j.ejor.2020.01.055
+    \verb 10.1007/s00366-020-01008-9
     \endverb
-    \field{issn}{0377-2217}
-    \field{number}{1}
-    \field{pages}{263\bibrangedash 278}
-    \field{title}{Increasing electric vehicle adoption through the optimal
-  deployment of fast-charging stations for local and long-distance travel}
+    \field{issn}{0177-0667}
+    \field{number}{4}
+    \field{pages}{3409–3437}
+    \field{title}{Rao algorithms for multi-objective optimization of selected
+  thermodynamic cycles}
     \verb{url}
-    \verb https://www.sciencedirect.com/science/article/pii/S0377221720300928
+    \verb https://doi.org/10.1007/s00366-020-01008-9
     \endverb
-    \field{volume}{285}
-    \field{journaltitle}{European Journal of Operational Research}
-    \field{year}{2020}
+    \field{volume}{37}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{journaltitle}{Eng. with Comput.}
+    \field{month}{10}
+    \field{year}{2021}
   \endentry
 
   \entry{Yen_1971}{article}{}
@@ -1142,6 +3115,8 @@
     \strng{fullhash}{YJY1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{1971}
+    \field{labeldatesource}{}
     \field{abstract}{%
     This paper presents an algorithm for finding the K loopless paths that have
   the shortest lengths from one node to another node in a network. The
@@ -1192,6 +3167,8 @@
     \strng{fullhash}{QZZH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1007/s11067-012-9177-z
     \endverb
@@ -1217,6 +3194,8 @@
     \strng{fullhash}{ED1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{1998}
+    \field{labeldatesource}{}
     \verb{doi}
     \verb https://doi.org/10.1137/S0097539795290477
     \endverb
@@ -1242,9 +3221,144 @@
     \strng{fullhash}{A1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
     \field{title}{Alternative fuels data center home page}
     \verb{url}
     \verb https://afdc.energy.gov/
+    \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{AFDC_EVs_2023}{misc}{}
+    \list{publisher}{1}{%
+      {Alternative Fuels Data Center (AFDC)}%
+    }
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+  \field{note}{\url{https://afdc.energy.gov/vehicles/search/download.pdf?year=2023}}
+    \field{title}{Model Year 2023 Alternative Fuel and Advanced Technology
+  Vehicles}
+    \field{journaltitle}{Alternative Fuels Data Center (AFDC)}
+    \field{year}{2023}
+  \endentry
+
+  \entry{uscb_2023_doc}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=BUC}{%
+         family={Bureau},
+         familyi={B\bibinitperiod},
+         given={US\bibnamedelima Census},
+         giveni={U\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BUC1}
+    \strng{fullhash}{BUC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{title}{TECHNICAL DOCUMENTATION: 2023 TIGER/Line Shapefiles Technical
+  Documentation}
+    \verb{url}
+    \verb https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2023/TGRS
+    \verb HP2023_TechDoc.pdf
+    \endverb
+    \field{year}{2023}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{fhwa_2022}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FFHA}{%
+         family={(FHWA)},
+         familyi={F\bibinitperiod},
+         given={Federal Highway\bibnamedelima Administration},
+         giveni={F\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {U.S. Department of Transportation}%
+    }
+    \strng{namehash}{FFHA2}
+    \strng{fullhash}{FFHA2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{title}{NextGen NHTS National OD Data}
+    \verb{url}
+    \verb https://nhts.ornl.gov/od/
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{ev_database_2025_range}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=DEV}{%
+         family={Database},
+         familyi={D\bibinitperiod},
+         given={Electric\bibnamedelima Vehicle},
+         giveni={E\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Electric Vehicle Database}%
+    }
+    \strng{namehash}{DEV1}
+    \strng{fullhash}{DEV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2025}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{title}{Range of full electric vehicles}
+    \verb{url}
+    \verb https://ev-database.org/cheatsheet/range-electric-car
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{caltrans_2017}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={CalTrans},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{title}{2017 Traffic Volumes : Route 5-6}
+    \verb{url}
+    \verb https://dot.ca.gov/programs/traffic-operations/census/traffic-volumes
+    \verb /2017/route-99
+    \endverb
+    \field{year}{2017}
+  \endentry
+
+  \entry{caltrans_2023}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={CalTrans},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{title}{Performance Measurement System (PeMS) Data Source}
+    \verb{url}
+    \verb https://dot.ca.gov/programs/traffic-operations/mpr/pems-source
     \endverb
     \field{year}{2023}
   \endentry
@@ -1263,10 +3377,39 @@
     \strng{fullhash}{C1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
     \field{title}{Light-Duty Vehicle Population in California}
     \verb{url}
     \verb https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-v
     \verb ehicle-and-infrastructure-statistics-collection/light
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{ucd_2024}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=JA}{%
+         family={Jenn},
+         familyi={J\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {UC Davis electric Vehicle Research Center}%
+    }
+    \strng{namehash}{JA1}
+    \strng{fullhash}{JA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{title}{Charging, Not Range, is Becoming a Top Concern For Electric
+  Car Drivers}
+    \verb{url}
+    \verb https://www.ucdavis.edu/blog/charging-not-range-becoming-top-concern-
+    \verb electric-car-drivers
     \endverb
     \field{year}{2024}
   \endentry

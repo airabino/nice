@@ -19,7 +19,6 @@
 \usepackage[english]{babel}
 \usepackage[acronym,nomain]{glossaries} % list of acronyms
 \usepackage{xurl}
-%\usepackage{cite} % math and engineering style citations
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{mathptmx}
@@ -28,9 +27,9 @@
 \usepackage{framed}
 \usepackage{empheq}
 \usepackage[T1]{fontenc}
-\usepackage[pdfpagelabels,pdfusetitle,colorlinks=false,pdfborder={0 0 0}]{hyperref}
 
 \renewcommand{\arraystretch}{1.2}
+\newcommand{\figurewidth}{.67\linewidth}
 
 \sloppy
 
@@ -39,7 +38,7 @@
 \setlength{\columnsep}{.25in}
 
 \usepackage[%
-backend=bibtex ,     % biber or bibtex
+backend=bibtex,     % biber or bibtex
 %style=authoryear,    % Alphabeticalsch
 style=numeric-comp , % numerical-compressed
 sorting=none,        % no sorting
@@ -48,11 +47,21 @@ block=none,
 indexing=false,
 citereset=none,
 isbn=true,
-%url=true,
+url=true,
 doi=true,            % prints doi
 natbib=true,         % if you need natbib functions
 ]{biblatex}
 \addbibresource{./sources/sources}  % better than \bibliography
+
+\usepackage[
+pdfpagelabels,
+pdfusetitle,
+hidelinks,
+colorlinks = true,
+linkcolor = blue,
+citecolor = blue,
+pdfborder = {0 0 0}
+]{hyperref}
 
 \title{Designing Better Charging Networks: Charging Network Expansion Optimization Accounting for Queuing Dynamics}
 \author{Aaron Rabinowitz \textit{et al.}}
@@ -65,7 +74,7 @@ natbib=true,         % if you need natbib functions
 
 \maketitle
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 %\lipsum[55]
 
@@ -73,11 +82,13 @@ natbib=true,         % if you need natbib functions
 \input{./sections/literature_review}
 \input{./sections/methods}
 \input{./sections/case_study}
+\input{./sections/conclusions}
+\input{./sections/future_work}
 
 \printbibliography[heading=bibintoc,title={References}]
 %\bibliographystyle{ieeetr}
 %\bibliography{./sources/sources}
 
-\end{multicols}
+%\end{multicols}
 
 \end{document}

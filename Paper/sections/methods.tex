@@ -14,7 +14,7 @@ As is the case in prior work, the method presented requires a set of alternative
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \linewidth]{./figures/formulation/road_charging_paths.png}
+	\includegraphics[width = \figurewidth]{./figures/formulation/road_charging_paths.png}
 	\caption{Graphs for simple vehicular transportation network. Panel I shows a graph $G$ for a section of road from $A$ to $B$ with stations $S_0$, $S_1$, and $S_2$. Panel II shows the transformed graph $\hat{G}$ for a vehicle with sufficient range to reach $S_1$ from $A$ and $B$. Panel III shows the level graph $\overline{G}_A$ for the same vehicle leaving $A$. The simple supply-paths for pair $\langle A, B \rangle$ are $A-S_0-S_1-B$, $A-S_0-S_2-B$, $A-S_1-B$, and $A-S_1-S_2-B$.}
 	\label{fig:paths}
 \end{figure}
@@ -41,21 +41,25 @@ where $\tau$ is edge traversal time, $\epsilon$ is edge energy consumption, and 
 
 where $\eta$ is the inflection point separating linear and nonlinear charging. A typical value for $\eta$ will be in the range of 0.7 to 0.8. Charging past $\eta$ will be substantially slower than below $\eta$.
 
-The time-cost of queuing depends on the presence or absence of other vehicles at a station and is modeled at a system level. Queue waiting time is modeled using the M/M/c queuing formula. The expected waiting time in an M/M/c queue is computed as
+The time-cost of queuing depends on the presence or absence of other vehicles at a station and is modeled at a system level. Queue waiting time is modeled using the M/M/c queuing formula. The expected queue length for an M/M/c queue is computed as
 
 \begin{gather}
-	W_q = f_{q}(\lambda, \mu, c) = \pi_0\frac{\rho(c\rho)^c}{\lambda(1-\rho)^2c!}\label{eq:w_q}\\
-	\pi_0=\left[\left(\sum_{k = 0}^{c - 1}\frac{(c\rho)^k}{k!}\right) + \frac{(c\rho)^c}{c!(1 - \rho)}\right]\\
+	L_q = f_{q}(\lambda, \mu, c) = \pi_0\frac{\rho(c\rho)^c}{c!(1-\rho)^2}\label{eq:w_q}\\
+	\pi_0=\left[\left(\sum_{k = 0}^{c - 1}\frac{(c\rho)^k}{k!}\right) + \frac{(c\rho)^c}{c!(1 - \rho)}\right]^{-1}\\
 	\rho = \frac{\lambda}{c\mu}
 \end{gather}
 
-where $\lambda$ is the mean arrival frequency, $\mu$ is the mean service frequency, $c$ is the number of homogeneous servers, $\rho$ is the ratio of arrival frequency to composite maximum service completion frequency, and $\pi_0$ is the probability of an empty system. The M/M/c formulation assumes exponential distributions for $\lambda$ and $\mu$. One can think of $\rho$ as equivalent to "utilization". Where $\rho$ is low the station has excess capacity and where high the station approaches saturation. $W_q$ approaches infinity as $\rho$ approaches one.
+where $\lambda$ is the mean arrival frequency, $\mu$ is the mean service frequency, $c$ is the number of homogeneous servers, $\rho$ is the ratio of arrival frequency to composite maximum service completion frequency, and $\pi_0$ is the probability of an empty system. The M/M/c formulation assumes exponential distributions for $\lambda$ and $\mu$. One can think of $\rho$ as equivalent to "utilization". Where $\rho$ is low the station has excess capacity and where high the station approaches saturation. $L_q$ approaches infinity as $\rho$ approaches one. The expected waiting in an M/M/c queue can be computed using Little's rule. Little's rule states $W_q = L_q\lambda^{-1}$ and serves as a conservation condition for a stable queue. In order for a queue to retain a stable length over a period of time, the same number of vehicles have to enter the queue as leave the queue. This means that the expected time interval between advances in the queue is $\lambda^{-1}$ and a vehicle is expected to have to endure $L_q$ advances before leaving the queue. Since the same applies to all vehicles in the queue, the total queue waiting time $\hat{W}_q$ can be computed as
 
-Queue formation is a combinatorial effect. In order to maintain a stable queue length, the rate of vehicle arrivals must match the rate of vehicle departures. This is extremely unlikely over a short time interval and the length of the queue should fluctuate. Over a long enough period, a stable non-zero mean queue length can emerge even when the rate of arrivals is less than the theoretical maximum capacity of the station. This happens because the random sequence of arrivals and departures will, often, produce scenarios where all ports are occupied when the next vehicle arrives. There will be some times when there are no vehicles at the station at all and some times when a long queue exists. \textbf{Scenarios where all ports are occupied are more likely at stations with fewer ports even at identical utilization rates}. This effect is shown in Figure \ref{fig:queue}.
+\begin{gather}
+	\hat{W}_q = \frac{L_q^2}{\lambda}
+\end{gather}
+
+which represents the system-level delay caused by the queue. Queue formation is a combinatorial effect. In order to maintain a stable queue length, the rate of vehicle arrivals must match the rate of vehicle departures. This is extremely unlikely over a short time interval and the length of the queue should fluctuate. Over a long enough period, a stable non-zero mean queue length can emerge even when the rate of arrivals is less than the theoretical maximum capacity of the station. This happens because the random sequence of arrivals and departures will, often, produce scenarios where all ports are occupied when the next vehicle arrives. There will be some times when there are no vehicles at the station at all and some times when a long queue exists. \textbf{Scenarios where all ports are occupied are more likely at stations with fewer ports even at identical utilization rates}. This effect is shown in Figure \ref{fig:queue}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \linewidth]{./figures/formulation/queue.png}
+	\includegraphics[width = \figurewidth]{./figures/formulation/queue.png}
 	\caption{Queuing time with M/M/c queue model}
 	\label{fig:queue}
 \end{figure}
@@ -64,9 +68,28 @@ Queuing dynamics mean that larger stations can handle higher utilization rates. 
 
 \subsection{Formulation}
 
-The purpose of this formulation is to minimize total travel time in the system subject to travel demand. Travel time minimization is accomplished by vehicle routing and charging station provision. For a given origin-destination pair there will, usually, be multiple viable charging paths of different lengths. As demand increases, chargers become increasingly congested leading to queuing time at stations. Queuing delays on shorter paths will push traffic to longer paths. Eventually, queuing will be sufficient to make the charging network no longer beneficial. This point is defined as when the marginal vehicle trip would take as much time using the network as it would take using level 1 charging. The goal is to place chargers and route vehicles to minimize total travel time. As such, each origin-destination pair has a "failure" flow which vehicles can be assigned to and the penalty assigned for this is equal to the travel time with level 1 charging.
+The purpose of this formulation is to minimize total travel time in the system subject to travel demand. Travel time minimization is accomplished by vehicle routing and charging station provision. For a given origin-destination pair there will, usually, be multiple viable charging paths of different lengths. As demand increases, chargers become increasingly congested leading to queuing time at stations. Queuing delays on shorter paths will push traffic to longer paths. Eventually, queuing will be sufficient to make the charging network no longer beneficial. This point is defined as when the marginal vehicle trip would take as much time using the DC network as it would take using AC charging. The goal is to place DC chargers and route \glspl{bev} to minimize system-wide total travel time. As such, each origin-destination pair has a "failure" flow which vehicles can be assigned to and the penalty assigned for this is equal to the travel time with level 1 charging.
 
-Delay at stations is modeled using the outputs of the M/M/c queue formula as previously discussed. Specifically, the outputs are linearized. Stations are initialized with a vector of $m$ binary variables representing possible sizes (e.g. 1 charger, 3 chargers, 5 chargers). The vector of station size binary variables must sum to 1. For each size considered, the M/M/c model returns volumes and delays corresponding to a set of marginal utilization rates $R: |R| = n$. The utilization rates $\rho \in R$ are the bounds of a set of $n - 1$ utilization intervals. Thus, $m$ by $n - 1$ matrices of marginal volumes and marginal delays are created. Additionally, a $m$ by $n$ matrix of unit-interval continuous variables are created and the sum of these variables multiplied by the corresponding marginal volumes must equal the flow passing through the station. the delay at the station is computed by summing the marginal utilization rates multiplied by the marginal delays. In this formulation, travel demand is modeled as a continuous flow in units of vehicles per unit time and accrue at a station simultaneously. This is the same approximation as in the M/M/c queue model.
+Delay at stations is modeled using the outputs of the M/M/c queue formula as previously discussed. Specifically, the outputs are linearized by converting the nonlinear relationship between station utilization $\lambda$ and delay time $W_q$ as follows:
+
+\begin{itemize}
+	\item If the station size $c$ and expected service rate $\mu$ are held constant, then the arrival rate $\lambda$ maps directly to the utilization rate $\rho$. Define a set $K = \{k_0, k_1, \dots k_n\}$ of marginal units of $\rho$ where $\sum_{i = 0}^{N} k_i = 1$.
+	\item Define $Y^V = \{y^v_0, y^v_1, \dots y^v_n\}$ as marginal units of station volume $\lambda$ corresponding to $K$.
+	\item Define $Y^D = \{y^d_0, y^d_1, \dots y^d_n\}$ as marginal units of station delay $\hat{W}_q$ corresponding to $K$.
+	\item Define $X^U$ as a set of unit interval constrained linear utilization variables corresponding to $K$. The marginal volume terms multiplied by the utilization variables must sum to $\lambda$ seen at the station ($\sum_{i}^{N} y^v_i x^u_i = \lambda$).
+	\item The system-wide delay imposed by congestion at a station can be computed as $\sum_{i}^{N} y^d_i x^u_i$.
+\end{itemize}
+
+The linearized delay function does not require that marginal units of volume be of constant size. Rather, due to the highly nonlinear nature of the relationship, many more capacity interval size should decrease as $\rho$ approaches 1 and the delay approaches infinity. The linearized relationship between $\lambda$ and $\hat{W}_q$ at a station with 4 chargers and a half-hour expected charging time is shown in Figure \ref{fig:linearized}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \figurewidth]{./figures/linearized.png}
+	\caption{Example linearized relationship between $\lambda$ and $\hat{W}_q$}
+	\label{fig:linearized}
+\end{figure}
+
+The marginal queuing delay penalty for each utilization interval in $\Delta$ is higher than the previous interval. As a result, the optimal solution will always exhaust lower intervals before higher intervals without needing an explicit constraint. In this formulation, network flow is modeled as a continuous flow in units of vehicles per unit time. This is the same approximation as in the M/M/c queue model. Congestion depends on station size. Stations are initialized with a vector of $m$ binary variables representing possible sizes (e.g. 1 charger, 3 chargers, 5 chargers). The vector of station size binary variables must sum to 1.
 
 Optimization uses the following sets:
 
@@ -117,7 +140,7 @@ The objective of the optimization is
 subject to
 
 \begin{gather}
-	Q[v] - x^q_q - \sum_{p \in P^q}x^p_p = 0 \quad \forall q \in Q \label{eq:tm:flow_dem} \\
+	q[v] - x^q_q - \sum_{p \in P^q}x^p_p = 0 \quad \forall q \in Q \label{eq:tm:flow_dem} \\
 	\sum_{p \in P^s} x^p_p - \sum_{c \in C_s}
 	\sum_{k \in K_{s, c}} u^s_{s, c}x^u_{s, c, k}y^v_{s, c, k} = 0 \quad \forall s \in S \label{eq:tm:flow_cons} \\
 	x^u_{s, c, k} - u^s_{s, c} \leq 0 \quad \forall s \in S, \ \forall c \in C_s,\ \forall k\in K_{s, c} \label{eq:tm:sz_int} \\
@@ -125,11 +148,11 @@ subject to
 	\sum_{s \in S}\sum_{c \in C_s} y^c_{s, c}u^s_{s, c} - \hat{C} \leq 0 \label{eq:tm:chg_tot}
 \end{gather}
 
-The objective function \eqref{eq:tm:obj} minimizes total travel time in three terms. The first term is the time penalties accrued for failing to accommodate demand. The theory is that, without dedicated charging infrastructure, vehicles could, theoretically, complete the trip using level 1 charging but this would be very slow if the trip is beyond full-charge range. The second term is the time spent driving along edges and charging to drive along edges. The third term is the time spend queuing for a charger. Constraint \eqref{eq:tm:flow_dem} forces the sum of flows and un-accommodated flows to be equal to total demand. Constraint \eqref{eq:tm:flow_cons} forces the sum of utilization intervals at a station to be equal to the sum of flows which pass through the station. Constraint \eqref{eq:tm:sz_int} forces station utilization to only accrue for the selected station size. Constraint \eqref{eq:tm:chg_unity} forces only one station size to be selected per station and \eqref{eq:tm:chg_tot} limits the total number of chargers in the network. This formulation can be used for two varieties of analysis.
+The objective function \eqref{eq:tm:obj} minimizes total travel time in three terms. The first term is the time penalties accrued for failing to accommodate demand. The theory is that, without adequate DC charging infrastructure, vehicles could, theoretically, complete the trip using AC charging or a different mode but these would impose a cost penalty. The second term is the time spent charging to and driving along edges. The third term is the time spend queuing for a charger. Constraint \eqref{eq:tm:flow_dem} forces the sum of flows and penalty flows to be equal to total volume for each demand. Constraint \eqref{eq:tm:flow_cons} forces the sum of utilization variables at a station to be equal to the sum of flows which pass through the station. Constraint \eqref{eq:tm:sz_int} forces station utilization to only accrue for the selected station size. Constraint \eqref{eq:tm:chg_unity} forces only one station size to be selected per station and \eqref{eq:tm:chg_tot} limits the total number of chargers added to the network. This formulation can be used for two varieties of analysis.
 
 \begin{description}
 	\item [Performance of Current System:] If all Booleans in $U^S$ are fixed to reflect an existing system, the result of the optimization will be the best possible performance of the existing system for a given demand level.
 	\item [Optimal Expansion:] If the Booleans in $U^S$ are allowed to be changed by the optimizer, the result of the optimization will be the best possible allocation of resources to facilitate travel for a given demand level.
 \end{description}
 
-Taking the example simple network from Figure \ref{fig:paths}, one can intuit that, if each additional charger at each station is of the same cost ($Y^C_{s, c} = 1\ \forall s\in S,\ c\in C_s$), the optimal solution will be to place all available resources at the central station $S_1$ because only it can be reached from both $A$ and $B$. Doing so will give the greatest benefit in terms of queuing efficiency. The costs of adding and removing chargers may scale in a nonlinear manner. It is easy to imagine a scenario where a network operator finds it easier to remove an existing charger than to install a new charger. Re-allocating equipment between stations in a network is unlikely to be a net-zero cost operation. In such a case, the optimal solution may or may not be altered.
+Taking the example simple network from Figure \ref{fig:paths}, one can intuit that, if each additional charger at each station is of the same cost ($Y^C_{s, c} = 1\ \forall s\in S,\ c\in C_s$), the optimal solution will be to place all available resources at the central station $S_1$ because only it can be reached from both $A$ and $B$. Doing so will give the greatest benefit in terms of queuing efficiency. The costs of adding and removing chargers may scale in a nonlinear manner. It is easy to imagine a scenario where a network operator finds it easier to remove an existing charger than to install a new charger. Re-allocating equipment between stations in a network is unlikely to be a net-zero cost operation. In such a case, the network may or may not be altered.
